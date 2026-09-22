@@ -45766,19 +45766,36 @@ const a3 = d0(cg, [["__scopeId", "data-v-467dc636"]]),
   ),
   gg = Qr(() =>
     ne(
-      "span",
-      { class: "sub -su-1 -mm -up" },
-      "Building end-to-end intelligent applications",
+      "div",
+      { class: "hero-scroll-cue -mm -up" },
+      [
+        ne("span", null, "SCROLL DOWN TO EXPLORE MORE"),
+        ne(
+          "svg",
+          {
+            class: "hero-scroll-arrow",
+            width: "14",
+            height: "20",
+            viewBox: "0 0 14 20",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg",
+          },
+          [
+            ne("path", {
+              d: "M7 2v15M2.5 12.5L7 17l4.5-4.5",
+              stroke: "currentColor",
+              "stroke-width": "1.3",
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+            }),
+          ],
+        ),
+      ],
       -1,
     ),
   ),
   _g = Qr(() =>
-    ne(
-      "span",
-      { class: "sub -su-2 -mm -up" },
-      "Forecasting Models to LLM-Based Agents",
-      -1,
-    ),
+    ne("span", { style: { display: "none" } }, null, -1),
   ),
   vg = "@fiddle-digital/string-tune",
   xg = a0({

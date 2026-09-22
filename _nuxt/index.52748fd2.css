@@ -4160,3 +4160,62 @@ footer .-w .the-name[data-v-79f9894c]:after {
           transform: translateY(10px);
         }
       }
+
+
+.c-welcome .-w .-su-1,
+.c-welcome .-w .-su-2,
+.c-welcome .-w .-su-1[data-v-14c15d39],
+.c-welcome .-w .-su-2[data-v-14c15d39] {
+  display: none !important;
+}
+.c-welcome .-w .hero-scroll-cue[data-v-14c15d39],
+.c-welcome .-w .hero-scroll-cue,
+.hero-scroll-cue[data-v-14c15d39],
+.hero-scroll-cue {
+  --top: 5 !important;
+  --left: 1 !important;
+  --width: 14 !important;
+  grid-column: 1 / -1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  gap: 0.5rem !important;
+  margin-top: 1.2rem !important;
+  margin-bottom: var(--h5) !important;
+  color: rgba(var(--c-grey-rgb), 0.85) !important;
+  font-family: var(--font-mono) !important;
+  font-size: var(--mm) !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  z-index: 20 !important;
+  pointer-events: none !important;
+  align-self: start !important;
+  justify-self: center !important;
+  width: 100% !important;
+}
+.c-welcome .-w .hero-scroll-cue .hero-scroll-arrow,
+.hero-scroll-cue .hero-scroll-arrow {
+  width: 14px !important;
+  height: 20px !important;
+  display: block !important;
+  color: rgba(var(--c-grey-rgb), 0.85) !important;
+  animation: heroArrowBounce 2s ease-in-out infinite !important;
+}
+@keyframes heroArrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+@media (min-width: 1024px) {
+  .c-welcome .-w .hero-scroll-cue[data-v-14c15d39],
+  .c-welcome .-w .hero-scroll-cue,
+  .hero-scroll-cue {
+    margin-top: 1.6rem !important;
+    margin-bottom: var(--h4) !important;
+  }
+}

@@ -402,6 +402,46 @@ const dt = (g) => (fe("data-v-8a0a1e1e"), (g = g()), ve(), g),
                               ["onClick"],
                             ),
                           ])),
+                      n(M)
+                        ? E("", !0)
+                        : (v(),
+                          T("div", { key: 2, class: "b-social", style: { "--t-delay": "0" } }, [
+                            r(
+                              z,
+                              {
+                                ariaLabelledby: "",
+                                url: "https://github.com/himanshuaggarwal04380",
+                                target: "_blank",
+                                cursorTarget: "cursor-newtab",
+                                outsideContainer: "",
+                                passThrough: "",
+                              },
+                              {
+                                default: $(() => [r(I, { src: "icon-20_git" })]),
+                                _: 1,
+                              },
+                            ),
+                          ])),
+                      n(M)
+                        ? E("", !0)
+                        : (v(),
+                          T("div", { key: 3, class: "b-social", style: { "--t-delay": "0" } }, [
+                            r(
+                              z,
+                              {
+                                ariaLabelledby: "",
+                                url: "https://linkedin.com/in/himanshuaggarwal04380",
+                                target: "_blank",
+                                cursorTarget: "cursor-newtab",
+                                outsideContainer: "",
+                                passThrough: "",
+                              },
+                              {
+                                default: $(() => [r(I, { src: "icon-20_linkedin" })]),
+                                _: 1,
+                              },
+                            ),
+                          ])),
                     ]),
                     n(M)
                       ? E("", !0)

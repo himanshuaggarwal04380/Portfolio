@@ -2816,3 +2816,50 @@ footer .-w .the-name[data-v-79f9894c]:after {
     text-indent: 0 !important;
   }
 }
+
+      /* Header nav styling with social icons */
+      @media (min-width: 1024px) {
+        header .-w nav.info,
+        nav.info[data-v-8a0a1e1e] {
+          --left: 7 !important;
+          --width: 6 !important;
+          display: flex !important;
+          gap: var(--g-gap) !important;
+          align-items: center !important;
+          justify-content: flex-end !important;
+        }
+      }
+
+      nav.info .b-social,
+      nav.info .b-social[data-v-8a0a1e1e] {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-grow: 0 !important;
+        flex-basis: auto !important;
+      }
+
+      nav.info .b-social .button,
+      nav.info .b-social[data-v-8a0a1e1e] .button {
+        padding: 0.55rem 0.75rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: var(--border-radius, 1rem) !important;
+      }
+
+      nav.info .b-social .button svg,
+      nav.info .b-social[data-v-8a0a1e1e] .button svg {
+        fill: var(--c-grey) !important;
+        width: 1.15rem !important;
+        height: 1.15rem !important;
+        display: block !important;
+        margin: 0.1rem !important;
+        transition: scale 0.3s var(--f-cubic), fill 0.3s ease !important;
+      }
+
+      nav.info .b-social .button:hover svg,
+      nav.info .b-social[data-v-8a0a1e1e] .button:hover svg {
+        scale: 1.2 !important;
+        fill: var(--c-white) !important;
+      }

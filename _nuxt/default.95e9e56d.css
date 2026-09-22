@@ -2839,27 +2839,47 @@ footer .-w .the-name[data-v-79f9894c]:after {
         flex-basis: auto !important;
       }
 
+      nav.info .b-social.b-git::before {
+        content: "" !important;
+        display: block !important;
+        width: 1px !important;
+        height: 24px !important;
+        background-color: rgba(255, 255, 255, 0.25) !important;
+        margin-left: 0.4rem !important;
+        margin-right: 0.9rem !important;
+      }
+
       nav.info .b-social .button,
       nav.info .b-social[data-v-8a0a1e1e] .button {
-        padding: 0.55rem 0.75rem !important;
+        --border-radius: 9999px !important;
+        box-sizing: border-box !important;
+        height: 35.2px !important;
+        min-height: 35.2px !important;
+        max-height: 35.2px !important;
+        width: 52px !important;
+        min-width: 52px !important;
+        padding: 0 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        border-radius: var(--border-radius, 1rem) !important;
+        border-radius: 9999px !important;
       }
 
       nav.info .b-social .button svg,
       nav.info .b-social[data-v-8a0a1e1e] .button svg {
-        fill: var(--c-grey) !important;
-        width: 1.15rem !important;
-        height: 1.15rem !important;
+        fill: #fff !important;
+        width: 16px !important;
+        height: 16px !important;
+        max-width: 16px !important;
+        max-height: 16px !important;
         display: block !important;
-        margin: 0.1rem !important;
-        transition: scale 0.3s var(--f-cubic), fill 0.3s ease !important;
+        margin: 0 !important;
+        transition: transform 0.3s var(--f-cubic), fill 0.3s ease !important;
       }
 
       nav.info .b-social .button:hover svg,
       nav.info .b-social[data-v-8a0a1e1e] .button:hover svg {
-        scale: 1.2 !important;
-        fill: var(--c-white) !important;
+        transform: scale(1.15) !important;
+        fill: #fff !important;
       }
+

@@ -405,7 +405,7 @@ const dt = (g) => (fe("data-v-8a0a1e1e"), (g = g()), ve(), g),
                       n(M)
                         ? E("", !0)
                         : (v(),
-                          T("div", { key: 2, class: "b-social", style: { "--t-delay": "0" } }, [
+                          T("div", { key: 2, class: "b-social b-git", style: { "--t-delay": "0" } }, [
                             r(
                               z,
                               {
@@ -425,7 +425,7 @@ const dt = (g) => (fe("data-v-8a0a1e1e"), (g = g()), ve(), g),
                       n(M)
                         ? E("", !0)
                         : (v(),
-                          T("div", { key: 3, class: "b-social", style: { "--t-delay": "0" } }, [
+                          T("div", { key: 3, class: "b-social b-linkedin", style: { "--t-delay": "0" } }, [
                             r(
                               z,
                               {

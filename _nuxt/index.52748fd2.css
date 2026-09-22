@@ -3701,73 +3701,81 @@ canvas[data-v-3a63a717] {
   font-family: inherit;
 }
 
-/* ================= LIGHT THEME PROJECT DETAIL MODAL ================= */
+/* ================= TRANSLUCENT DARK THEME PROJECT DETAIL MODAL ================= */
 .project-modal-overlay {
-  background: rgba(16, 18, 20, 0.6) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
-  backdrop-filter: blur(20px) saturate(160%) !important;
+  background: rgba(10, 12, 14, 0.75) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
 }
 
 .project-modal-card {
-  background: #ffffff !important;
-  border: 1px solid rgba(255, 79, 54, 0.3) !important;
-  color: #101214 !important;
+  background: rgba(16, 18, 20, 0.84) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(190%) !important;
+  backdrop-filter: blur(32px) saturate(190%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #ffffff !important;
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.3),
-    0 0 35px rgba(255, 79, 54, 0.12) !important;
+    0 30px 80px rgba(0, 0, 0, 0.75),
+    0 0 40px rgba(255, 79, 54, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
 }
 
 .project-modal-close {
-  background: #f2edf5 !important;
-  border: 1px solid #dfd8e5 !important;
-  color: #101214 !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
   font-weight: 600 !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
 }
 
 .project-modal-close:hover {
   background: #ff4f36 !important;
   border-color: #ff4f36 !important;
   color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(255, 79, 54, 0.5) !important;
 }
 
 .project-modal-media {
-  background: #f7f4f9 !important;
-  border-bottom: 1px solid rgba(84, 77, 86, 0.12) !important;
+  background: rgba(0, 0, 0, 0.55) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
 
 .pm-tag {
-  background: rgba(77, 191, 157, 0.14) !important;
-  border: 1px solid rgba(77, 191, 157, 0.4) !important;
-  color: #0b7a5a !important;
+  background: rgba(77, 191, 157, 0.16) !important;
+  border: 1px solid rgba(77, 191, 157, 0.45) !important;
+  color: #4dbf9d !important;
   font-weight: 600 !important;
+  box-shadow: 0 2px 10px rgba(77, 191, 157, 0.12) !important;
 }
 
 .pm-title {
-  color: #101214 !important;
-  font-weight: 600 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
 }
 
 .pm-subtitle {
-  color: #544d56 !important;
+  color: #a399a8 !important;
   font-weight: 500 !important;
 }
 
 .pm-divider {
   background: linear-gradient(
     90deg,
-    rgba(255, 79, 54, 0.5) 0%,
-    rgba(84, 77, 86, 0.12) 100%
+    rgba(255, 79, 54, 0.6) 0%,
+    rgba(255, 255, 255, 0.12) 100%
   ) !important;
 }
 
 .pm-desc {
-  color: #2c272f !important;
+  color: #ded4e6 !important;
   font-size: 1.02rem !important;
-  line-height: 1.6 !important;
+  line-height: 1.65 !important;
 }
 
 .pm-highlights {
-  background: #f7f4f9 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
   border-left: 4px solid #ff4f36 !important;
 }
 
@@ -3777,20 +3785,38 @@ canvas[data-v-3a63a717] {
 }
 
 .pm-highlights ul {
-  color: #423b46 !important;
+  color: #ded4e6 !important;
+}
+
+.pm-highlights li {
+  color: #ded4e6 !important;
+}
+
+.pm-btn-primary {
+  background: linear-gradient(135deg, #ff4f36 0%, #e63925 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px rgba(255, 79, 54, 0.45) !important;
+}
+
+.pm-btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(255, 79, 54, 0.65) !important;
 }
 
 .pm-btn-secondary {
-  background: #f2edf5 !important;
-  border: 1px solid #d4ccd9 !important;
-  color: #101214 !important;
+  background: rgba(255, 255, 255, 0.09) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
   font-weight: 600 !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
 .pm-btn-secondary:hover {
-  background: #101214 !important;
+  background: rgba(255, 255, 255, 0.18) !important;
   color: #ffffff !important;
-  border-color: #101214 !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  transform: translateY(-2px) !important;
 }
 
 /* ================= ALL 4 PROJECT CARDS CONSISTENT STYLING ================= */

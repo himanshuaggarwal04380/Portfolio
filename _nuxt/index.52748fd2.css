@@ -1,3 +1,11 @@
+
+.reddot,
+.c-welcome .-w .reddot,
+.c-welcome .-w .v,
+.c-welcome .-w .skill-hub-link {
+  display: none !important;
+}
+
 @charset "UTF-8";
 .monologue[data-v-8887bf68] {
   --border-radius: var(--h6);

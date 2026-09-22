@@ -45898,27 +45898,7 @@ const a3 = d0(cg, [["__scopeId", "data-v-467dc636"]]),
             xt("section", hg, [
               Ge(m, null, {
                 default: wt(() => [
-                  ne("span", ug, "v_ " + pn(Dt(i)), 1),
                   dg,
-                  Ge(
-                    d,
-                    {
-                      to: "#projects",
-                      "data-name": "Projects",
-                      "aria-label": "Flagship Projects",
-                      class: "skill-hub-link",
-                      string: "parallax|cursor|spotlight",
-                      "string-parallax": "-0.1",
-                      "string-cursor-class": "cursor-route",
-                    },
-                    {
-                      default: wt(() => [
-                        Ge(u, { src: "/videos/skill-hub-link.mp4" }),
-                      ]),
-                      _: 1,
-                    },
-                  ),
-                  ne("span", fg, [Ge(f, { src: "icon-64_reddot" }), pg]),
                   mg,
                   gg,
                   _g,

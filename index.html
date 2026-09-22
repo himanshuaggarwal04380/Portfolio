@@ -304,9 +304,111 @@ document.addEventListener('click', function(e) {
         } else {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+    } else if (target.closest('#exp-scroll-cue')) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (window.StringScroller && typeof window.StringScroller.scrollTo === 'function') {
+            const cur = window.StringScroller.scrollPosition || 0;
+            window.StringScroller.scrollTo(cur + 650);
+        }
     }
 }, true);
+
+// Setup dynamic Scroll indicator on Experience landing
+(function() {
+    function setupExpCue() {
+        let cue = document.getElementById('exp-scroll-cue');
+        const treeW = document.querySelector('#c-tree > .-w');
+        if (!cue && treeW) {
+            cue = document.createElement('span');
+            cue.id = 'exp-scroll-cue';
+            cue.innerHTML = '<span>Scroll</span><svg class="cue-arrow" viewBox="0 0 24 24"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg>';
+            cue.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (window.StringScroller && typeof window.StringScroller.scrollTo === 'function') {
+                    const cur = window.StringScroller.scrollPosition || 0;
+                    window.StringScroller.scrollTo(cur + 650);
+                }
+            });
+            treeW.appendChild(cue);
+        }
+        if (cue) {
+            const tree = document.getElementById('c-tree');
+            if (tree) {
+                const rect = tree.getBoundingClientRect();
+                const isLanding = rect.top <= 120 && rect.top >= -250;
+                if (isLanding) {
+                    cue.classList.add('-active');
+                } else {
+                    cue.classList.remove('-active');
+                }
+            }
+        }
+        requestAnimationFrame(setupExpCue);
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupExpCue);
+    } else {
+        setupExpCue();
+    }
+})();
 </script>
+
+<style>
+/* Scroll cue indicator on Experience section */
+#exp-scroll-cue {
+  grid-area: 1/1;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.6rem !important;
+  color: var(--c-black) !important;
+  font-family: var(--font) !important;
+  font-size: var(--h1) !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1 !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease !important;
+  transform: translateY(0);
+  cursor: pointer;
+  user-select: none;
+  z-index: 25;
+}
+#exp-scroll-cue.-active {
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+#exp-scroll-cue .cue-arrow {
+  width: 2.2rem;
+  height: 2.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: expCueBounce 1.8s ease-in-out infinite;
+}
+@media (max-width: 1024px) {
+  #exp-scroll-cue {
+    font-size: var(--h2) !important;
+  }
+  #exp-scroll-cue .cue-arrow {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+@keyframes expCueBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+</style>
 
 <!-- ================= PROJECT DETAIL MODAL ================= -->
 

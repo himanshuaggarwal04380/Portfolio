@@ -1,0 +1,50 @@
+figure[data-v-4d7534c3] {
+  overflow: hidden;
+  position: relative;
+}
+figure.-fit[data-v-4d7534c3] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+figure.-fit img[data-v-4d7534c3] {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+.video-wrap[data-v-32fe59fd] {
+  align-items: center;
+  background-color: var(--c-black);
+  contain: paint;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+.video-wrap video[data-v-32fe59fd] {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: relative;
+  transform: translateZ(0);
+  width: 100%;
+  will-change: auto;
+}
+
+/* Remove copyright symbol on top of HIMANSHU everywhere */
+.logo:after,
+.logo[data-v-8a0a1e1e]:after,
+.logo[data-v-bfa0fbdc]:after,
+.the-name:after,
+.the-name[data-v-79f9894c]:after,
+header .-w .logo:after,
+header .-w .logo[data-v-8a0a1e1e]:after,
+.pop-info .-w .logo:after,
+.pop-info .-w .logo[data-v-bfa0fbdc]:after,
+footer .-w .the-name:after,
+footer .-w .the-name[data-v-79f9894c]:after {
+  content: none !important;
+  display: none !important;
+}

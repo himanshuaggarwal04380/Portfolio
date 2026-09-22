@@ -1,0 +1,23 @@
+canvas[data-v-950bfb3c] {
+  display: block;
+  height: 100lvh;
+  height: calc(var(--vh, 1vh) * 100);
+  position: relative;
+  width: 100vw;
+}
+
+/* Remove copyright symbol on top of HIMANSHU everywhere */
+.logo:after,
+.logo[data-v-8a0a1e1e]:after,
+.logo[data-v-bfa0fbdc]:after,
+.the-name:after,
+.the-name[data-v-79f9894c]:after,
+header .-w .logo:after,
+header .-w .logo[data-v-8a0a1e1e]:after,
+.pop-info .-w .logo:after,
+.pop-info .-w .logo[data-v-bfa0fbdc]:after,
+footer .-w .the-name:after,
+footer .-w .the-name[data-v-79f9894c]:after {
+  content: none !important;
+  display: none !important;
+}

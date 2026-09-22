@@ -2779,8 +2779,8 @@ footer .-w .the-name[data-v-79f9894c]:after {
   grid-column-start: var(--left, 2) !important;
   grid-column-end: calc(var(--left, 2) + var(--width, 11)) !important;
   grid-row-start: 3 !important;
-  margin-top: auto !important;
-  margin-bottom: calc(var(--vh, 1vh) * 8 + 2rem) !important;
+  margin-top: calc(var(--vh, 1vh) * 8 + 3rem) !important;
+  margin-bottom: auto !important;
   line-height: 1.45 !important;
   text-indent: 0 !important;
 }
@@ -2794,8 +2794,8 @@ footer .-w .the-name[data-v-79f9894c]:after {
     grid-column-start: 2 !important;
     grid-column-end: 14 !important;
     grid-row-start: 3 !important;
-    margin-top: auto !important;
-    margin-bottom: calc(var(--vh, 1vh) * 12 + 3rem) !important;
+    margin-top: calc(var(--vh, 1vh) * 8 + 3rem) !important;
+    margin-bottom: auto !important;
     font-size: calc(var(--h4) * 0.95) !important;
     line-height: 1.45 !important;
     text-indent: 0 !important;

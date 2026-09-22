@@ -45751,25 +45751,7 @@ const a3 = d0(cg, [["__scopeId", "data-v-467dc636"]]),
     "string-enter-vp": "top",
   },
   ug = { class: "v -mm -up -a-to-top", string: "" },
-  dg = Qr(() =>
-    ne(
-      "h2",
-      { class: "-h2 -m-h3" },
-      [
-        ne("span", null, "Data"),
-        ne("span", null, "Science"),
-        ne("span", { class: "include" }, [
-          i0("& AI/ML"),
-          ne("span", { class: "-m" }, [
-            i0("Portfolio"),
-            ne("br"),
-            ne("a", { href: "#projects", target: "_self" }, "Himanshu"),
-          ]),
-        ]),
-      ],
-      -1,
-    ),
-  ),
+  dg = Qr(() => ne("h2", { class: "-h2 -m-h3" }, [ne("span", null, "Portfolio")], -1)),
   fg = { class: "reddot" },
   pg = Qr(() =>
     ne("span", { class: "-mm -up" }, [ne("span", null, "red"), i0("dot")], -1),

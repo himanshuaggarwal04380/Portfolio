@@ -4050,3 +4050,26 @@ footer .-w .the-name[data-v-79f9894c]:after {
     text-indent: 0 !important;
   }
 }
+
+      /* Center main heading HIMANSHU on welcome screen */
+      .c-welcome .-w .the-name,
+      .c-welcome .-w .the-name[data-v-14c15d39] {
+        --left: 1 !important;
+        --width: 14 !important;
+        grid-column: 1 / -1 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+      }
+      .c-welcome .-w .the-name > span,
+      .c-welcome .-w .the-name > span[data-v-14c15d39] {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+      }

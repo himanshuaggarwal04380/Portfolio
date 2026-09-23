@@ -72,7 +72,7 @@
       pointer-events: all;
     }
 
-    /* Fixed Projects Samurai Red Moon Atmospheric Background */
+    /* Fixed Projects Samurai Red Moon Background */
     .projects-bg-canvas {
       position: fixed;
       inset: 0;
@@ -80,21 +80,8 @@
       height: 100vh;
       z-index: 0;
       pointer-events: none;
-      background-color: #06080b;
-      background:
-        radial-gradient(ellipse 85% 75% at 50% 50%, rgba(6, 8, 11, 0.22) 0%, rgba(6, 8, 11, 0.52) 58%, rgba(6, 8, 11, 0.88) 100%),
-        url('/images/projects/samurai-red-moon-bg.png') center center / cover no-repeat;
-      opacity: 0.95;
-    }
-
-    /* Subtle ambient grain texture */
-    .projects-bg-canvas::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
-      background-size: 24px 24px;
-      opacity: 0.4;
+      background: url('/images/projects/samurai-red-moon-bg.png') center center / cover no-repeat;
+      opacity: 1;
     }
 
     /* Outer Scroll Container */
@@ -1358,22 +1345,6 @@
       perspective: 700px;
     }
 
-    .ambient-mist-drift {
-      position: absolute;
-      inset: 0;
-      width: 160%;
-      height: 100%;
-      background: radial-gradient(ellipse 65% 35% at 45% 65%, rgba(255, 255, 255, 0.02) 0%, transparent 65%);
-      animation: mistDrift 45s ease-in-out infinite alternate;
-      pointer-events: none;
-      opacity: 0.6;
-    }
-
-    @keyframes mistDrift {
-      0% { transform: translate3d(-10%, 0, 0); }
-      100% { transform: translate3d(5%, 0, 0); }
-    }
-
     .sakura-petal {
       position: absolute;
       top: -40px;
@@ -1586,8 +1557,7 @@
         display: none;
       }
       .atmospheric-petals-layer,
-      .sakura-petal,
-      .ambient-mist-drift {
+      .sakura-petal {
         display: none !important;
         animation: none !important;
       }
@@ -1602,9 +1572,8 @@
   <!-- Sumi-e Japanese Ink Canvas Layer -->
   <div class="projects-bg-canvas" aria-hidden="true"></div>
 
-  <!-- Atmospheric Japanese Cherry Blossom Petals & Wind Drift Layer -->
+  <!-- Atmospheric Japanese Cherry Blossom Petals Layer -->
   <div class="atmospheric-petals-layer" aria-hidden="true">
-    <div class="ambient-mist-drift"></div>
     <!-- Tier 1: Distant Petals (Soft blur, slower drift) -->
     <div class="sakura-petal petal--tier1 petal-1"></div>
     <div class="sakura-petal petal--tier1 petal-2"></div>

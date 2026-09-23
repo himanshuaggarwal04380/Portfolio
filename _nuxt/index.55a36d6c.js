@@ -47183,10 +47183,10 @@ const Ig = d0(Cg, [["__scopeId", "data-v-3a63a717"]]),
         f = Fe(0),
         m = Fe(0),
         v = Fe([
-          "<split-class>🌦️</split-class> Ah, you’ve finally awaked…",
-          'Empty hands, <split-class>🤲</split-class> <split-class class="-highlight">strong</split-class> <split-class class="-highlight">will</split-class> — ready for the blade that starts it all…',
-          'This… is <split-class class="-highlight">String</split-class> — a katana shaped by precision, built to cut chaos into clarity. <split-class>💫</split-class>',
-          'Every <split-class class="-highlight">great</split-class> <split-class class="-highlight">warrior</split-class> starts with one true blade. <split-class>👺</split-class> And this is yours',
+          "Curious by nature...",
+          "Precise by practice...",
+          "Driven to turn ideas into reality...",
+          "Always evolving with every line of code...",
         ]),
         g = (H) => {
           ((i = H.direction == "exit-bottom" || H.direction == "enter-top"),
@@ -47551,9 +47551,7 @@ const Ig = d0(Cg, [["__scopeId", "data-v-3a63a717"]]),
                                                                     "split",
                                                                   "string-split":
                                                                     "line|word",
-                                                                  innerHTML:
-                                                                    we +
-                                                                    "<span class='-dots'>…</span>",
+                                                                  innerHTML: we,
                                                                 },
                                                                 null,
                                                                 8,

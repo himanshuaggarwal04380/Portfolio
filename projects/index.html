@@ -72,16 +72,6 @@
       pointer-events: all;
     }
 
-    .page.projects-page {
-      transition: transform 0.42s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.42s cubic-bezier(0.25, 1, 0.5, 1);
-      will-change: transform, opacity;
-    }
-
-    body.page-transitioning .page.projects-page {
-      transform: scale(0.985);
-      opacity: 0.85;
-    }
-
     /* Fixed Projects Samurai Red Moon Atmospheric Background */
     .projects-bg-canvas {
       position: fixed;
@@ -1829,7 +1819,7 @@
           <div class="category-wrap" string="" string-repeat="" string-offset-top="-50%" string-offset-bottom="-50%">
 
             <!-- PROJECT 01: Resume Screening Agent -->
-            <div class="i -inview" id="proj-0" data-key="0" data-name="Resume Screening Agent" string="progress|lerp">
+            <div class="i -inview -pointed" id="proj-0" data-key="0" data-name="Resume Screening Agent" style="--progress: 0.5;" string="progress|lerp">
               <article class="project-card" data-project="resume-screening" onclick="openModal('resume-screening')">
                 <div class="project-card-top">
                   <div class="project-card-meta">
@@ -2220,6 +2210,13 @@
         }
       });
 
+      // Enforce exact resting state when at the top (Project 01)
+      if (scrollTop <= 1 && items[0]) {
+        items[0].style.setProperty('--progress', '0.5000');
+        items[0].classList.add('-pointed');
+        closestIndex = 0;
+      }
+
       // Synchronize HUD with focused project
       if (closestIndex !== activeIndex) {
         activeIndex = closestIndex;
@@ -2236,6 +2233,9 @@
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
+    if (scroller) {
+      scroller.scrollTop = 0;
+    }
 
     scroller.addEventListener('scroll', () => {
       requestAnimationFrame(updateKinematics);
@@ -2251,11 +2251,15 @@
 
     window.addEventListener('resize', updateKinematics, { passive: true });
     window.addEventListener('DOMContentLoaded', updateKinematics);
+    window.addEventListener('load', updateKinematics);
     
     // Immediate synchronous and next-frame execution
     updateKinematics();
     requestAnimationFrame(updateKinematics);
     setTimeout(updateKinematics, 50);
+    setTimeout(updateKinematics, 150);
+    setTimeout(updateKinematics, 350);
+    setTimeout(updateKinematics, 500);
 
     // Keyboard & Button Navigation (Pg Up / Pg Down / Enter)
     function scrollToProject(index) {
@@ -2409,6 +2413,7 @@
           veil.classList.add('is-loaded');
         }
         document.body.classList.remove('page-transitioning');
+        updateKinematics();
       });
     }
 

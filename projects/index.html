@@ -375,7 +375,7 @@
     .main-list {
       position: relative;
       width: 100%;
-      min-height: 480vh;
+      min-height: 400vh;
       display: flex;
       flex-direction: column;
       z-index: 15;
@@ -392,7 +392,7 @@
     .i {
       position: relative;
       width: 100%;
-      height: 110vh;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1535,13 +1535,22 @@
       }
     }
 
+    // Ensure deterministic initial scroll position
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
     scroller.addEventListener('scroll', () => {
       requestAnimationFrame(updateKinematics);
     }, { passive: true });
 
     window.addEventListener('resize', updateKinematics, { passive: true });
     window.addEventListener('DOMContentLoaded', updateKinematics);
-    setTimeout(updateKinematics, 100);
+    
+    // Immediate synchronous and next-frame execution
+    updateKinematics();
+    requestAnimationFrame(updateKinematics);
+    setTimeout(updateKinematics, 50);
 
     // Keyboard & Button Navigation (Pg Up / Pg Down / Enter)
     function scrollToProject(index) {

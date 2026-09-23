@@ -1741,13 +1741,17 @@ canvas[data-v-3a63a717] {
 .c-techniques > .-w .i p[data-v-349e51de] {
   --top: 2;
   --left: 2;
-  --width: 3;
+  --width: 5;
   align-self: baseline;
-  margin-right: calc(var(--g-gap) * 2);
 }
 .c-techniques > .-w .i p.-m[data-v-349e51de] {
-  --left: 5;
-  --width: 2;
+  --top: 2;
+  --left: 2;
+  --width: 5;
+  margin-right: 0;
+}
+.c-techniques > .-w .i p:not(.-m)[data-v-349e51de] {
+  display: none;
 }
 .c-techniques > .-w .i-1[data-v-349e51de] {
   --top: 3;
@@ -1853,11 +1857,12 @@ canvas[data-v-3a63a717] {
     );
   }
   .c-techniques > .-w .i p[data-v-349e51de] {
-    --width: 2;
+    --left: 2;
+    --width: 4;
   }
   .c-techniques > .-w .i p.-m[data-v-349e51de] {
-    --left: 4;
-    --width: 2;
+    --left: 2;
+    --width: 4;
   }
   .c-techniques > .-w .i-1[data-v-349e51de] {
     --top: 2;

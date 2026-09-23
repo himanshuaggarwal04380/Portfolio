@@ -49407,43 +49407,36 @@ const Qg = a0({
           {
             title: "LANGUAGES",
             icon: "icon-48_languages",
-            description: "Core syntax & computational logic.",
             more: "Python · C++ · SQL · JavaScript",
           },
           {
             title: "AI & AGENTS",
             icon: "icon-48_ai-agents",
-            description: "Autonomous workflows & predictive models.",
             more: "ML · Time Series · LLMs · MCP · LangChain · Hugging Face · Ollama",
           },
           {
             title: "DATA",
             icon: "icon-48_data",
-            description: "Pipeline extraction & processing.",
             more: "EDA · Web Scraping · Big Data · Hadoop",
           },
           {
             title: "FRONTEND",
             icon: "icon-48_frontend",
-            description: "Interactive interfaces & web applications.",
             more: "HTML · CSS · Streamlit",
           },
           {
             title: "BACKEND",
             icon: "icon-48_backend",
-            description: "High-performance APIs & data models.",
             more: "FastAPI · Pydantic · SQLAlchemy · REST APIs",
           },
           {
             title: "DATABASES",
             icon: "icon-48_databases",
-            description: "Relational schemas & query engines.",
             more: "MySQL · SQLite · PostgreSQL",
           },
           {
             title: "TOOLS",
             icon: "icon-48_tools",
-            description: "Version control, deployment & tracking.",
             more: "Git · GitHub · Docker · JIRA",
           },
         ]);
@@ -49784,7 +49777,6 @@ const Qg = a0({
                                 ["src"],
                               ),
                               ne("span", g_, pn(V.title), 1),
-                              ne("p", null, pn(V.description), 1),
                               ne("p", __, pn(V.more), 1),
                             ]),
                             _: 2,

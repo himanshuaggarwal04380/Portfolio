@@ -79,7 +79,7 @@
       overflow-x: hidden;
       scroll-behavior: auto;
       -webkit-overflow-scrolling: touch;
-      z-index: 1;
+      z-index: 2;
     }
 
     /* Header Nav */
@@ -851,6 +851,118 @@
       fill: currentColor;
     }
 
+    /* ==========================================================================
+       SUBTLE JAPANESE CHERRY BLOSSOM ATMOSPHERE & FALLING PETALS
+       ========================================================================== */
+    .atmospheric-petals-layer {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+      perspective: 700px;
+    }
+
+    .ambient-mist-drift {
+      position: absolute;
+      inset: 0;
+      width: 160%;
+      height: 100%;
+      background: radial-gradient(ellipse 65% 35% at 45% 65%, rgba(255, 255, 255, 0.02) 0%, transparent 65%);
+      animation: mistDrift 45s ease-in-out infinite alternate;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    @keyframes mistDrift {
+      0% { transform: translate3d(-10%, 0, 0); }
+      100% { transform: translate3d(5%, 0, 0); }
+    }
+
+    .sakura-petal {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      border-radius: 100% 0% 100% 0% / 80% 0% 80% 0%;
+      pointer-events: none;
+      will-change: transform, opacity;
+      transform-origin: 50% 50%;
+      animation-name: petalFall;
+      animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+      animation-iteration-count: infinite;
+    }
+
+    /* Depth Tier Colors & Optical Depth */
+    .petal--tier1 {
+      background: linear-gradient(135deg, rgba(200, 48, 65, 0.42) 0%, rgba(120, 22, 34, 0.28) 80%, rgba(65, 10, 18, 0.12) 100%);
+      filter: blur(0.85px);
+      box-shadow: 0 0 3px rgba(180, 35, 50, 0.15);
+    }
+
+    .petal--tier2 {
+      background: linear-gradient(130deg, rgba(225, 60, 78, 0.72) 0%, rgba(145, 28, 42, 0.52) 75%, rgba(75, 12, 22, 0.22) 100%);
+      box-shadow: 0 1px 4px rgba(180, 35, 50, 0.25);
+    }
+
+    .petal--tier3 {
+      background: linear-gradient(125deg, rgba(240, 75, 92, 0.82) 0%, rgba(160, 32, 48, 0.62) 80%, rgba(85, 14, 25, 0.28) 100%);
+      filter: blur(0.35px);
+      box-shadow: 0 2px 6px rgba(180, 35, 50, 0.32);
+    }
+
+    /* Organic Trajectory: Downward Wind Vector, Sinusoidal Sway & 3D Tumble */
+    @keyframes petalFall {
+      0% {
+        transform: translate3d(var(--x-start), -50px, 0) rotateX(0deg) rotateY(0deg) rotateZ(var(--rot-start));
+        opacity: 0;
+      }
+      6% {
+        opacity: var(--max-opacity);
+      }
+      25% {
+        transform: translate3d(calc(var(--x-start) + var(--x-drift) * 0.22 + var(--sway)), 26vh, 0) rotateX(calc(var(--rot-x) * 0.3)) rotateY(calc(var(--rot-y) * 0.25)) rotateZ(calc(var(--rot-start) + var(--rot-z) * 0.25));
+      }
+      50% {
+        transform: translate3d(calc(var(--x-start) + var(--x-drift) * 0.48 - var(--sway)), 54vh, 0) rotateX(calc(var(--rot-x) * 0.6)) rotateY(calc(var(--rot-y) * 0.55)) rotateZ(calc(var(--rot-start) + var(--rot-z) * 0.5));
+      }
+      75% {
+        transform: translate3d(calc(var(--x-start) + var(--x-drift) * 0.76 + var(--sway) * 0.75), 82vh, 0) rotateX(calc(var(--rot-x) * 0.85)) rotateY(calc(var(--rot-y) * 0.8)) rotateZ(calc(var(--rot-start) + var(--rot-z) * 0.78));
+      }
+      92% {
+        opacity: var(--max-opacity);
+      }
+      100% {
+        transform: translate3d(calc(var(--x-start) + var(--x-drift)), 110vh, 0) rotateX(var(--rot-x)) rotateY(var(--rot-y)) rotateZ(calc(var(--rot-start) + var(--rot-z)));
+        opacity: 0;
+      }
+    }
+
+    /* Distinct Individual Petal Coordinates, Speeds & Staggered Negative Delays */
+    .petal-1  { width: 9px;  height: 14px; --x-start: 4vw;  --x-drift: 22vw; --sway: 18px; --rot-start: 25deg;  --rot-x: 540deg; --rot-y: 280deg; --rot-z: 320deg;  --max-opacity: 0.32; animation-duration: 16.5s; animation-delay: -3.2s; }
+    .petal-2  { width: 10px; height: 15px; --x-start: 18vw; --x-drift: 26vw; --sway: 22px; --rot-start: -40deg; --rot-x: 360deg; --rot-y: 190deg; --rot-z: -260deg; --max-opacity: 0.35; animation-duration: 18.0s; animation-delay: -8.7s; }
+    .petal-3  { width: 8px;  height: 13px; --x-start: 32vw; --x-drift: 20vw; --sway: 16px; --rot-start: 60deg;  --rot-x: 480deg; --rot-y: 320deg; --rot-z: 210deg;  --max-opacity: 0.30; animation-duration: 15.2s; animation-delay: -14.1s; }
+    .petal-4  { width: 11px; height: 16px; --x-start: 46vw; --x-drift: 24vw; --sway: 20px; --rot-start: 15deg;  --rot-x: 600deg; --rot-y: 240deg; --rot-z: -300deg; --max-opacity: 0.38; animation-duration: 17.5s; animation-delay: -1.5s; }
+    .petal-5  { width: 9px;  height: 14px; --x-start: 60vw; --x-drift: 22vw; --sway: 17px; --rot-start: -30deg; --rot-x: 420deg; --rot-y: 290deg; --rot-z: 280deg;  --max-opacity: 0.33; animation-duration: 16.0s; animation-delay: -11.3s; }
+    .petal-6  { width: 10px; height: 15px; --x-start: 74vw; --x-drift: 20vw; --sway: 19px; --rot-start: 45deg;  --rot-x: 520deg; --rot-y: 340deg; --rot-z: -240deg; --max-opacity: 0.36; animation-duration: 19.2s; animation-delay: -6.4s; }
+    .petal-7  { width: 8px;  height: 13px; --x-start: 86vw; --x-drift: 18vw; --sway: 15px; --rot-start: -15deg; --rot-x: 390deg; --rot-y: 210deg; --rot-z: 310deg;  --max-opacity: 0.28; animation-duration: 14.8s; animation-delay: -16.0s; }
+
+    .petal-8  { width: 13px; height: 19px; --x-start: -2vw; --x-drift: 25vw; --sway: 24px; --rot-start: 35deg;  --rot-x: 540deg; --rot-y: 360deg; --rot-z: 340deg;  --max-opacity: 0.65; animation-duration: 12.8s; animation-delay: -4.8s; }
+    .petal-9  { width: 14px; height: 21px; --x-start: 12vw; --x-drift: 28vw; --sway: 26px; --rot-start: -50deg; --rot-x: 460deg; --rot-y: 270deg; --rot-z: -320deg; --max-opacity: 0.60; animation-duration: 13.5s; animation-delay: -9.9s; }
+    .petal-10 { width: 12px; height: 18px; --x-start: 24vw; --x-drift: 24vw; --sway: 22px; --rot-start: 70deg;  --rot-x: 620deg; --rot-y: 330deg; --rot-z: 290deg;  --max-opacity: 0.58; animation-duration: 11.9s; animation-delay: -13.5s; }
+    .petal-11 { width: 15px; height: 22px; --x-start: 38vw; --x-drift: 27vw; --sway: 28px; --rot-start: -25deg; --rot-x: 500deg; --rot-y: 380deg; --rot-z: -270deg; --max-opacity: 0.68; animation-duration: 14.2s; animation-delay: -2.1s; }
+    .petal-12 { width: 13px; height: 20px; --x-start: 52vw; --x-drift: 23vw; --sway: 23px; --rot-start: 40deg;  --rot-x: 580deg; --rot-y: 250deg; --rot-z: 350deg;  --max-opacity: 0.62; animation-duration: 12.4s; animation-delay: -7.8s; }
+    .petal-13 { width: 14px; height: 21px; --x-start: 66vw; --x-drift: 25vw; --sway: 25px; --rot-start: -60deg; --rot-x: 440deg; --rot-y: 310deg; --rot-z: -310deg; --max-opacity: 0.64; animation-duration: 13.8s; animation-delay: -15.2s; }
+    .petal-14 { width: 12px; height: 18px; --x-start: 80vw; --x-drift: 21vw; --sway: 21px; --rot-start: 20deg;  --rot-x: 520deg; --rot-y: 290deg; --rot-z: 260deg;  --max-opacity: 0.55; animation-duration: 11.5s; animation-delay: -5.6s; }
+    .petal-15 { width: 15px; height: 22px; --x-start: 92vw; --x-drift: 19vw; --sway: 24px; --rot-start: -35deg; --rot-x: 640deg; --rot-y: 350deg; --rot-z: -340deg; --max-opacity: 0.66; animation-duration: 14.5s; animation-delay: -10.4s; }
+
+    .petal-16 { width: 18px; height: 26px; --x-start: 6vw;  --x-drift: 30vw; --sway: 32px; --rot-start: 55deg;  --rot-x: 720deg; --rot-y: 420deg; --rot-z: 380deg;  --max-opacity: 0.76; animation-duration: 9.6s;  animation-delay: -0.8s; }
+    .petal-17 { width: 20px; height: 28px; --x-start: 28vw; --x-drift: 32vw; --sway: 35px; --rot-start: -45deg; --rot-x: 680deg; --rot-y: 390deg; --rot-z: -360deg; --max-opacity: 0.78; animation-duration: 10.2s; animation-delay: -8.1s; }
+    .petal-18 { width: 17px; height: 25px; --x-start: 48vw; --x-drift: 29vw; --sway: 30px; --rot-start: 30deg;  --rot-x: 740deg; --rot-y: 440deg; --rot-z: 400deg;  --max-opacity: 0.72; animation-duration: 9.2s;  animation-delay: -12.9s; }
+    .petal-19 { width: 19px; height: 27px; --x-start: 68vw; --x-drift: 28vw; --sway: 33px; --rot-start: -65deg; --rot-x: 700deg; --rot-y: 410deg; --rot-z: -370deg; --max-opacity: 0.75; animation-duration: 10.8s; animation-delay: -3.9s; }
+    .petal-20 { width: 18px; height: 26px; --x-start: 84vw; --x-drift: 26vw; --sway: 31px; --rot-start: 40deg;  --rot-x: 760deg; --rot-y: 430deg; --rot-z: 390deg;  --max-opacity: 0.74; animation-duration: 9.8s;  animation-delay: -6.9s; }
+
     /* Responsive Adaptation */
     @media (max-width: 1200px) {
       .hud-left-gutter {
@@ -889,6 +1001,11 @@
         right: -1.8rem !important;
         bottom: -1.8rem !important;
         width: 55% !important;
+      }
+
+      /* Scale atmospheric petals down to 12 on tablet for performance */
+      .petal-7, .petal-10, .petal-13, .petal-14, .petal-17, .petal-18, .petal-19, .petal-20 {
+        display: none !important;
       }
     }
 
@@ -940,9 +1057,17 @@
         width: 38px !important;
         height: 38px !important;
       }
+
+      /* Scale atmospheric petals down to 7 on mobile with 2D perspective */
+      .petal-4, .petal-5, .petal-6, .petal-9, .petal-12 {
+        display: none !important;
+      }
+      .atmospheric-petals-layer {
+        perspective: none;
+      }
     }
 
-    /* Accessibility / Reduced Motion */
+    /* Accessibility / Reduced Motion Fallback */
     @media (prefers-reduced-motion: reduce) {
       .project-card {
         transform: none !important;
@@ -959,6 +1084,12 @@
       .central-showcase-frame {
         display: none;
       }
+      .atmospheric-petals-layer,
+      .sakura-petal,
+      .ambient-mist-drift {
+        display: none !important;
+        animation: none !important;
+      }
     }
   </style>
 </head>
@@ -966,6 +1097,34 @@
 
   <!-- Sumi-e Japanese Ink Canvas Layer -->
   <div class="projects-bg-canvas" aria-hidden="true"></div>
+
+  <!-- Atmospheric Japanese Cherry Blossom Petals & Wind Drift Layer -->
+  <div class="atmospheric-petals-layer" aria-hidden="true">
+    <div class="ambient-mist-drift"></div>
+    <!-- Tier 1: Distant Petals (Soft blur, slower drift) -->
+    <div class="sakura-petal petal--tier1 petal-1"></div>
+    <div class="sakura-petal petal--tier1 petal-2"></div>
+    <div class="sakura-petal petal--tier1 petal-3"></div>
+    <div class="sakura-petal petal--tier1 petal-4"></div>
+    <div class="sakura-petal petal--tier1 petal-5"></div>
+    <div class="sakura-petal petal--tier1 petal-6"></div>
+    <div class="sakura-petal petal--tier1 petal-7"></div>
+    <!-- Tier 2: Mid-ground Petals (Crisp, organic wind sway) -->
+    <div class="sakura-petal petal--tier2 petal-8"></div>
+    <div class="sakura-petal petal--tier2 petal-9"></div>
+    <div class="sakura-petal petal--tier2 petal-10"></div>
+    <div class="sakura-petal petal--tier2 petal-11"></div>
+    <div class="sakura-petal petal--tier2 petal-12"></div>
+    <div class="sakura-petal petal--tier2 petal-13"></div>
+    <div class="sakura-petal petal--tier2 petal-14"></div>
+    <div class="sakura-petal petal--tier2 petal-15"></div>
+    <!-- Tier 3: Subtle Foreground Petals (Gentle motion depth & 3D flutter) -->
+    <div class="sakura-petal petal--tier3 petal-16"></div>
+    <div class="sakura-petal petal--tier3 petal-17"></div>
+    <div class="sakura-petal petal--tier3 petal-18"></div>
+    <div class="sakura-petal petal--tier3 petal-19"></div>
+    <div class="sakura-petal petal--tier3 petal-20"></div>
+  </div>
 
   <!-- SVG Icon Vault -->
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="display:none;">

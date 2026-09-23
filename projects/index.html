@@ -149,66 +149,10 @@
       opacity: 0.8;
     }
 
-    .hdr-nav {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(25, 29, 36, 0.6);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      padding: 0.35rem 0.5rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    }
-
-    .hdr-btn {
-      padding: 0.45rem 1.1rem;
-      border-radius: 9999px;
-      font-size: 0.82rem;
-      font-weight: 400;
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.7);
-      transition: all 0.25s var(--f-cubic);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .hdr-btn:hover {
-      color: var(--c-white);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .hdr-btn.-active {
-      color: var(--c-white);
-      background: rgba(255, 255, 255, 0.14);
-      box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.1);
-      font-weight: 500;
-    }
-
     .hdr-right {
       display: flex;
       align-items: center;
       gap: 1.5rem;
-    }
-
-    .hdr-social-link {
-      color: rgba(255, 255, 255, 0.65);
-      transition: color 0.2s, transform 0.2s;
-      display: flex;
-      align-items: center;
-    }
-
-    .hdr-social-link:hover {
-      color: var(--c-white);
-      transform: translateY(-1px);
-    }
-
-    .hdr-social-link svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
     }
 
     .hdr-scroll-progress {
@@ -311,8 +255,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: clamp(340px, 60vw, 880px);
-      height: clamp(380px, 55vh, 520px);
+      width: clamp(340px, 62vw, 860px);
+      height: clamp(380px, 56vh, 520px);
       border-radius: 28px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow:
@@ -372,8 +316,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 38px;
+      width: auto;
+      min-width: 58px;
       height: 38px;
+      padding: 0 0.75rem;
       border-radius: 8px;
       background: rgba(25, 29, 36, 0.55);
       backdrop-filter: blur(10px);
@@ -452,49 +398,55 @@
       justify-content: center;
       perspective: 40rem;
       --progress: 0;
-      --border-radius: 24px;
       opacity: calc(1.5 - max(0.5 - var(--progress), var(--progress) - 0.5) * 5);
       will-change: transform, opacity;
     }
 
-    /* Project Tile Card Kinematics (Direct StringTune Formulation) */
-    .project-card-tile {
+    /* ==========================================================================
+       HOMEPAGE PROJECT CARD DESIGN & KINEMATICS (Exact Parity)
+       ========================================================================== */
+    .project-card {
       position: relative;
-      width: clamp(330px, 58vw, 850px);
-      min-height: clamp(360px, 50vh, 490px);
-      background: rgba(15, 18, 24, 0.75);
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.7),
-        0 0 0 1px rgba(255, 255, 255, 0.08);
+      width: clamp(320px, 54vw, 760px);
+      min-height: clamp(340px, 46vh, 440px);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.035) 55%, rgba(10, 14, 20, 0.48) 100%) !important;
+      -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
+      backdrop-filter: blur(28px) saturate(160%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.32) !important;
+      border-radius: 1.55rem !important;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.45), inset 0 0 24px 0 rgba(255, 255, 255, 0.03) !important;
+      overflow: hidden !important;
+      padding: 2.2rem 2.4rem !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      text-align: left !important;
+      cursor: pointer !important;
       transform: rotateX(calc(-90deg * (0.5 - var(--progress)) * 3.25)) scale(calc(1 - max(0.5 - var(--progress), var(--progress) - 0.5)));
       transform-style: preserve-3d;
-      transition: box-shadow 0.3s;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s ease, background 0.3s ease !important;
       pointer-events: none;
     }
 
     /* Active Pointed State */
-    .i.-pointed .project-card-tile {
+    .i.-pointed .project-card {
       pointer-events: all;
     }
 
-    .i.-pointed .project-card-tile:hover {
-      box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.85),
-        0 0 0 1px rgba(255, 255, 255, 0.2);
+    .i.-pointed .project-card:hover {
+      transform: rotateX(calc(-90deg * (0.5 - var(--progress)) * 3.25)) scale(calc(1.02 * (1 - max(0.5 - var(--progress), var(--progress) - 0.5)))) !important;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 55%, rgba(15, 20, 28, 0.52) 100%) !important;
+      border-color: rgba(255, 255, 255, 0.55) !important;
+      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.75), 0 0 35px rgba(255, 79, 54, 0.22), inset 0 1px 2px rgba(255, 255, 255, 0.6) !important;
     }
 
     /* Specular Border Highlight Sweep */
-    .project-card-tile::after {
+    .project-card::after {
       content: "";
       position: absolute;
       inset: 0;
-      border-radius: var(--border-radius);
+      border-radius: 1.55rem;
       padding: 1px;
       background-image: linear-gradient(
         calc(-45deg + 1turn * var(--progress)),
@@ -510,170 +462,212 @@
       z-index: 10;
     }
 
-    /* Visual Media Container */
-    .tile-media {
-      position: relative;
-      height: 100%;
-      min-height: 360px;
-      overflow: hidden;
-      background-color: #0b0e13;
+    /* Top Row Typography & Kanji Metadata */
+    .project-card-top {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      margin-bottom: 1.25rem !important;
+      position: relative !important;
+      z-index: 6 !important;
     }
 
-    .tile-media img {
-      width: 100%;
-      height: 116%;
-      object-fit: cover;
-      transform: translateY(calc(-8% + var(--progress) * 16%));
-      transition: transform 0.1s linear;
-      will-change: transform;
+    .project-card-meta {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.65rem !important;
     }
 
-    .tile-media-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent 65%, rgba(15, 18, 24, 0.85) 100%);
-      pointer-events: none;
+    .project-num {
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+      color: #ffffff !important;
+      font-family: var(--font-mono, monospace) !important;
+      letter-spacing: -0.02em !important;
     }
 
-    /* Index Badge */
-    .tile-index-badge {
-      position: absolute;
-      top: 1.25rem;
-      left: 1.25rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 9999px;
-      background: rgba(6, 8, 11, 0.65);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--c-white);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      z-index: 5;
+    .project-meta-line {
+      width: 26px !important;
+      height: 1px !important;
+      background: rgba(255, 255, 255, 0.35) !important;
     }
 
-    .tile-index-badge .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--c-red);
-      box-shadow: 0 0 8px var(--c-red);
+    .project-cat {
+      font-size: 0.72rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.12em !important;
+      color: rgba(255, 255, 255, 0.8) !important;
+      font-family: var(--font-mono, monospace) !important;
     }
 
-    /* Tile Content Column */
-    .tile-content {
-      padding: 2.2rem 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      z-index: 2;
+    .project-card-kanji-wrap {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.75rem !important;
     }
 
-    .tile-info-top {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
+    .project-vertical-meta {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-end !important;
+      gap: 0.18rem !important;
+      font-size: 0.52rem !important;
+      line-height: 1.15 !important;
+      letter-spacing: 0.14em !important;
+      color: rgba(255, 255, 255, 0.52) !important;
+      font-family: var(--font-mono, monospace) !important;
+      text-align: right !important;
+      font-weight: 600 !important;
     }
 
-    .tile-subtitle {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.5);
+    .project-kanji-seal {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.4rem !important;
     }
 
-    .tile-title {
-      font-size: clamp(1.25rem, 1.6vw, 1.65rem);
-      font-weight: 500;
-      line-height: 1.25;
-      color: var(--c-white);
+    .project-kanji {
+      font-size: 1.65rem !important;
+      color: rgba(255, 255, 255, 0.92) !important;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif !important;
+      line-height: 1 !important;
     }
 
-    .tile-desc {
-      font-size: 0.88rem;
-      line-height: 1.55;
-      color: rgba(255, 255, 255, 0.7);
-      margin-top: 0.3rem;
+    .project-seal {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 17px !important;
+      height: 17px !important;
+      border: 1px solid #ff4f36 !important;
+      background: rgba(255, 79, 54, 0.22) !important;
+      color: #ff4f36 !important;
+      font-size: 0.55rem !important;
+      border-radius: 2px !important;
+      font-family: serif !important;
+      font-weight: bold !important;
     }
 
-    .tile-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 1rem;
+    /* Card Body & Info */
+    .project-card-body {
+      position: relative !important;
+      z-index: 5 !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      justify-content: space-between !important;
+      flex: 1 !important;
+      width: 100% !important;
     }
 
-    .tile-tag-pill {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: rgba(255, 255, 255, 0.75);
+    .project-card-info {
+      max-width: 50% !important;
+      z-index: 5 !important;
+      text-align: left !important;
+      position: relative !important;
     }
 
-    /* Tile Action Buttons */
-    .tile-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
+    .project-card-title {
+      font-size: 1.88rem !important;
+      font-weight: 700 !important;
+      color: #ffffff !important;
+      line-height: 1.12 !important;
+      letter-spacing: -0.03em !important;
+      margin: 0 0 0.5rem 0 !important;
+      font-family: var(--font, "KHTeka", sans-serif) !important;
     }
 
-    .btn-detail {
-      padding: 0.6rem 1.25rem;
-      border-radius: 9999px;
-      background: var(--c-white);
-      color: #000;
-      font-size: 0.82rem;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      transition: all 0.25s var(--f-cubic);
-      text-decoration: none;
+    .project-card-subtitle {
+      font-size: 0.98rem !important;
+      color: rgba(255, 255, 255, 0.7) !important;
+      margin-bottom: 0.95rem !important;
+      font-weight: 400 !important;
+      letter-spacing: -0.01em !important;
     }
 
-    .btn-detail:hover {
-      background: rgba(255, 255, 255, 0.88);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+    .project-red-divider {
+      width: 32px !important;
+      height: 2px !important;
+      background: #ff4f36 !important;
+      margin-bottom: 1.1rem !important;
+      border-radius: 2px !important;
     }
 
-    .btn-icon-link {
-      padding: 0.6rem 0.95rem;
-      border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: var(--c-white);
-      font-size: 0.82rem;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: all 0.25s var(--f-cubic);
+    .project-card-desc {
+      font-size: 0.84rem !important;
+      line-height: 1.5 !important;
+      color: rgba(255, 255, 255, 0.74) !important;
+      margin: 0 !important;
+      font-weight: 400 !important;
+      max-width: 340px !important;
     }
 
-    .btn-icon-link:hover {
-      background: rgba(255, 255, 255, 0.14);
-      border-color: rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
+    /* Card Visual Image Mask */
+    .project-card-visual {
+      position: absolute !important;
+      right: -2.4rem !important;
+      bottom: -2.2rem !important;
+      top: -1.25rem !important;
+      width: 60% !important;
+      pointer-events: none !important;
+      overflow: hidden !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-end !important;
+      z-index: 2 !important;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 25%, black 60%) !important;
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 25%, black 60%) !important;
     }
 
-    .btn-icon-link svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
+    .project-card-visual img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center right !important;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      opacity: 0.95 !important;
+    }
+
+    .i.-pointed .project-card:hover .project-card-visual img {
+      transform: scale(1.05) !important;
+      opacity: 1 !important;
+    }
+
+    /* Action Arrow Button */
+    .project-card-action {
+      position: absolute !important;
+      right: 2.2rem !important;
+      bottom: 2.2rem !important;
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 50% !important;
+      border: 1px solid rgba(255, 255, 255, 0.42) !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      backdrop-filter: blur(8px) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: #ffffff !important;
+      z-index: 10 !important;
+      cursor: pointer !important;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .project-card-action svg {
+      width: 18px !important;
+      height: 18px !important;
+      transition: transform 0.3s ease !important;
+    }
+
+    .i.-pointed .project-card:hover .project-card-action {
+      background: rgba(255, 79, 54, 0.9) !important;
+      border-color: #ff4f36 !important;
+      transform: scale(1.08) !important;
+      box-shadow: 0 4px 18px rgba(255, 79, 54, 0.5) !important;
+    }
+
+    .i.-pointed .project-card:hover .project-card-action svg {
+      transform: translateX(2px) !important;
     }
 
     /* Modal Backdrop & Dialog */
@@ -809,6 +803,54 @@
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
+    .btn-detail {
+      padding: 0.6rem 1.25rem;
+      border-radius: 9999px;
+      background: var(--c-white);
+      color: #000;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.25s var(--f-cubic);
+      text-decoration: none;
+    }
+
+    .btn-detail:hover {
+      background: rgba(255, 255, 255, 0.88);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-icon-link {
+      padding: 0.6rem 0.95rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--c-white);
+      font-size: 0.82rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.25s var(--f-cubic);
+    }
+
+    .btn-icon-link:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .btn-icon-link svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
     /* Responsive Adaptation */
     @media (max-width: 1200px) {
       .hud-left-gutter {
@@ -822,8 +864,8 @@
       .central-showcase-frame {
         width: 65vw;
       }
-      .project-card-tile {
-        width: 63vw;
+      .project-card {
+        width: 58vw;
       }
     }
 
@@ -835,17 +877,18 @@
         width: 86vw;
         height: 60vh;
       }
-      .project-card-tile {
-        width: 84vw;
-        grid-template-columns: 1fr;
-        min-height: auto;
+      .project-card {
+        width: 78vw;
+        min-height: 380px;
+        padding: 1.8rem 1.8rem !important;
       }
-      .tile-media {
-        min-height: 200px;
-        height: 200px;
+      .project-card-title {
+        font-size: 1.5rem !important;
       }
-      .tile-content {
-        padding: 1.6rem 1.4rem;
+      .project-card-visual {
+        right: -1.8rem !important;
+        bottom: -1.8rem !important;
+        width: 55% !important;
       }
     }
 
@@ -855,10 +898,6 @@
       }
       .hdr-brand {
         display: none;
-      }
-      .hdr-btn {
-        padding: 0.35rem 0.75rem;
-        font-size: 0.75rem;
       }
       .hud-bottom-left {
         display: none;
@@ -870,19 +909,42 @@
       .central-showcase-frame {
         border-radius: 20px;
         width: 90vw;
-        height: 62vh;
+        height: 64vh;
       }
       .i {
         height: 100vh;
       }
-      .project-card-tile {
-        width: 88vw;
+      .project-card {
+        width: 84vw;
+        min-height: 360px;
+        padding: 1.5rem 1.4rem !important;
+      }
+      .project-card-info {
+        max-width: 65% !important;
+      }
+      .project-card-title {
+        font-size: 1.3rem !important;
+      }
+      .project-card-desc {
+        font-size: 0.78rem !important;
+        line-height: 1.45 !important;
+      }
+      .project-card-visual {
+        right: -1.4rem !important;
+        bottom: -1.5rem !important;
+        width: 52% !important;
+      }
+      .project-card-action {
+        right: 1.25rem !important;
+        bottom: 1.25rem !important;
+        width: 38px !important;
+        height: 38px !important;
       }
     }
 
     /* Accessibility / Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
-      .project-card-tile {
+      .project-card {
         transform: none !important;
         opacity: 1 !important;
       }
@@ -913,9 +975,6 @@
     <symbol id="icon-github" viewBox="0 0 20 20">
       <path d="M10,1C5,1,1,5.1,1,10.1s2.6,7.4,6.2,8.6c.4,0,.6-.2.6-.4s0-.9,0-1.7c-2.5.5-3-1.1-3-1.1-.4-1.1-1-1.3-1-1.3-.8-.6,0-.6,0-.6.9,0,1.4.9,1.4.9.8,1.4,2.1,1,2.6.8,0-.6.3-1,.6-1.2-2-.2-4.1-1-4.1-4.5s.4-1.8.9-2.4c0-.2-.4-1.2,0-2.4,0,0,.8-.2,2.5.9.7-.2,1.5-.3,2.3-.3.8,0,1.5.1,2.3.3,1.7-1.2,2.5-.9,2.5-.9.5,1.2.2,2.2,0,2.4.6.6.9,1.4.9,2.4,0,3.5-2.1,4.3-4.1,4.5.3.3.6.8.6,1.7,0,1.2,0,2.2,0,2.5s.2.5.6.4c3.6-1.2,6.2-4.6,6.2-8.6,0-5-4-9.1-9-9.1Z"></path>
     </symbol>
-    <symbol id="icon-linkedin" viewBox="0 0 20 20">
-      <path d="M4.5,3 C4.5,4.1 3.6,5 2.5,5 C1.4,5 0.5,4.1 0.5,3 C0.5,1.9 1.4,1 2.5,1 C3.6,1 4.5,1.9 4.5,3 Z M0.7,7 L4.3,7 L4.3,19 L0.7,19 L0.7,7 Z M6.7,7 L10.2,7 L10.2,8.6 C10.7,7.6 12,6.7 13.8,6.7 C17.4,6.7 18.3,9 18.3,12.2 L18.3,19 L14.7,19 L14.7,13 C14.7,11.3 14.1,10.2 12.6,10.2 C11.4,10.2 10.7,11 10.4,11.8 C10.3,12.1 10.3,12.5 10.3,12.9 L10.3,19 L6.7,19 L6.7,7 Z"></path>
-    </symbol>
     <symbol id="icon-external" viewBox="0 0 24 24">
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
     </symbol>
@@ -932,22 +991,7 @@
       </a>
     </div>
 
-    <nav class="hdr-nav">
-      <a href="/#c-tree" class="hdr-btn" title="View Professional Experience">
-        <span>Experience</span>
-      </a>
-      <a href="/projects/" class="hdr-btn -active" title="Featured Projects Showcase">
-        <span>Projects</span>
-      </a>
-    </nav>
-
     <div class="hdr-right">
-      <a href="https://github.com/himanshuaggarwal04380" target="_blank" rel="noopener noreferrer" class="hdr-social-link" title="GitHub Profile">
-        <svg><use href="#icon-github"></use></svg>
-      </a>
-      <a href="https://linkedin.com/in/himanshu04380" target="_blank" rel="noopener noreferrer" class="hdr-social-link" title="LinkedIn Profile">
-        <svg><use href="#icon-linkedin"></use></svg>
-      </a>
       <span class="hdr-scroll-progress" id="hdrProgress">0%</span>
     </div>
   </header>
@@ -981,8 +1025,8 @@
 
             <!-- Bottom Left: Keyboard Navigation Controls -->
             <div class="hud-bottom-left">
-              <button class="kbd-btn" id="btnPrev" title="Previous Project [W]">W</button>
-              <button class="kbd-btn" id="btnNext" title="Next Project [S]">S</button>
+              <button class="kbd-btn" id="btnPrev" title="Previous Project [Page Up]">Pg Up</button>
+              <button class="kbd-btn" id="btnNext" title="Next Project [Page Down]">Pg Down</button>
               <button class="kbd-btn enter-btn" id="btnOpenModal" title="Open Details [Enter]">
                 <span>ENTER</span>
                 <span>↵</span>
@@ -1004,172 +1048,142 @@
 
             <!-- PROJECT 01: Resume Screening Agent -->
             <div class="i -inview" id="proj-0" data-key="0" data-name="Resume Screening Agent" string="progress|lerp">
-              <article class="project-card-tile">
-                <div class="tile-media">
-                  <div class="tile-index-badge">
-                    <span class="dot"></span>
-                    <span>PROJECT 01</span>
+              <article class="project-card" data-project="resume-screening" onclick="openModal('resume-screening')">
+                <div class="project-card-top">
+                  <div class="project-card-meta">
+                    <span class="project-num">01</span>
+                    <span class="project-meta-line"></span>
+                    <span class="project-cat">AI / NLP</span>
                   </div>
-                  <img src="/images/projects/resume-screening-art.jpg" alt="Resume Screening Agent Neural Mesh">
-                  <div class="tile-media-overlay"></div>
-                </div>
-                <div class="tile-content">
-                  <div class="tile-info-top">
-                    <span class="tile-subtitle">Explicit Rubric · Demographic Bias Audit</span>
-                    <h2 class="tile-title">AI Resume Screening Agent with Bias Audit</h2>
-                    <p class="tile-desc">
-                      Autonomous agent that scores candidates against explicit job rubrics with deterministic arithmetic, preventing LLM scoring drift while auditing disparate impact across demographic proxies.
-                    </p>
-                    <div class="tile-tags">
-                      <span class="tile-tag-pill">FastAPI</span>
-                      <span class="tile-tag-pill">Streamlit</span>
-                      <span class="tile-tag-pill">Qwen2.5</span>
-                      <span class="tile-tag-pill">SQLAlchemy</span>
-                      <span class="tile-tag-pill">pdfplumber</span>
+                  <div class="project-card-kanji-wrap">
+                    <div class="project-kanji-seal">
+                      <span class="project-kanji">知</span>
+                      <span class="project-seal">顕</span>
                     </div>
                   </div>
-                  <div class="tile-actions">
-                    <button class="btn-detail" onclick="openModal('resume-screening')">
-                      <span>View Details</span>
-                      <span>→</span>
-                    </button>
-                    <a href="https://github.com/himanshuaggarwal04380/resume-screening-agent" target="_blank" rel="noopener" class="btn-icon-link">
-                      <svg><use href="#icon-github"></use></svg>
-                      <span>Code</span>
-                    </a>
+                </div>
+                <div class="project-card-body">
+                  <div class="project-card-info">
+                    <h3 class="project-card-title">Resume<br>Screening Agent</h3>
+                    <div class="project-card-subtitle">Bias Audit</div>
+                    <div class="project-red-divider"></div>
+                    <p class="project-card-desc">From job description to top talent.<br>Smarter, fairer, faster.</p>
                   </div>
+                  <div class="project-card-visual">
+                    <img src="/images/projects/resume-screening-art.jpg" alt="Resume Screening Agent">
+                  </div>
+                </div>
+                <div class="project-card-action" aria-label="Open project details">
+                  <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 10H15.5M11 5.5L15.5 10L11 14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
               </article>
             </div>
 
             <!-- PROJECT 02: Traffic Intelligence -->
             <div class="i" id="proj-1" data-key="1" data-name="Traffic Intelligence" string="progress|lerp">
-              <article class="project-card-tile">
-                <div class="tile-media">
-                  <div class="tile-index-badge">
-                    <span class="dot"></span>
-                    <span>PROJECT 02</span>
+              <article class="project-card" data-project="traffic-intelligence" onclick="openModal('traffic-intelligence')">
+                <div class="project-card-top">
+                  <div class="project-card-meta">
+                    <span class="project-num">02</span>
+                    <span class="project-meta-line"></span>
+                    <span class="project-cat">DATA SCIENCE</span>
                   </div>
-                  <img src="/images/projects/traffic-intelligence-art.jpg" alt="Traffic Intelligence Spatio-Temporal Mesh">
-                  <div class="tile-media-overlay"></div>
-                </div>
-                <div class="tile-content">
-                  <div class="tile-info-top">
-                    <span class="tile-subtitle">Multi-Model Forecasting &amp; Time-Series</span>
-                    <h2 class="tile-title">Traffic Intelligence</h2>
-                    <p class="tile-desc">
-                      Predictive forecasting engine analyzing 48,000+ highway observations. Benchmarks ARIMA, SARIMA, Prophet, and XGBoost (+20% accuracy gain) alongside live meteorological correlations.
-                    </p>
-                    <div class="tile-tags">
-                      <span class="tile-tag-pill">ARIMA</span>
-                      <span class="tile-tag-pill">SARIMA</span>
-                      <span class="tile-tag-pill">Prophet</span>
-                      <span class="tile-tag-pill">XGBoost</span>
-                      <span class="tile-tag-pill">Streamlit</span>
+                  <div class="project-card-kanji-wrap">
+                    <div class="project-vertical-meta"><span>PREDICT</span><span>ANALYZE</span><span>OPTIMIZE</span></div>
+                    <div class="project-kanji-seal">
+                      <span class="project-kanji">道</span>
+                      <span class="project-seal">道</span>
                     </div>
                   </div>
-                  <div class="tile-actions">
-                    <button class="btn-detail" onclick="openModal('traffic-intelligence')">
-                      <span>View Details</span>
-                      <span>→</span>
-                    </button>
-                    <a href="https://trafficintelligence.streamlit.app/" target="_blank" rel="noopener" class="btn-icon-link">
-                      <svg><use href="#icon-external"></use></svg>
-                      <span>Live App</span>
-                    </a>
-                    <a href="https://github.com/himanshuaggarwal04380/Traffic-Intelligence" target="_blank" rel="noopener" class="btn-icon-link">
-                      <svg><use href="#icon-github"></use></svg>
-                      <span>Code</span>
-                    </a>
+                </div>
+                <div class="project-card-body">
+                  <div class="project-card-info">
+                    <h3 class="project-card-title">Traffic<br>Intelligence</h3>
+                    <div class="project-card-subtitle">Multi-Model Forecast</div>
+                    <div class="project-red-divider"></div>
+                    <p class="project-card-desc">Traffic Data Analysis, Time-Series<br>Modeling &amp; Next-Day Result Showcase.</p>
                   </div>
+                  <div class="project-card-visual">
+                    <img src="/images/projects/traffic-intelligence-art.jpg" alt="Traffic Intelligence">
+                  </div>
+                </div>
+                <div class="project-card-action" aria-label="Open project details">
+                  <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 10H15.5M11 5.5L15.5 10L11 14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
               </article>
             </div>
 
             <!-- PROJECT 03: Movies System -->
             <div class="i" id="proj-2" data-key="2" data-name="Movies System" string="progress|lerp">
-              <article class="project-card-tile">
-                <div class="tile-media">
-                  <div class="tile-index-badge">
-                    <span class="dot"></span>
-                    <span>PROJECT 03</span>
+              <article class="project-card" data-project="movies-system" onclick="openModal('movies-system')">
+                <div class="project-card-top">
+                  <div class="project-card-meta">
+                    <span class="project-num">03</span>
+                    <span class="project-meta-line"></span>
+                    <span class="project-cat">RECOMMENDATION SYSTEM</span>
                   </div>
-                  <img src="/images/projects/movies-system-art.jpg" alt="Movies System Vector Topology">
-                  <div class="tile-media-overlay"></div>
-                </div>
-                <div class="tile-content">
-                  <div class="tile-info-top">
-                    <span class="tile-subtitle">Vector Cosine Similarity &amp; NLP</span>
-                    <h2 class="tile-title">Movies System</h2>
-                    <p class="tile-desc">
-                      Netflix-inspired content recommendation engine computing high-dimensional vector cosine similarities over cast, director, keyword, and plot embeddings with dynamic TMDB API ingestion.
-                    </p>
-                    <div class="tile-tags">
-                      <span class="tile-tag-pill">Vector Cosine</span>
-                      <span class="tile-tag-pill">TMDB API</span>
-                      <span class="tile-tag-pill">Streamlit</span>
-                      <span class="tile-tag-pill">NLP</span>
-                      <span class="tile-tag-pill">Scikit-Learn</span>
+                  <div class="project-card-kanji-wrap">
+                    <div class="project-kanji-seal">
+                      <span class="project-kanji">映</span>
+                      <span class="project-seal">映</span>
                     </div>
                   </div>
-                  <div class="tile-actions">
-                    <button class="btn-detail" onclick="openModal('movies-system')">
-                      <span>View Details</span>
-                      <span>→</span>
-                    </button>
-                    <a href="https://moviessystem.streamlit.app/" target="_blank" rel="noopener" class="btn-icon-link">
-                      <svg><use href="#icon-external"></use></svg>
-                      <span>Live App</span>
-                    </a>
-                    <a href="https://github.com/himanshuaggarwal04380/MoviesSystem" target="_blank" rel="noopener" class="btn-icon-link">
-                      <svg><use href="#icon-github"></use></svg>
-                      <span>Code</span>
-                    </a>
+                </div>
+                <div class="project-card-body">
+                  <div class="project-card-info">
+                    <h3 class="project-card-title">Movies<br>System</h3>
+                    <div class="project-card-subtitle">Movie Recommendation</div>
+                    <div class="project-red-divider"></div>
+                    <p class="project-card-desc">Discover movies you'll love with<br>personalized recommendations.</p>
                   </div>
+                  <div class="project-card-visual">
+                    <img src="/images/projects/movies-system-art.jpg" alt="Movies System">
+                  </div>
+                </div>
+                <div class="project-card-action" aria-label="Open project details">
+                  <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 10H15.5M11 5.5L15.5 10L11 14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
               </article>
             </div>
 
             <!-- PROJECT 04: MuseoSpace -->
             <div class="i" id="proj-3" data-key="3" data-name="MuseoSpace" string="progress|lerp">
-              <article class="project-card-tile">
-                <div class="tile-media">
-                  <div class="tile-index-badge">
-                    <span class="dot"></span>
-                    <span>PROJECT 04</span>
+              <article class="project-card" data-project="museospace" onclick="openModal('museospace')">
+                <div class="project-card-top">
+                  <div class="project-card-meta">
+                    <span class="project-num">04</span>
+                    <span class="project-meta-line"></span>
+                    <span class="project-cat">WEB TECHNOLOGIES</span>
                   </div>
-                  <img src="/images/projects/museospace-art.jpg" alt="MuseoSpace 3D Gallery Pavilion">
-                  <div class="tile-media-overlay"></div>
-                </div>
-                <div class="tile-content">
-                  <div class="tile-info-top">
-                    <span class="tile-subtitle">Interactive 3D Art &amp; Atmospheric Audio</span>
-                    <h2 class="tile-title">MuseoSpace</h2>
-                    <p class="tile-desc">
-                      Atmospheric virtual digital gallery inviting visitors into curated architectural exhibitions with ambient spatial acoustics, progressive artwork discovery, and fluid tactile navigation.
-                    </p>
-                    <div class="tile-tags">
-                      <span class="tile-tag-pill">HTML5 / CSS3</span>
-                      <span class="tile-tag-pill">JavaScript</span>
-                      <span class="tile-tag-pill">Audio Ambience</span>
-                      <span class="tile-tag-pill">Netlify</span>
-                      <span class="tile-tag-pill">UI/UX</span>
+                  <div class="project-card-kanji-wrap">
+                    <div class="project-vertical-meta"><span>ART</span><span>PEOPLE</span><span>STORIES</span><span>FOREVER</span></div>
+                    <div class="project-kanji-seal">
+                      <span class="project-kanji">美</span>
+                      <span class="project-seal">美</span>
                     </div>
                   </div>
-                  <div class="tile-actions">
-                    <button class="btn-detail" onclick="openModal('museospace')">
-                      <span>View Details</span>
-                      <span>→</span>
-                    </button>
-                    <a href="https://museospace.netlify.app/" target="_blank" rel="noopener" class="btn-icon-link">
-                      <svg><use href="#icon-external"></use></svg>
-                      <span>Live App</span>
-                    </a>
-                    <a href="https://github.com/himanshuaggarwal04380/MuseoSpace" target="_blank" rel="noopener" class="btn-icon-link">
-                      <svg><use href="#icon-github"></use></svg>
-                      <span>Code</span>
-                    </a>
+                </div>
+                <div class="project-card-body">
+                  <div class="project-card-info">
+                    <h3 class="project-card-title">MuseoSpace</h3>
+                    <div class="project-card-subtitle">Virtual Digital Museum</div>
+                    <div class="project-red-divider"></div>
+                    <p class="project-card-desc">A virtual art exhibition platform<br>to explore, showcase and celebrate art.</p>
                   </div>
+                  <div class="project-card-visual">
+                    <img src="/images/projects/museospace-art.jpg" alt="MuseoSpace">
+                  </div>
+                </div>
+                <div class="project-card-action" aria-label="Open project details">
+                  <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 10H15.5M11 5.5L15.5 10L11 14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
               </article>
             </div>
@@ -1370,7 +1384,7 @@
     window.addEventListener('DOMContentLoaded', updateKinematics);
     setTimeout(updateKinematics, 100);
 
-    // Keyboard & Button Navigation (W/S/Enter)
+    // Keyboard & Button Navigation (Pg Up / Pg Down / Enter)
     function scrollToProject(index) {
       if (index < 0 || index >= items.length) return;
       const target = items[index];
@@ -1408,10 +1422,10 @@
 
       if (isModalOpen) return;
 
-      if (e.key === 'w' || e.key === 'W' || e.key === 'ArrowUp') {
+      if (e.key === 'PageUp' || e.key === 'w' || e.key === 'W' || e.key === 'ArrowUp') {
         e.preventDefault();
         scrollToProject(Math.max(0, activeIndex - 1));
-      } else if (e.key === 's' || e.key === 'S' || e.key === 'ArrowDown') {
+      } else if (e.key === 'PageDown' || e.key === 's' || e.key === 'S' || e.key === 'ArrowDown') {
         e.preventDefault();
         scrollToProject(Math.min(items.length - 1, activeIndex + 1));
       } else if (e.key === 'Enter') {

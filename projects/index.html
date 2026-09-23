@@ -46,7 +46,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Fixed Portfolio Sumi-e Japanese Background */
+    /* Fixed Projects Samurai Red Moon Atmospheric Background */
     .projects-bg-canvas {
       position: fixed;
       inset: 0;
@@ -54,10 +54,11 @@
       height: 100vh;
       z-index: 0;
       pointer-events: none;
+      background-color: #06080b;
       background:
-        radial-gradient(ellipse 90% 70% at 50% 50%, rgba(6, 8, 11, 0.28) 0%, rgba(6, 8, 11, 0.70) 65%, #06080b 100%),
-        url('/images/home/projects-sumi-bg.jpg') center center / cover no-repeat;
-      opacity: 0.90;
+        radial-gradient(ellipse 85% 75% at 50% 50%, rgba(6, 8, 11, 0.22) 0%, rgba(6, 8, 11, 0.52) 58%, rgba(6, 8, 11, 0.88) 100%),
+        url('/images/projects/samurai-red-moon-bg.png') center center / cover no-repeat;
+      opacity: 0.95;
     }
 
     /* Subtle ambient grain texture */
@@ -1579,6 +1580,9 @@
     }
 
     @media (max-width: 640px) {
+      .projects-bg-canvas {
+        background-position: center 32% !important;
+      }
       header.portfolio-header {
         padding: 1rem 1.25rem;
       }

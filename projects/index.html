@@ -788,12 +788,10 @@
       align-items: center;
       justify-content: center;
       padding: clamp(1rem, 3.5vw, 3rem);
-      background: rgba(3, 5, 8, 0.68);
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
+      background: #030508;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.4s ease;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       --theme-glow: rgba(72, 108, 175, 0.12);
       --theme-accent: #ff4f36;
     }
@@ -840,10 +838,8 @@
       inset: -3%;
       width: 106%;
       height: 106%;
-      background:
-        radial-gradient(ellipse 95% 85% at 50% 50%, rgba(6, 8, 12, 0.25) 0%, rgba(3, 5, 8, 0.60) 72%, #030508 100%),
-        url('/images/projects/a_moody_cinematic_dark_themed_atmospheric_backg.png') center center / cover no-repeat;
-      opacity: 0.85;
+      background: url('/images/projects/a_moody_cinematic_dark_themed_atmospheric_backg.png') center center / cover no-repeat;
+      opacity: 1;
       pointer-events: none;
       animation: modalBgBreathing 32s ease-in-out infinite alternate;
       will-change: transform;
@@ -861,106 +857,6 @@
         transform: scale(1.04) translate3d(0.4%, 0.3%, 0);
       }
     }
-
-    .modal-ambiance-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 85vw;
-      height: 85vh;
-      background: radial-gradient(ellipse 65% 55% at 50% 50%, var(--theme-glow) 0%, rgba(0, 0, 0, 0) 70%);
-      transition: background 0.8s ease;
-      mix-blend-mode: screen;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .modal-mist-drift {
-      position: absolute;
-      inset: 0;
-      width: 180%;
-      height: 100%;
-      pointer-events: none;
-      opacity: 0.35;
-      mix-blend-mode: screen;
-      z-index: 2;
-    }
-
-    .modal-mist-1 {
-      background: radial-gradient(ellipse 60% 40% at 30% 65%, rgba(255, 255, 255, 0.04) 0%, transparent 60%);
-      animation: modalMistFloat1 45s ease-in-out infinite alternate;
-    }
-
-    .modal-mist-2 {
-      background: radial-gradient(ellipse 55% 45% at 70% 35%, rgba(255, 255, 255, 0.035) 0%, transparent 60%);
-      animation: modalMistFloat2 58s ease-in-out infinite alternate;
-    }
-
-    @keyframes modalMistFloat1 {
-      0% { transform: translate3d(-12%, -1.5%, 0); }
-      100% { transform: translate3d(4%, 1.5%, 0); }
-    }
-
-    @keyframes modalMistFloat2 {
-      0% { transform: translate3d(4%, 1.5%, 0); }
-      100% { transform: translate3d(-12%, -1.5%, 0); }
-    }
-
-    /* Falling Crimson Sakura Petals matching the artwork */
-    .modal-petals-wrap {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 3;
-    }
-
-    .modal-petal {
-      position: absolute;
-      top: -30px;
-      border-radius: 100% 0% 100% 0% / 80% 0% 80% 0%;
-      background: linear-gradient(135deg, rgba(225, 48, 65, 0.75) 0%, rgba(145, 24, 36, 0.55) 75%, rgba(75, 10, 18, 0.25) 100%);
-      box-shadow: 0 0 8px rgba(225, 48, 65, 0.35);
-      pointer-events: none;
-      will-change: transform, opacity;
-      animation-name: modalPetalFall;
-      animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-      animation-iteration-count: infinite;
-    }
-
-    @keyframes modalPetalFall {
-      0% {
-        transform: translate3d(var(--px-start, 10vw), -20px, 0) rotate(var(--prot-start, 0deg));
-        opacity: 0;
-      }
-      15% {
-        opacity: var(--pmax-op, 0.65);
-      }
-      50% {
-        transform: translate3d(calc(var(--px-start, 10vw) + var(--px-drift, 15vw) * 0.5 + var(--psway, 18px)), 50vh, 0) rotate(calc(var(--prot-start, 0deg) + 180deg));
-      }
-      85% {
-        opacity: var(--pmax-op, 0.65);
-      }
-      100% {
-        transform: translate3d(calc(var(--px-start, 10vw) + var(--px-drift, 15vw)), 105vh, 0) rotate(calc(var(--prot-start, 0deg) + 360deg));
-        opacity: 0;
-      }
-    }
-
-    .modal-petal.mp1  { width: 9px;  height: 14px; --px-start: 6vw;  --px-drift: 18vw; --psway: 16px; --prot-start: 20deg;  --pmax-op: 0.65; animation-duration: 15s; animation-delay: -2s; }
-    .modal-petal.mp2  { width: 11px; height: 16px; --px-start: 18vw; --px-drift: 22vw; --psway: 20px; --prot-start: -35deg; --pmax-op: 0.70; animation-duration: 17s; animation-delay: -7s; }
-    .modal-petal.mp3  { width: 8px;  height: 12px; --px-start: 28vw; --px-drift: 16vw; --psway: 14px; --prot-start: 50deg;  --pmax-op: 0.55; animation-duration: 14s; animation-delay: -11s; }
-    .modal-petal.mp4  { width: 12px; height: 17px; --px-start: 40vw; --px-drift: 20vw; --psway: 18px; --prot-start: -15deg; --pmax-op: 0.75; animation-duration: 16s; animation-delay: -4s; }
-    .modal-petal.mp5  { width: 10px; height: 15px; --px-start: 52vw; --px-drift: 18vw; --psway: 15px; --prot-start: 35deg;  --pmax-op: 0.60; animation-duration: 15s; animation-delay: -13s; }
-    .modal-petal.mp6  { width: 13px; height: 18px; --px-start: 64vw; --px-drift: 22vw; --psway: 22px; --prot-start: -45deg; --pmax-op: 0.72; animation-duration: 18s; animation-delay: -8s; }
-    .modal-petal.mp7  { width: 9px;  height: 13px; --px-start: 74vw; --px-drift: 16vw; --psway: 16px; --prot-start: 25deg;  --pmax-op: 0.58; animation-duration: 14s; animation-delay: -1s; }
-    .modal-petal.mp8  { width: 12px; height: 17px; --px-start: 84vw; --px-drift: 19vw; --psway: 19px; --prot-start: -25deg; --pmax-op: 0.68; animation-duration: 16s; animation-delay: -10s; }
-    .modal-petal.mp9  { width: 8px;  height: 12px; --px-start: 2vw;  --px-drift: 20vw; --psway: 15px; --prot-start: 40deg;  --pmax-op: 0.50; animation-duration: 13s; animation-delay: -5s; }
-    .modal-petal.mp10 { width: 11px; height: 16px; --px-start: 34vw; --px-drift: 17vw; --psway: 18px; --prot-start: -50deg; --pmax-op: 0.65; animation-duration: 16s; animation-delay: -14s; }
-    .modal-petal.mp11 { width: 10px; height: 14px; --px-start: 58vw; --px-drift: 21vw; --psway: 17px; --prot-start: 30deg;  --pmax-op: 0.62; animation-duration: 15s; animation-delay: -3s; }
-    .modal-petal.mp12 { width: 13px; height: 19px; --px-start: 88vw; --px-drift: 15vw; --psway: 20px; --prot-start: -20deg; --pmax-op: 0.70; animation-duration: 17s; animation-delay: -9s; }
 
     /* Expanded Project Tile Glass Container */
     .modal-card {
@@ -1972,23 +1868,6 @@
     <!-- Atmospheric Background Layer for Modal with Cinematic Japanese Artwork -->
     <div class="modal-backdrop-fx" aria-hidden="true">
       <div class="modal-bg-image"></div>
-      <div class="modal-ambiance-glow"></div>
-      <div class="modal-mist-drift modal-mist-1"></div>
-      <div class="modal-mist-drift modal-mist-2"></div>
-      <div class="modal-petals-wrap">
-        <div class="modal-petal mp1"></div>
-        <div class="modal-petal mp2"></div>
-        <div class="modal-petal mp3"></div>
-        <div class="modal-petal mp4"></div>
-        <div class="modal-petal mp5"></div>
-        <div class="modal-petal mp6"></div>
-        <div class="modal-petal mp7"></div>
-        <div class="modal-petal mp8"></div>
-        <div class="modal-petal mp9"></div>
-        <div class="modal-petal mp10"></div>
-        <div class="modal-petal mp11"></div>
-        <div class="modal-petal mp12"></div>
-      </div>
     </div>
 
     <!-- Expanded Project Tile Glass Container -->

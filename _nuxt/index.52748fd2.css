@@ -1778,11 +1778,16 @@ canvas[data-v-3a63a717] {
 }
 .c-techniques > .-w .minimal[data-v-349e51de] {
   --top: 2;
-  --left: 2;
-  --width: 4;
+  --left: 1;
+  --width: 6;
   align-self: start;
+  font-size: var(--h5);
+  line-height: 1.15;
   margin-bottom: var(--h3);
   text-align: center;
+}
+.c-techniques > .-w .i.i-2 p[data-v-349e51de] {
+  white-space: pre-line !important;
 }
 .c-techniques > .-w .ambient-character[data-v-349e51de],
 .c-techniques > .-w .sword-wrap[data-v-349e51de] {
@@ -1898,9 +1903,12 @@ canvas[data-v-3a63a717] {
   }
   .c-techniques > .-w .minimal[data-v-349e51de] {
     --left: 1;
-    --width: 2;
+    --width: 3;
+    font-size: var(--h4);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
     margin-bottom: 0;
-    margin-right: 25%;
+    margin-right: 0;
     text-align: left;
   }
   .c-techniques > .-w .ambient-character[data-v-349e51de] {

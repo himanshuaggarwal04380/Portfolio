@@ -49385,7 +49385,7 @@ const Qg = a0({
     ne(
       "span",
       { class: "minimal -mm -up" },
-      "It’s minimal, expressive, and performance-first.",
+      "My Technical Foundation.",
       -1,
     ),
   ),
@@ -49410,7 +49410,7 @@ const Qg = a0({
           {
             title: "AI & AGENTS",
             icon: "icon-48_ai-agents",
-            more: "ML · Time Series · LLMs · MCP · LangChain · Hugging Face · Ollama",
+            more: "ML · Time Series · LLMs · MCP\nLangChain · Hugging Face · Ollama",
           },
           {
             title: "DATA",

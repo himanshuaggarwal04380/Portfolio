@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Himanshu | Intelligent Systems &amp; AI Engineering</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/fav/favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64">
+  <link rel="apple-touch-icon" href="/fav/apple-touch-icon-120x120.png">
+  <meta name="description" content="Featured Projects by Himanshu — Autonomous AI Agents, Spatio-Temporal Forecasting, Hybrid Recommendation Systems, and Immersive 3D Experiences.">
+
+  <!-- Core Nuxt and StringTune Stylesheets -->
+  <link rel="stylesheet" href="/_nuxt/default.95e9e56d.css">
+  <link rel="stylesheet" href="/_nuxt/index.312a1a1b.css">
+  <link rel="stylesheet" href="/_nuxt/GridRow.aee1d03d.css">
+  <link rel="stylesheet" href="/_nuxt/MainFooter.c350568c.css">
+
+  <style>
+    :root {
+      --c-white: #fff;
+      --c-white-rgb: 255, 255, 255;
+      --c-black: #06080b;
+      --c-black-rgb: 6, 8, 11;
+      --c-red: #ff3b30;
+      --c-red-rgb: 255, 59, 48;
+      --c-purple: #a399a8;
+      --c-grey: #e6dfe4;
+      --c-grey-dark: #544d56;
+      --f-cubic: cubic-bezier(0.35, 0.35, 0, 1);
+      --font: "KHTeka", system-ui, -apple-system, sans-serif;
+      --font-mono: "KHTekaMono", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--c-black);
+      color: var(--c-white);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Fixed Portfolio Sumi-e Japanese Background */
+    .projects-bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 90% 70% at 50% 50%, rgba(6, 8, 11, 0.45) 0%, rgba(6, 8, 11, 0.85) 65%, #06080b 100%),
+        url('/images/home/projects-sumi-bg.jpg') center center / cover no-repeat;
+      opacity: 0.95;
+    }
+
+    /* Subtle ambient grain texture */
+    .projects-bg-canvas::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+      background-size: 24px 24px;
+      opacity: 0.4;
+    }
+
+    /* Outer Scroll Container */
+    #scroll-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scroll-behavior: auto;
+      -webkit-overflow-scrolling: touch;
+      z-index: 1;
+    }
+
+    /* Header Nav */
+    header.portfolio-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    header.portfolio-header > * {
+      pointer-events: all;
+    }
+
+    .hdr-left {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .hdr-logo-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--c-white);
+    }
+
+    .hdr-sword-icon {
+      width: 32px;
+      height: 32px;
+      background-color: var(--c-red);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(255, 59, 48, 0.35);
+      transition: transform 0.3s var(--f-cubic);
+    }
+
+    .hdr-sword-icon img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+
+    .hdr-sword-icon:hover {
+      transform: scale(1.08) rotate(4deg);
+    }
+
+    .hdr-brand {
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--c-white);
+      transition: opacity 0.3s;
+    }
+
+    .hdr-brand:hover {
+      opacity: 0.8;
+    }
+
+    .hdr-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(25, 29, 36, 0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 0.35rem 0.5rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .hdr-btn {
+      padding: 0.45rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 400;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.7);
+      transition: all 0.25s var(--f-cubic);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hdr-btn:hover {
+      color: var(--c-white);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .hdr-btn.-active {
+      color: var(--c-white);
+      background: rgba(255, 255, 255, 0.14);
+      box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.1);
+      font-weight: 500;
+    }
+
+    .hdr-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .hdr-social-link {
+      color: rgba(255, 255, 255, 0.65);
+      transition: color 0.2s, transform 0.2s;
+      display: flex;
+      align-items: center;
+    }
+
+    .hdr-social-link:hover {
+      color: var(--c-white);
+      transform: translateY(-1px);
+    }
+
+    .hdr-social-link svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .hdr-scroll-progress {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+      min-width: 44px;
+      text-align: right;
+    }
+
+    /* Main Showcase Page Structure */
+    .page.projects-page {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .c-welcome {
+      position: relative;
+      width: 100%;
+    }
+
+    /* Pinned Sticky Viewport HUD (Stage) */
+    .stick-wrap {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .hud-stage {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      pointer-events: none;
+    }
+
+    /* Left Gutter: Category & Active Project Title (Matches StringTune Basics / 01. Reveal on scroll) */
+    .hud-left-gutter {
+      position: absolute;
+      left: 2.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      max-width: 220px;
+      z-index: 25;
+      pointer-events: none;
+    }
+
+    .hud-category-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--c-red);
+      font-weight: 600;
+    }
+
+    .hud-active-title {
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--c-white);
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    /* Right Gutter: Active Tech Stack Tags (Matches StringTune Smooth scroll / Lazy / Lerp) */
+    .hud-right-gutter {
+      position: absolute;
+      right: 2.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.65rem;
+      max-width: 200px;
+      z-index: 25;
+      pointer-events: none;
+    }
+
+    .hud-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      transition: color 0.3s;
+    }
+
+    /* Architectural Center Window Frame Boundary */
+    .central-showcase-frame {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(340px, 60vw, 880px);
+      height: clamp(380px, 55vh, 520px);
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow:
+        inset 0 0 60px rgba(0, 0, 0, 0.65),
+        0 30px 80px rgba(0, 0, 0, 0.75);
+      pointer-events: none;
+      z-index: 10;
+      transition: border-color 0.4s;
+    }
+
+    /* Technical Crosshairs on Frame */
+    .central-showcase-frame::before {
+      content: "+";
+      position: absolute;
+      top: -10px;
+      left: 24px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .central-showcase-frame::after {
+      content: "+";
+      position: absolute;
+      bottom: -10px;
+      right: 24px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Horizontal Crosshair Reference Hairline */
+    .hud-center-hairline {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.05) 15%, rgba(255, 255, 255, 0.05) 85%, transparent 100%);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    /* HUD Bottom Controls */
+    .hud-bottom-left {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      pointer-events: all;
+      z-index: 25;
+    }
+
+    .kbd-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(25, 29, 36, 0.55);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.8);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s var(--f-cubic);
+    }
+
+    .kbd-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--c-white);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .kbd-btn.enter-btn {
+      width: auto;
+      padding: 0 0.85rem;
+      gap: 0.4rem;
+    }
+
+    .hud-bottom-right {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.1em;
+      color: var(--c-white);
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      z-index: 25;
+      pointer-events: none;
+    }
+
+    .hud-bottom-right .current {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--c-white);
+    }
+
+    .hud-bottom-right .total {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 1.1rem;
+    }
+
+    /* Virtual Scroll Track */
+    .main-list {
+      position: relative;
+      width: 100%;
+      min-height: 480vh;
+      display: flex;
+      flex-direction: column;
+      z-index: 15;
+    }
+
+    .category-wrap {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Moving Tile Item Container */
+    .i {
+      position: relative;
+      width: 100%;
+      height: 110vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 40rem;
+      --progress: 0;
+      --border-radius: 24px;
+      opacity: calc(1.5 - max(0.5 - var(--progress), var(--progress) - 0.5) * 5);
+      will-change: transform, opacity;
+    }
+
+    /* Project Tile Card Kinematics (Direct StringTune Formulation) */
+    .project-card-tile {
+      position: relative;
+      width: clamp(330px, 58vw, 850px);
+      min-height: clamp(360px, 50vh, 490px);
+      background: rgba(15, 18, 24, 0.75);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+      transform: rotateX(calc(-90deg * (0.5 - var(--progress)) * 3.25)) scale(calc(1 - max(0.5 - var(--progress), var(--progress) - 0.5)));
+      transform-style: preserve-3d;
+      transition: box-shadow 0.3s;
+      pointer-events: none;
+    }
+
+    /* Active Pointed State */
+    .i.-pointed .project-card-tile {
+      pointer-events: all;
+    }
+
+    .i.-pointed .project-card-tile:hover {
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.85),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Specular Border Highlight Sweep */
+    .project-card-tile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--border-radius);
+      padding: 1px;
+      background-image: linear-gradient(
+        calc(-45deg + 1turn * var(--progress)),
+        rgba(255, 255, 255, 0.65) 0%,
+        rgba(255, 255, 255, 0.05) 35%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.05) 65%,
+        rgba(255, 255, 255, 0.65) 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box exclude, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box exclude, linear-gradient(#fff 0 0);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Visual Media Container */
+    .tile-media {
+      position: relative;
+      height: 100%;
+      min-height: 360px;
+      overflow: hidden;
+      background-color: #0b0e13;
+    }
+
+    .tile-media img {
+      width: 100%;
+      height: 116%;
+      object-fit: cover;
+      transform: translateY(calc(-8% + var(--progress) * 16%));
+      transition: transform 0.1s linear;
+      will-change: transform;
+    }
+
+    .tile-media-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 65%, rgba(15, 18, 24, 0.85) 100%);
+      pointer-events: none;
+    }
+
+    /* Index Badge */
+    .tile-index-badge {
+      position: absolute;
+      top: 1.25rem;
+      left: 1.25rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(6, 8, 11, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--c-white);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      z-index: 5;
+    }
+
+    .tile-index-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--c-red);
+      box-shadow: 0 0 8px var(--c-red);
+    }
+
+    /* Tile Content Column */
+    .tile-content {
+      padding: 2.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tile-info-top {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .tile-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .tile-title {
+      font-size: clamp(1.25rem, 1.6vw, 1.65rem);
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--c-white);
+    }
+
+    .tile-desc {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 0.3rem;
+    }
+
+    .tile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+
+    .tile-tag-pill {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* Tile Action Buttons */
+    .tile-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-detail {
+      padding: 0.6rem 1.25rem;
+      border-radius: 9999px;
+      background: var(--c-white);
+      color: #000;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.25s var(--f-cubic);
+      text-decoration: none;
+    }
+
+    .btn-detail:hover {
+      background: rgba(255, 255, 255, 0.88);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-icon-link {
+      padding: 0.6rem 0.95rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--c-white);
+      font-size: 0.82rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.25s var(--f-cubic);
+    }
+
+    .btn-icon-link:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .btn-icon-link svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* Modal Backdrop & Dialog */
+    .project-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s var(--f-cubic);
+    }
+
+    .project-modal.-active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-card {
+      position: relative;
+      width: 100%;
+      max-width: 820px;
+      max-height: 88vh;
+      overflow-y: auto;
+      background: rgba(18, 22, 28, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85);
+      transform: scale(0.94) translateY(20px);
+      transition: transform 0.35s var(--f-cubic);
+    }
+
+    .project-modal.-active .modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--c-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: rotate(90deg);
+    }
+
+    .modal-media-frame {
+      width: 100%;
+      height: 320px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 1.8rem;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .modal-media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-header h3 {
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: var(--c-white);
+      margin-bottom: 0.4rem;
+    }
+
+    .modal-header p {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--c-purple);
+      margin-bottom: 1.25rem;
+    }
+
+    .modal-body {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-highlights {
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .highlight-bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c-red);
+      margin-top: 0.55rem;
+      flex-shrink: 0;
+    }
+
+    .modal-footer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Responsive Adaptation */
+    @media (max-width: 1200px) {
+      .hud-left-gutter {
+        left: 1.5rem;
+        max-width: 160px;
+      }
+      .hud-right-gutter {
+        right: 1.5rem;
+        max-width: 150px;
+      }
+      .central-showcase-frame {
+        width: 65vw;
+      }
+      .project-card-tile {
+        width: 63vw;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hud-left-gutter, .hud-right-gutter {
+        display: none;
+      }
+      .central-showcase-frame {
+        width: 86vw;
+        height: 60vh;
+      }
+      .project-card-tile {
+        width: 84vw;
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .tile-media {
+        min-height: 200px;
+        height: 200px;
+      }
+      .tile-content {
+        padding: 1.6rem 1.4rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header.portfolio-header {
+        padding: 1rem 1.25rem;
+      }
+      .hdr-brand {
+        display: none;
+      }
+      .hdr-btn {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.75rem;
+      }
+      .hud-bottom-left {
+        display: none;
+      }
+      .hud-bottom-right {
+        bottom: 1.5rem;
+        right: 1.5rem;
+      }
+      .central-showcase-frame {
+        border-radius: 20px;
+        width: 90vw;
+        height: 62vh;
+      }
+      .i {
+        height: 100vh;
+      }
+      .project-card-tile {
+        width: 88vw;
+      }
+    }
+
+    /* Accessibility / Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      .project-card-tile {
+        transform: none !important;
+        opacity: 1 !important;
+      }
+      .i {
+        height: auto;
+        padding: 4rem 1rem;
+        opacity: 1 !important;
+      }
+      .main-list {
+        min-height: auto;
+      }
+      .central-showcase-frame {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body class="-fiddle-digital">
+
+  <!-- Sumi-e Japanese Ink Canvas Layer -->
+  <div class="projects-bg-canvas" aria-hidden="true"></div>
+
+  <!-- SVG Icon Vault -->
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <polygon points="20.1,5.3 18.7,3.9 12,10.6 5.3,3.9 3.9,5.3 10.6,12 3.9,18.7 5.3,20.1 12,13.4 18.7,20.1 20.1,18.7 13.4,12"></polygon>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 20 20">
+      <path d="M10,1C5,1,1,5.1,1,10.1s2.6,7.4,6.2,8.6c.4,0,.6-.2.6-.4s0-.9,0-1.7c-2.5.5-3-1.1-3-1.1-.4-1.1-1-1.3-1-1.3-.8-.6,0-.6,0-.6.9,0,1.4.9,1.4.9.8,1.4,2.1,1,2.6.8,0-.6.3-1,.6-1.2-2-.2-4.1-1-4.1-4.5s.4-1.8.9-2.4c0-.2-.4-1.2,0-2.4,0,0,.8-.2,2.5.9.7-.2,1.5-.3,2.3-.3.8,0,1.5.1,2.3.3,1.7-1.2,2.5-.9,2.5-.9.5,1.2.2,2.2,0,2.4.6.6.9,1.4.9,2.4,0,3.5-2.1,4.3-4.1,4.5.3.3.6.8.6,1.7,0,1.2,0,2.2,0,2.5s.2.5.6.4c3.6-1.2,6.2-4.6,6.2-8.6,0-5-4-9.1-9-9.1Z"></path>
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 20 20">
+      <path d="M4.5,3 C4.5,4.1 3.6,5 2.5,5 C1.4,5 0.5,4.1 0.5,3 C0.5,1.9 1.4,1 2.5,1 C3.6,1 4.5,1.9 4.5,3 Z M0.7,7 L4.3,7 L4.3,19 L0.7,19 L0.7,7 Z M6.7,7 L10.2,7 L10.2,8.6 C10.7,7.6 12,6.7 13.8,6.7 C17.4,6.7 18.3,9 18.3,12.2 L18.3,19 L14.7,19 L14.7,13 C14.7,11.3 14.1,10.2 12.6,10.2 C11.4,10.2 10.7,11 10.4,11.8 C10.3,12.1 10.3,12.5 10.3,12.9 L10.3,19 L6.7,19 L6.7,7 Z"></path>
+    </symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+  </svg>
+
+  <!-- Sticky Top Navigation Header -->
+  <header class="portfolio-header">
+    <div class="hdr-left">
+      <a href="/" class="hdr-logo-badge" title="Himanshu — Home">
+        <div class="hdr-sword-icon">
+          <img src="/images/logo-sword.png" alt="Himanshu Logo">
+        </div>
+        <span class="hdr-brand">HIMANSHU</span>
+      </a>
+    </div>
+
+    <nav class="hdr-nav">
+      <a href="/#c-tree" class="hdr-btn" title="View Professional Experience">
+        <span>Experience</span>
+      </a>
+      <a href="/projects/" class="hdr-btn -active" title="Featured Projects Showcase">
+        <span>Projects</span>
+      </a>
+    </nav>
+
+    <div class="hdr-right">
+      <a href="https://github.com/himanshuaggarwal04380" target="_blank" rel="noopener noreferrer" class="hdr-social-link" title="GitHub Profile">
+        <svg><use href="#icon-github"></use></svg>
+      </a>
+      <a href="https://linkedin.com/in/himanshu04380" target="_blank" rel="noopener noreferrer" class="hdr-social-link" title="LinkedIn Profile">
+        <svg><use href="#icon-linkedin"></use></svg>
+      </a>
+      <span class="hdr-scroll-progress" id="hdrProgress">0%</span>
+    </div>
+  </header>
+
+  <!-- Scroll Container -->
+  <div id="scroll-container" class="scroll-container" string-id="layout-container">
+    <main class="page projects-page">
+      <section class="c-welcome" string="" string-id="skills-welcome">
+
+        <!-- Sticky Stage / HUD Layer -->
+        <div class="stick-wrap">
+          <div class="hud-stage">
+
+            <!-- Left Gutter: Category & Active Title -->
+            <div class="hud-left-gutter">
+              <span class="hud-category-label">FEATURED WORK</span>
+              <h1 class="hud-active-title" id="hudActiveTitle">01. RESUME SCREENING /</h1>
+            </div>
+
+            <!-- Right Gutter: Active Tech Stack Tags -->
+            <div class="hud-right-gutter" id="hudTechGroup">
+              <span class="hud-tag">FASTAPI</span>
+              <span class="hud-tag">STREAMLIT</span>
+              <span class="hud-tag">QWEN2.5</span>
+              <span class="hud-tag">SQLALCHEMY</span>
+            </div>
+
+            <!-- Central Showcase Boundary Frame -->
+            <div class="central-showcase-frame"></div>
+            <div class="hud-center-hairline"></div>
+
+            <!-- Bottom Left: Keyboard Navigation Controls -->
+            <div class="hud-bottom-left">
+              <button class="kbd-btn" id="btnPrev" title="Previous Project [W]">W</button>
+              <button class="kbd-btn" id="btnNext" title="Next Project [S]">S</button>
+              <button class="kbd-btn enter-btn" id="btnOpenModal" title="Open Details [Enter]">
+                <span>ENTER</span>
+                <span>↵</span>
+              </button>
+            </div>
+
+            <!-- Bottom Right: Project Counter -->
+            <div class="hud-bottom-right">
+              <span class="current" id="counterCurrent">01</span>
+              <span class="total">/ 04</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Virtual Scroll Track (4 Project Tiles) -->
+        <div id="mainList" class="main-list">
+          <div class="category-wrap" string="" string-repeat="" string-offset-top="-50%" string-offset-bottom="-50%">
+
+            <!-- PROJECT 01: Resume Screening Agent -->
+            <div class="i -inview" id="proj-0" data-key="0" data-name="Resume Screening Agent" string="progress|lerp">
+              <article class="project-card-tile">
+                <div class="tile-media">
+                  <div class="tile-index-badge">
+                    <span class="dot"></span>
+                    <span>PROJECT 01</span>
+                  </div>
+                  <img src="/images/projects/resume-screening-art.jpg" alt="Resume Screening Agent Neural Mesh">
+                  <div class="tile-media-overlay"></div>
+                </div>
+                <div class="tile-content">
+                  <div class="tile-info-top">
+                    <span class="tile-subtitle">Explicit Rubric · Demographic Bias Audit</span>
+                    <h2 class="tile-title">AI Resume Screening Agent with Bias Audit</h2>
+                    <p class="tile-desc">
+                      Autonomous agent that scores candidates against explicit job rubrics with deterministic arithmetic, preventing LLM scoring drift while auditing disparate impact across demographic proxies.
+                    </p>
+                    <div class="tile-tags">
+                      <span class="tile-tag-pill">FastAPI</span>
+                      <span class="tile-tag-pill">Streamlit</span>
+                      <span class="tile-tag-pill">Qwen2.5</span>
+                      <span class="tile-tag-pill">SQLAlchemy</span>
+                      <span class="tile-tag-pill">pdfplumber</span>
+                    </div>
+                  </div>
+                  <div class="tile-actions">
+                    <button class="btn-detail" onclick="openModal('resume-screening')">
+                      <span>View Details</span>
+                      <span>→</span>
+                    </button>
+                    <a href="https://github.com/himanshuaggarwal04380/resume-screening-agent" target="_blank" rel="noopener" class="btn-icon-link">
+                      <svg><use href="#icon-github"></use></svg>
+                      <span>Code</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- PROJECT 02: Traffic Intelligence -->
+            <div class="i" id="proj-1" data-key="1" data-name="Traffic Intelligence" string="progress|lerp">
+              <article class="project-card-tile">
+                <div class="tile-media">
+                  <div class="tile-index-badge">
+                    <span class="dot"></span>
+                    <span>PROJECT 02</span>
+                  </div>
+                  <img src="/images/projects/traffic-intelligence-art.jpg" alt="Traffic Intelligence Spatio-Temporal Mesh">
+                  <div class="tile-media-overlay"></div>
+                </div>
+                <div class="tile-content">
+                  <div class="tile-info-top">
+                    <span class="tile-subtitle">Multi-Model Forecasting &amp; Time-Series</span>
+                    <h2 class="tile-title">Traffic Intelligence</h2>
+                    <p class="tile-desc">
+                      Predictive forecasting engine analyzing 48,000+ highway observations. Benchmarks ARIMA, SARIMA, Prophet, and XGBoost (+20% accuracy gain) alongside live meteorological correlations.
+                    </p>
+                    <div class="tile-tags">
+                      <span class="tile-tag-pill">ARIMA</span>
+                      <span class="tile-tag-pill">SARIMA</span>
+                      <span class="tile-tag-pill">Prophet</span>
+                      <span class="tile-tag-pill">XGBoost</span>
+                      <span class="tile-tag-pill">Streamlit</span>
+                    </div>
+                  </div>
+                  <div class="tile-actions">
+                    <button class="btn-detail" onclick="openModal('traffic-intelligence')">
+                      <span>View Details</span>
+                      <span>→</span>
+                    </button>
+                    <a href="https://trafficintelligence.streamlit.app/" target="_blank" rel="noopener" class="btn-icon-link">
+                      <svg><use href="#icon-external"></use></svg>
+                      <span>Live App</span>
+                    </a>
+                    <a href="https://github.com/himanshuaggarwal04380/Traffic-Intelligence" target="_blank" rel="noopener" class="btn-icon-link">
+                      <svg><use href="#icon-github"></use></svg>
+                      <span>Code</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- PROJECT 03: Movies System -->
+            <div class="i" id="proj-2" data-key="2" data-name="Movies System" string="progress|lerp">
+              <article class="project-card-tile">
+                <div class="tile-media">
+                  <div class="tile-index-badge">
+                    <span class="dot"></span>
+                    <span>PROJECT 03</span>
+                  </div>
+                  <img src="/images/projects/movies-system-art.jpg" alt="Movies System Vector Topology">
+                  <div class="tile-media-overlay"></div>
+                </div>
+                <div class="tile-content">
+                  <div class="tile-info-top">
+                    <span class="tile-subtitle">Vector Cosine Similarity &amp; NLP</span>
+                    <h2 class="tile-title">Movies System</h2>
+                    <p class="tile-desc">
+                      Netflix-inspired content recommendation engine computing high-dimensional vector cosine similarities over cast, director, keyword, and plot embeddings with dynamic TMDB API ingestion.
+                    </p>
+                    <div class="tile-tags">
+                      <span class="tile-tag-pill">Vector Cosine</span>
+                      <span class="tile-tag-pill">TMDB API</span>
+                      <span class="tile-tag-pill">Streamlit</span>
+                      <span class="tile-tag-pill">NLP</span>
+                      <span class="tile-tag-pill">Scikit-Learn</span>
+                    </div>
+                  </div>
+                  <div class="tile-actions">
+                    <button class="btn-detail" onclick="openModal('movies-system')">
+                      <span>View Details</span>
+                      <span>→</span>
+                    </button>
+                    <a href="https://moviessystem.streamlit.app/" target="_blank" rel="noopener" class="btn-icon-link">
+                      <svg><use href="#icon-external"></use></svg>
+                      <span>Live App</span>
+                    </a>
+                    <a href="https://github.com/himanshuaggarwal04380/MoviesSystem" target="_blank" rel="noopener" class="btn-icon-link">
+                      <svg><use href="#icon-github"></use></svg>
+                      <span>Code</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- PROJECT 04: MuseoSpace -->
+            <div class="i" id="proj-3" data-key="3" data-name="MuseoSpace" string="progress|lerp">
+              <article class="project-card-tile">
+                <div class="tile-media">
+                  <div class="tile-index-badge">
+                    <span class="dot"></span>
+                    <span>PROJECT 04</span>
+                  </div>
+                  <img src="/images/projects/museospace-art.jpg" alt="MuseoSpace 3D Gallery Pavilion">
+                  <div class="tile-media-overlay"></div>
+                </div>
+                <div class="tile-content">
+                  <div class="tile-info-top">
+                    <span class="tile-subtitle">Interactive 3D Art &amp; Atmospheric Audio</span>
+                    <h2 class="tile-title">MuseoSpace</h2>
+                    <p class="tile-desc">
+                      Atmospheric virtual digital gallery inviting visitors into curated architectural exhibitions with ambient spatial acoustics, progressive artwork discovery, and fluid tactile navigation.
+                    </p>
+                    <div class="tile-tags">
+                      <span class="tile-tag-pill">HTML5 / CSS3</span>
+                      <span class="tile-tag-pill">JavaScript</span>
+                      <span class="tile-tag-pill">Audio Ambience</span>
+                      <span class="tile-tag-pill">Netlify</span>
+                      <span class="tile-tag-pill">UI/UX</span>
+                    </div>
+                  </div>
+                  <div class="tile-actions">
+                    <button class="btn-detail" onclick="openModal('museospace')">
+                      <span>View Details</span>
+                      <span>→</span>
+                    </button>
+                    <a href="https://museospace.netlify.app/" target="_blank" rel="noopener" class="btn-icon-link">
+                      <svg><use href="#icon-external"></use></svg>
+                      <span>Live App</span>
+                    </a>
+                    <a href="https://github.com/himanshuaggarwal04380/MuseoSpace" target="_blank" rel="noopener" class="btn-icon-link">
+                      <svg><use href="#icon-github"></use></svg>
+                      <span>Code</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <!-- Detail Modal Dialog -->
+  <div id="project-modal" class="project-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card" id="modalCard">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+        <svg width="14" height="14"><use href="#icon-close"></use></svg>
+      </button>
+      <div class="modal-media-frame">
+        <img id="mImg" src="/images/projects/resume-screening.png" alt="Project Screenshot">
+      </div>
+      <div class="modal-header">
+        <h3 id="mTitle">AI Resume Screening Agent with Bias Audit</h3>
+        <p id="mSubtitle">Explicit Rubric · Demographic Bias Audit · Deterministic Scoring</p>
+      </div>
+      <div class="modal-body" id="mDesc">
+        An intelligent autonomous agent that extracts structured candidate profiles from resumes and scores them against job descriptions using an explicit, deterministic rubric with demographic bias auditing.
+      </div>
+      <div class="modal-highlights" id="mHighlights">
+        <!-- Injected dynamically -->
+      </div>
+      <div class="modal-footer">
+        <a id="mLiveBtn" href="#" target="_blank" rel="noopener" class="btn-detail">
+          <span>Explore Live App</span>
+          <svg width="14" height="14"><use href="#icon-external"></use></svg>
+        </a>
+        <a id="mGitBtn" href="#" target="_blank" rel="noopener" class="btn-icon-link">
+          <svg><use href="#icon-github"></use></svg>
+          <span>GitHub Repository</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Data Dictionary & Kinematics Engine -->
+  <script>
+    const PROJECTS_DATA = {
+      'resume-screening': {
+        title: 'AI Resume Screening Agent with Bias Audit',
+        subtitle: 'Explicit Rubric · Demographic Bias Audit · Deterministic Scoring',
+        headerTitle: '01. RESUME SCREENING /',
+        tags: ['FASTAPI', 'STREAMLIT', 'QWEN2.5', 'SQLALCHEMY', 'PDFPLUMBER'],
+        image: '/images/projects/resume-screening.png',
+        desc: 'An intelligent autonomous agent that extracts structured candidate profiles from resumes and scores them against job descriptions using an explicit, deterministic rubric. Goes beyond typical AI screening by auditing evaluations for scoring bias across demographic proxies.',
+        highlights: [
+          'Deterministic arithmetic scoring prevents LLM hallucinations and ensures 100% explainability.',
+          'Demographic proxy auditing layer tests for disparate impact and score variance.',
+          'Stress-tested across 180+ resume benchmarks with structured rubric weights.'
+        ],
+        live: 'https://github.com/himanshuaggarwal04380/resume-screening-agent',
+        github: 'https://github.com/himanshuaggarwal04380/resume-screening-agent'
+      },
+      'traffic-intelligence': {
+        title: 'Traffic Intelligence',
+        subtitle: 'Multi-Model Forecasting & Historical Analysis System',
+        headerTitle: '02. TRAFFIC INTELLIGENCE /',
+        tags: ['ARIMA', 'SARIMA', 'PROPHET', 'XGBOOST', 'TIME-SERIES'],
+        image: '/images/projects/traffic-intelligence.png',
+        desc: 'End-to-end traffic data analysis system that investigates historical traffic behavior, weather correlations, and complex temporal seasonality. Evaluates and benchmarks classical econometric forecasting against modern machine learning models.',
+        highlights: [
+          '48,204 historical traffic observations analyzed from Metro Interstate Highway dataset.',
+          'Model Comparison: ARIMA, SARIMA, Facebook Prophet, and XGBoost (+20% accuracy boost).',
+          'Interactive live dashboard with data exploration, diagnostics, and next-day traffic estimation.'
+        ],
+        live: 'https://trafficintelligence.streamlit.app/',
+        github: 'https://github.com/himanshuaggarwal04380/Traffic-Intelligence'
+      },
+      'movies-system': {
+        title: 'Movies System',
+        subtitle: 'AI-Powered Content-Based Movie Recommendation Engine',
+        headerTitle: '03. MOVIES SYSTEM /',
+        tags: ['VECTOR COSINE', 'TMDB API', 'STREAMLIT', 'NLP', 'PYTHON'],
+        image: '/images/projects/movies-system.png',
+        desc: 'A Netflix-inspired movie recommendation platform powered by natural language processing and vector cosine similarity over cast, crew, genre, and overview metadata dynamically fetched from the TMDB API.',
+        highlights: [
+          'High-affinity content-based recommendations using vector cosine similarity.',
+          'Polished Netflix-inspired dark UI with instant interactive query suggestions.',
+          'Dynamic metadata and high-res poster integration via TMDB API.'
+        ],
+        live: 'https://moviessystem.streamlit.app/',
+        github: 'https://github.com/himanshuaggarwal04380/MoviesSystem'
+      },
+      'museospace': {
+        title: 'MuseoSpace',
+        subtitle: 'Step into a Digital Museum — Art, Stories & Atmosphere',
+        headerTitle: '04. MUSEOSPACE /',
+        tags: ['HTML5 / CSS3', 'JAVASCRIPT', 'AUDIO AMBIENCE', 'NETLIFY', 'UI/UX'],
+        image: '/images/projects/museospace.png',
+        desc: 'An atmospheric virtual digital museum where visitors can step into curated art exhibitions, discover historical narratives, enjoy ambient spatial music, and experience interactive digital artistry.',
+        highlights: [
+          'Immersive atmospheric virtual tour with interactive art curation.',
+          'Spatial background music and visual transitions.',
+          'Deployed live on Netlify with ultra-responsive static architecture.'
+        ],
+        live: 'https://museospace.netlify.app/',
+        github: 'https://github.com/himanshuaggarwal04380/MuseoSpace'
+      }
+    };
+
+    const PROJECT_KEYS = ['resume-screening', 'traffic-intelligence', 'movies-system', 'museospace'];
+
+    // DOM Elements
+    const scroller = document.getElementById('scroll-container');
+    const items = [
+      document.getElementById('proj-0'),
+      document.getElementById('proj-1'),
+      document.getElementById('proj-2'),
+      document.getElementById('proj-3')
+    ];
+    const hudActiveTitle = document.getElementById('hudActiveTitle');
+    const hudTechGroup = document.getElementById('hudTechGroup');
+    const counterCurrent = document.getElementById('counterCurrent');
+    const hdrProgress = document.getElementById('hdrProgress');
+
+    let activeIndex = 0;
+
+    // Kinematics Calculation Loop
+    function updateKinematics() {
+      if (!scroller) return;
+
+      const scrollTop = scroller.scrollTop;
+      const scrollHeight = scroller.scrollHeight - scroller.clientHeight;
+      const totalProgress = scrollHeight > 0 ? (scrollTop / scrollHeight) : 0;
+      
+      // Update header percentage
+      if (hdrProgress) {
+        hdrProgress.textContent = `${Math.round(totalProgress * 100)}%`;
+      }
+
+      const viewportH = window.innerHeight;
+      let closestDist = Infinity;
+      let closestIndex = 0;
+
+      items.forEach((item, index) => {
+        if (!item) return;
+        const rect = item.getBoundingClientRect();
+        
+        // StringTune formula for progress:
+        // When item center is at viewport bottom -> progress = 0
+        // When item center is at viewport center -> progress = 0.5
+        // When item center is at viewport top -> progress = 1.0
+        const itemCenterY = rect.top + rect.height / 2;
+        const rawProgress = (viewportH - itemCenterY) / viewportH;
+        const clampedProgress = Math.max(0, Math.min(1, rawProgress));
+
+        item.style.setProperty('--progress', clampedProgress.toFixed(4));
+
+        // Center proximity
+        const distFromCenter = Math.abs(clampedProgress - 0.5);
+        if (distFromCenter < closestDist) {
+          closestDist = distFromCenter;
+          closestIndex = index;
+        }
+
+        // Enable pointer events when card is near center
+        if (distFromCenter < 0.22) {
+          item.classList.add('-pointed');
+        } else {
+          item.classList.remove('-pointed');
+        }
+      });
+
+      // Synchronize HUD with focused project
+      if (closestIndex !== activeIndex) {
+        activeIndex = closestIndex;
+        const key = PROJECT_KEYS[activeIndex];
+        const data = PROJECTS_DATA[key];
+        if (data) {
+          hudActiveTitle.textContent = data.headerTitle;
+          counterCurrent.textContent = `0${activeIndex + 1}`;
+          
+          // Update tags
+          hudTechGroup.innerHTML = '';
+          data.tags.forEach(t => {
+            const span = document.createElement('span');
+            span.className = 'hud-tag';
+            span.textContent = t;
+            hudTechGroup.appendChild(span);
+          });
+        }
+      }
+    }
+
+    scroller.addEventListener('scroll', () => {
+      requestAnimationFrame(updateKinematics);
+    }, { passive: true });
+
+    window.addEventListener('resize', updateKinematics, { passive: true });
+    window.addEventListener('DOMContentLoaded', updateKinematics);
+    setTimeout(updateKinematics, 100);
+
+    // Keyboard & Button Navigation (W/S/Enter)
+    function scrollToProject(index) {
+      if (index < 0 || index >= items.length) return;
+      const target = items[index];
+      if (!target) return;
+      
+      const itemTop = target.offsetTop;
+      const targetScroll = itemTop - (window.innerHeight - target.clientHeight) / 2;
+      
+      scroller.scrollTo({
+        top: Math.max(0, targetScroll),
+        behavior: 'smooth'
+      });
+    }
+
+    document.getElementById('btnPrev').addEventListener('click', () => {
+      scrollToProject(Math.max(0, activeIndex - 1));
+    });
+
+    document.getElementById('btnNext').addEventListener('click', () => {
+      scrollToProject(Math.min(items.length - 1, activeIndex + 1));
+    });
+
+    document.getElementById('btnOpenModal').addEventListener('click', () => {
+      openModal(PROJECT_KEYS[activeIndex]);
+    });
+
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('project-modal');
+      const isModalOpen = modal && modal.classList.contains('-active');
+
+      if (e.key === 'Escape' && isModalOpen) {
+        closeModal();
+        return;
+      }
+
+      if (isModalOpen) return;
+
+      if (e.key === 'w' || e.key === 'W' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        scrollToProject(Math.max(0, activeIndex - 1));
+      } else if (e.key === 's' || e.key === 'S' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        scrollToProject(Math.min(items.length - 1, activeIndex + 1));
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        openModal(PROJECT_KEYS[activeIndex]);
+      }
+    });
+
+    // Modal Handlers
+    function openModal(key) {
+      const p = PROJECTS_DATA[key];
+      const modal = document.getElementById('project-modal');
+      if (!p || !modal) return;
+
+      document.getElementById('mImg').src = p.image;
+      document.getElementById('mTitle').textContent = p.title;
+      document.getElementById('mSubtitle').textContent = p.subtitle;
+      document.getElementById('mDesc').textContent = p.desc;
+
+      const hlContainer = document.getElementById('mHighlights');
+      hlContainer.innerHTML = '';
+      p.highlights.forEach(h => {
+        const row = document.createElement('div');
+        row.className = 'highlight-item';
+        row.innerHTML = `<span class="highlight-bullet"></span><span>${h}</span>`;
+        hlContainer.appendChild(row);
+      });
+
+      const liveBtn = document.getElementById('mLiveBtn');
+      if (p.live) {
+        liveBtn.href = p.live;
+        liveBtn.style.display = 'inline-flex';
+      } else {
+        liveBtn.style.display = 'none';
+      }
+
+      document.getElementById('mGitBtn').href = p.github;
+
+      modal.classList.add('-active');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('project-modal');
+      if (modal) {
+        modal.classList.remove('-active');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    }
+
+    document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+    document.getElementById('project-modal').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('project-modal')) {
+        closeModal();
+      }
+    });
+  </script>
+
+  <!-- Load Nuxt and StringTune Client Runtime -->
+  <script type="module" src="/_nuxt/entry.ecbf7bdb.js" crossorigin></script>
+</body>
+</html>

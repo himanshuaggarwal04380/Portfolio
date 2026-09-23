@@ -424,14 +424,7 @@ document.addEventListener('click', function(e) {
     } else if (text === 'projects' || strId === 'skill-hub') {
         e.preventDefault();
         e.stopPropagation();
-        if (window.StringScroller && typeof window.StringScroller.scrollTo === 'function') {
-            window.StringScroller.scrollTo('#projects');
-        } else {
-            const masonry = document.querySelector('#projects') || document.querySelector('.c-masonry');
-            if (masonry) masonry.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        const closeBtn = document.querySelector('.pop-info .close button');
-        if (closeBtn) closeBtn.click();
+        window.location.href = '/projects/';
     } else if (text === 'himanshu' && target.classList.contains('logo')) {
         e.preventDefault();
         if (window.StringScroller && typeof window.StringScroller.scrollTo === 'function') {

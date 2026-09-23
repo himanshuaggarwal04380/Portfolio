@@ -46,6 +46,42 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Cinematic Page Entrance & Exit Veil */
+    #projects-transition-veil {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 99999;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, rgba(6, 8, 11, 0.88) 0%, #06080b 100%);
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 0.42s cubic-bezier(0.25, 1, 0.5, 1), transform 0.42s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    #projects-transition-veil.is-loaded {
+      opacity: 0;
+      transform: scale(1.02);
+      pointer-events: none;
+    }
+
+    #projects-transition-veil.is-exiting {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: all;
+    }
+
+    .page.projects-page {
+      transition: transform 0.42s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.42s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform, opacity;
+    }
+
+    body.page-transitioning .page.projects-page {
+      transform: scale(0.985);
+      opacity: 0.85;
+    }
+
     /* Fixed Projects Samurai Red Moon Atmospheric Background */
     .projects-bg-canvas {
       position: fixed;
@@ -1672,7 +1708,10 @@
     }
   </style>
 </head>
-<body class="-fiddle-digital">
+<body class="-fiddle-digital page-transitioning">
+
+  <!-- Cinematic Page Transition Veil -->
+  <div id="projects-transition-veil" aria-hidden="true"></div>
 
   <!-- Sumi-e Japanese Ink Canvas Layer -->
   <div class="projects-bg-canvas" aria-hidden="true"></div>
@@ -2361,7 +2400,30 @@
       }
     });
 
-    // Main Projects Page Close Button -> History-preserving return to Homepage
+    // Cinematic Entrance Reveal
+    function revealProjectsPage() {
+      requestAnimationFrame(() => {
+        const veil = document.getElementById('projects-transition-veil');
+        if (veil) {
+          veil.classList.remove('is-exiting');
+          veil.classList.add('is-loaded');
+        }
+        document.body.classList.remove('page-transitioning');
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', revealProjectsPage);
+    } else {
+      revealProjectsPage();
+    }
+
+    // Reset veil on browser bfcache restore
+    window.addEventListener('pageshow', () => {
+      revealProjectsPage();
+    });
+
+    // Main Projects Page Close Button -> Smooth return to Homepage
     const projectsCloseBtn = document.getElementById('projectsPageCloseBtn');
     if (projectsCloseBtn) {
       projectsCloseBtn.addEventListener('click', (e) => {
@@ -2374,12 +2436,21 @@
           document.referrer.endsWith('/index.html')
         );
 
-        if (hasHomepageReferrer && window.history.length > 1) {
-          window.history.back();
-        } else {
-          // Direct visit fallback without history loop
-          window.location.href = '/';
+        const veil = document.getElementById('projects-transition-veil');
+        if (veil) {
+          veil.classList.remove('is-loaded');
+          veil.classList.add('is-exiting');
         }
+        document.body.classList.add('page-transitioning');
+
+        setTimeout(() => {
+          if (hasHomepageReferrer && window.history.length > 1) {
+            window.history.back();
+          } else {
+            // Direct visit fallback without history loop
+            window.location.href = '/';
+          }
+        }, 380);
       });
     }
   </script>

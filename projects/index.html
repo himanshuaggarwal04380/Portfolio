@@ -1756,14 +1756,6 @@
               <h1 class="hud-active-title" id="hudActiveTitle">01. RESUME SCREENING /</h1>
             </div>
 
-            <!-- Right Gutter: Active Tech Stack Tags -->
-            <div class="hud-right-gutter" id="hudTechGroup">
-              <span class="hud-tag">FASTAPI</span>
-              <span class="hud-tag">STREAMLIT</span>
-              <span class="hud-tag">QWEN2.5</span>
-              <span class="hud-tag">SQLALCHEMY</span>
-            </div>
-
             <!-- Central Showcase Boundary Frame -->
             <div class="central-showcase-frame"></div>
             <div class="hud-center-hairline"></div>
@@ -2131,7 +2123,6 @@
       document.getElementById('proj-3')
     ];
     const hudActiveTitle = document.getElementById('hudActiveTitle');
-    const hudTechGroup = document.getElementById('hudTechGroup');
     const counterCurrent = document.getElementById('counterCurrent');
     const hdrProgress = document.getElementById('hdrProgress');
 
@@ -2198,15 +2189,6 @@
         if (data) {
           hudActiveTitle.textContent = data.headerTitle;
           counterCurrent.textContent = `0${activeIndex + 1}`;
-          
-          // Update tags
-          hudTechGroup.innerHTML = '';
-          data.tags.forEach(t => {
-            const span = document.createElement('span');
-            span.className = 'hud-tag';
-            span.textContent = t;
-            hudTechGroup.appendChild(span);
-          });
         }
       }
     }

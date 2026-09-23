@@ -1764,14 +1764,11 @@ canvas[data-v-3a63a717] {
 .c-techniques > .-w .i-5[data-v-349e51de] {
   --top: 7;
 }
-.c-techniques > .-w .i-5 .name[data-v-349e51de]:after {
-  font-feature-settings: "ss03", "ss14";
-  content: "—60FPS—";
-  font-family: KHTekaMono;
-  font-size: var(--mm);
-  text-transform: uppercase;
-  vertical-align: super;
-  white-space: nowrap;
+.c-techniques > .-w .i-6[data-v-349e51de] {
+  --top: 8;
+}
+.c-techniques > .-w .i-7[data-v-349e51de] {
+  --top: 9;
 }
 .c-techniques > .-w .minimal[data-v-349e51de] {
   --top: 2;
@@ -1872,15 +1869,23 @@ canvas[data-v-3a63a717] {
   }
   .c-techniques > .-w .i-3[data-v-349e51de] {
     --top: 4;
-    --left: 10;
+    --left: 2;
   }
   .c-techniques > .-w .i-4[data-v-349e51de] {
     --top: 4;
-    --left: 2;
+    --left: 10;
   }
   .c-techniques > .-w .i-5[data-v-349e51de] {
     --top: 5;
     --left: 5;
+  }
+  .c-techniques > .-w .i-6[data-v-349e51de] {
+    --top: 6;
+    --left: 2;
+  }
+  .c-techniques > .-w .i-7[data-v-349e51de] {
+    --top: 6;
+    --left: 10;
   }
   .c-techniques > .-w .minimal[data-v-349e51de] {
     --left: 1;
@@ -1917,7 +1922,7 @@ canvas[data-v-3a63a717] {
     justify-self: end;
   }
   .c-techniques > .-w .ambient-character.-aika[data-v-349e51de] {
-    --top: 6;
+    --top: 7;
     --left: 1;
     --width: 2;
     justify-self: start;

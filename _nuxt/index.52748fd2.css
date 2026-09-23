@@ -3540,45 +3540,25 @@ canvas[data-v-3a63a717] {
 /* ================= DARK JAPANESE EDITORIAL GLASS THEME ================= */
 #projects.c-masonry,
 .c-masonry.-light {
-  background-color: #08090b !important;
-  background: 
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 79, 54, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 85% 95%, rgba(255, 79, 54, 0.05) 0%, transparent 50%),
-    linear-gradient(180deg, #07080a 0%, #0d0f14 50%, #07080a 100%) !important;
+  background-color: #07080a !important;
+  background-image: 
+    radial-gradient(ellipse 85% 70% at 50% 50%, rgba(255, 255, 255, 0.05) 0%, rgba(6, 8, 11, 0.35) 65%, rgba(6, 8, 11, 0.8) 100%),
+    url('/images/home/projects-sumi-bg.jpg') !important;
+  background-position: center top !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
   position: relative !important;
   overflow: hidden !important;
-  padding-top: 5rem !important;
-  padding-bottom: 6rem !important;
+  padding-top: 4.5rem !important;
+  padding-bottom: 3.5rem !important;
   z-index: 20;
 }
 
-/* Sakura background branch silhouette */
-#projects.c-masonry::before {
-  content: '';
-  position: absolute;
-  top: -40px;
-  left: -40px;
-  width: 700px;
-  height: 480px;
-  background: url('/images/home/tree.png') top left / contain no-repeat;
-  filter: invert(1) brightness(0.6) contrast(1.2);
-  opacity: 0.18;
-  pointer-events: none;
-  z-index: 1;
-}
+/* Old pseudo element cleanup */
+#projects.c-masonry::before,
 #projects.c-masonry::after {
-  content: '';
-  position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 650px;
-  height: 450px;
-  background: url('/images/home/tree.png') top right / contain no-repeat;
-  filter: invert(1) brightness(0.6) contrast(1.2) hue-rotate(180deg);
-  opacity: 0.15;
-  transform: scaleX(-1);
-  pointer-events: none;
-  z-index: 1;
+  display: none !important;
+  content: none !important;
 }
 
 /* Disable old pseudo elements from previous themes */
@@ -3609,16 +3589,16 @@ canvas[data-v-3a63a717] {
 
 /* Bottom Editorial Divider */
 .proj-editorial-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
-  width: 100%;
-  margin-top: 3.5rem;
-  color: rgba(255, 255, 255, 0.4);
-  grid-column: 1 / -1;
-  z-index: 5;
-  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1.25rem !important;
+  width: 100% !important;
+  margin-top: 2rem !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  grid-column: 1 / -1 !important;
+  z-index: 5 !important;
+  position: relative !important;
 }
 .proj-editorial-bottom .line {
   width: 140px;
@@ -3658,22 +3638,21 @@ canvas[data-v-3a63a717] {
   z-index: 5;
 }
 
-/* Dark Frosted Glass Project Cards */
+/* White Translucent Frosted Glass Project Cards */
 .c-masonry .-w .masonry-item.project-card {
-  background: rgba(14, 18, 22, 0.64) !important;
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.015) 100%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(170%) !important;
-  backdrop-filter: blur(28px) saturate(170%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  border-radius: 1.6rem !important;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.035) 55%, rgba(10, 14, 20, 0.48) 100%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
+  backdrop-filter: blur(28px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.32) !important;
+  border-radius: 1.55rem !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.45), inset 0 0 24px 0 rgba(255, 255, 255, 0.03) !important;
   position: relative !important;
   overflow: hidden !important;
-  padding: 2.2rem 2.4rem !important;
+  padding: 1.85rem 2.2rem !important;
   box-sizing: border-box !important;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s ease, background 0.3s ease !important;
   cursor: pointer !important;
-  min-height: 420px !important;
+  min-height: 340px !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
@@ -3682,9 +3661,9 @@ canvas[data-v-3a63a717] {
 
 .c-masonry .-w .masonry-item.project-card:hover {
   transform: translateY(-6px) !important;
-  background: rgba(20, 25, 32, 0.76) !important;
-  border-color: rgba(255, 255, 255, 0.42) !important;
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.7), 0 0 35px rgba(255, 79, 54, 0.18), inset 0 1px 2px rgba(255, 255, 255, 0.4) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 55%, rgba(15, 20, 28, 0.52) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.55) !important;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.75), 0 0 35px rgba(255, 79, 54, 0.22), inset 0 1px 2px rgba(255, 255, 255, 0.6) !important;
 }
 
 /* 4-card 2x2 grid positioning for desktop */
@@ -3694,7 +3673,7 @@ canvas[data-v-3a63a717] {
     --height: 5 !important;
     --left: 1 !important;
     --width: 7 !important;
-    min-height: 440px !important;
+    min-height: 340px !important;
   }
 
   .c-masonry .-w .performance-supervision[data-v-f2e2227c] {
@@ -3702,7 +3681,7 @@ canvas[data-v-3a63a717] {
     --height: 5 !important;
     --left: 8 !important;
     --width: 7 !important;
-    min-height: 440px !important;
+    min-height: 340px !important;
   }
 
   .c-masonry .-w .ultra-optimized[data-v-f2e2227c] {
@@ -3710,7 +3689,7 @@ canvas[data-v-3a63a717] {
     --height: 5 !important;
     --left: 1 !important;
     --width: 7 !important;
-    min-height: 440px !important;
+    min-height: 340px !important;
   }
 
   .c-masonry .-w .s-container[data-v-f2e2227c] {
@@ -3718,7 +3697,7 @@ canvas[data-v-3a63a717] {
     --height: 5 !important;
     --left: 8 !important;
     --width: 7 !important;
-    min-height: 440px !important;
+    min-height: 340px !important;
   }
 }
 
@@ -3773,14 +3752,15 @@ canvas[data-v-3a63a717] {
 }
 
 /* Top Row Typography & Kanji Metadata */
+/* Top Row Typography & Kanji Metadata */
 .project-card-top {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
   width: 100% !important;
-  margin-bottom: 1.8rem !important;
+  margin-bottom: 1.25rem !important;
   position: relative !important;
-  z-index: 4 !important;
+  z-index: 6 !important;
 }
 .project-card-meta {
   display: flex !important;
@@ -3806,19 +3786,23 @@ canvas[data-v-3a63a717] {
   color: rgba(255, 255, 255, 0.8) !important;
   font-family: var(--font-mono, monospace) !important;
 }
-.project-kanji-wrap {
+.project-card-kanji-wrap {
   display: flex !important;
   align-items: center !important;
   gap: 0.75rem !important;
 }
 .project-vertical-meta {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 0.18rem !important;
   font-size: 0.52rem !important;
-  line-height: 1.25 !important;
-  letter-spacing: 0.1em !important;
-  color: rgba(255, 255, 255, 0.48) !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0.14em !important;
+  color: rgba(255, 255, 255, 0.52) !important;
   font-family: var(--font-mono, monospace) !important;
   text-align: right !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
 }
 .project-kanji-seal {
   display: flex !important;
@@ -3827,7 +3811,7 @@ canvas[data-v-3a63a717] {
 }
 .project-kanji {
   font-size: 1.65rem !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255, 0.92) !important;
   font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif !important;
   line-height: 1 !important;
 }
@@ -3838,7 +3822,7 @@ canvas[data-v-3a63a717] {
   width: 17px !important;
   height: 17px !important;
   border: 1px solid #ff4f36 !important;
-  background: rgba(255, 79, 54, 0.18) !important;
+  background: rgba(255, 79, 54, 0.22) !important;
   color: #ff4f36 !important;
   font-size: 0.55rem !important;
   border-radius: 2px !important;
@@ -3849,7 +3833,7 @@ canvas[data-v-3a63a717] {
 /* Card Body & Info */
 .project-card-body {
   position: relative !important;
-  z-index: 4 !important;
+  z-index: 5 !important;
   display: flex !important;
   align-items: flex-start !important;
   justify-content: space-between !important;
@@ -3857,22 +3841,23 @@ canvas[data-v-3a63a717] {
   width: 100% !important;
 }
 .project-card-info {
-  max-width: 52% !important;
+  max-width: 48% !important;
   z-index: 5 !important;
   text-align: left !important;
+  position: relative !important;
 }
 .project-card-title {
-  font-size: 2.1rem !important;
+  font-size: 1.88rem !important;
   font-weight: 700 !important;
   color: #ffffff !important;
   line-height: 1.12 !important;
-  letter-spacing: -0.035em !important;
+  letter-spacing: -0.03em !important;
   margin: 0 0 0.5rem 0 !important;
   font-family: var(--font, "KHTeka", sans-serif) !important;
 }
 .project-card-subtitle {
-  font-size: 0.96rem !important;
-  color: rgba(255, 255, 255, 0.65) !important;
+  font-size: 0.98rem !important;
+  color: rgba(255, 255, 255, 0.7) !important;
   margin-bottom: 0.95rem !important;
   font-weight: 400 !important;
   letter-spacing: -0.01em !important;
@@ -3881,61 +3866,64 @@ canvas[data-v-3a63a717] {
   width: 32px !important;
   height: 2px !important;
   background: #ff4f36 !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: 1.1rem !important;
   border-radius: 2px !important;
 }
 .project-card-desc {
-  font-size: 0.82rem !important;
-  line-height: 1.48 !important;
-  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 0.84rem !important;
+  line-height: 1.5 !important;
+  color: rgba(255, 255, 255, 0.74) !important;
   margin: 0 !important;
   font-weight: 400 !important;
+  max-width: 320px !important;
 }
 
 /* Card Visual Image Mask */
 .project-card-visual {
   position: absolute !important;
-  right: -1rem !important;
-  bottom: -0.75rem !important;
-  top: -0.5rem !important;
-  width: 55% !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  top: 0 !important;
+  width: 58% !important;
   pointer-events: none !important;
   overflow: hidden !important;
   display: flex !important;
   align-items: center !important;
   justify-content: flex-end !important;
-  z-index: 3 !important;
+  z-index: 2 !important;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 20%, black 50%) !important;
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 20%, black 50%) !important;
 }
 .project-card-visual img {
   width: 100% !important;
   height: 100% !important;
-  max-height: 320px !important;
-  object-fit: contain !important;
-  object-position: right center !important;
-  -webkit-mask-image: radial-gradient(ellipse 90% 90% at 75% 50%, black 45%, transparent 95%) !important;
-  mask-image: radial-gradient(ellipse 90% 90% at 75% 50%, black 45%, transparent 95%) !important;
-  transition: transform 0.5s ease !important;
+  object-fit: cover !important;
+  object-position: center right !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  opacity: 0.95 !important;
 }
 .c-masonry .-w .masonry-item.project-card:hover .project-card-visual img {
   transform: scale(1.04) !important;
+  opacity: 1 !important;
 }
 
 /* Action Arrow Button */
 .project-card-action {
   position: absolute !important;
-  right: 2rem !important;
-  bottom: 2rem !important;
+  right: 2.2rem !important;
+  bottom: 2.2rem !important;
   width: 44px !important;
   height: 44px !important;
   border-radius: 50% !important;
-  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.42) !important;
   background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(8px) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   color: #ffffff !important;
   z-index: 10 !important;
-  transition: all 0.3s ease !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 .project-card-action svg {
   width: 18px !important;
@@ -3943,10 +3931,10 @@ canvas[data-v-3a63a717] {
   transition: transform 0.3s ease !important;
 }
 .c-masonry .-w .masonry-item.project-card:hover .project-card-action {
-  background: #ff4f36 !important;
+  background: rgba(255, 79, 54, 0.9) !important;
   border-color: #ff4f36 !important;
   transform: scale(1.08) !important;
-  box-shadow: 0 4px 15px rgba(255, 79, 54, 0.5) !important;
+  box-shadow: 0 4px 18px rgba(255, 79, 54, 0.5) !important;
 }
 .c-masonry .-w .masonry-item.project-card:hover .project-card-action svg {
   transform: translateX(2px) !important;

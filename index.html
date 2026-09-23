@@ -194,26 +194,7 @@ footer .-w .the-name[data-v-79f9894c]:after {
         fill: #fff !important;
       }
 
-      /* Translucent 4 project tiles */
-      .c-masonry .-w .masonry-item,
-      .c-masonry .-w .masonry-item.project-card,
-      .c-masonry .-w .masonry-item.control-progress,
-      .c-masonry .-w .masonry-item.performance-supervision,
-      .c-masonry .-w .masonry-item.ultra-optimized,
-      .c-masonry .-w .masonry-item.s-container {
-        background: rgba(255, 255, 255, 0.22) !important;
-        background-color: rgba(255, 255, 255, 0.22) !important;
-        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-        backdrop-filter: blur(20px) saturate(180%) !important;
-        border: 1px solid rgba(255, 255, 255, 0.5) !important;
-        box-shadow: 0 10px 35px rgba(16, 18, 20, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.7) !important;
-      }
-      .c-masonry .-w .masonry-item:hover,
-      .c-masonry .-w .masonry-item.project-card:hover {
-        background: rgba(255, 255, 255, 0.55) !important;
-        background-color: rgba(255, 255, 255, 0.55) !important;
-        border-color: rgba(255, 79, 54, 0.45) !important;
-      }
+
 
       /* Failsafe to ensure black loading overlay never gets stuck */
       .page-overlay {
@@ -1047,6 +1028,177 @@ document.addEventListener('click', function(e) {
             openProjectModal(projId);
         }
     }, true);
+})();
+</script>
+
+<script>
+(function initJapaneseProjectsTheme() {
+    function applyTheme() {
+        const sec = document.querySelector('#projects');
+        if (!sec) return;
+
+        // Ensure vertical side text and corners exist on the section
+        if (!sec.querySelector('.proj-editorial-side')) {
+            const side = document.createElement('div');
+            side.className = 'proj-editorial-side';
+            side.textContent = '継続は力なり';
+            sec.appendChild(side);
+        }
+        if (!sec.querySelector('.proj-editorial-corner-bl')) {
+            const bl = document.createElement('div');
+            bl.className = 'proj-editorial-corner-bl';
+            bl.innerHTML = 'CODE / LEARN / CREATE<br>A BETTER TOMORROW';
+            sec.appendChild(bl);
+        }
+        if (!sec.querySelector('.proj-editorial-corner-br')) {
+            const br = document.createElement('div');
+            br.className = 'proj-editorial-corner-br';
+            br.innerHTML = 'HIMANSHU PORTFOLIO<br>2026 EDITION';
+            sec.appendChild(br);
+        }
+
+        const cardsData = {
+            'control-progress': {
+                id: 'resume-screening',
+                num: '01',
+                cat: 'AI / NLP',
+                kanji: '知',
+                seal: '顕',
+                title: 'Resume<br>Screening Agent',
+                subtitle: 'Bias Audit',
+                desc: 'From job description to top talent.<br>Smarter, fairer, faster.',
+                img: '/images/projects/resume-screening.png'
+            },
+            'performance-supervision': {
+                id: 'traffic-intelligence',
+                num: '02',
+                cat: 'DATA SCIENCE',
+                vmeta: 'PREDICT<br>ANALYZE<br>OPTIMIZE',
+                kanji: '道',
+                seal: '道',
+                title: 'Traffic<br>Intelligence',
+                subtitle: 'Multi-Model Forecast',
+                desc: 'Traffic Data Analysis, Time-Series<br>Modeling & Next-Day Result Showcase.',
+                img: '/images/projects/traffic-intelligence.png'
+            },
+            'ultra-optimized': {
+                id: 'movies-system',
+                num: '03',
+                cat: 'RECOMMENDATION SYSTEM',
+                kanji: '映',
+                seal: '映',
+                title: 'Movies<br>System',
+                subtitle: 'Movie Recommendation',
+                desc: "Discover movies you'll love with<br>personalized recommendations.",
+                img: '/images/projects/movies-system.png'
+            },
+            's-container': {
+                id: 'museospace',
+                num: '04',
+                cat: 'WEB TECHNOLOGIES',
+                vmeta: 'ART<br>PEOPLE<br>STORIES<br>FOREVER',
+                kanji: '美',
+                seal: '美',
+                title: 'MuseoSpace',
+                subtitle: 'Virtual Digital Museum',
+                desc: 'A virtual art exhibition platform<br>to explore, showcase and celebrate art.',
+                img: '/images/projects/museospace.png'
+            }
+        };
+
+        const w = sec.querySelector('.-w');
+        if (!w) return;
+
+        Object.keys(cardsData).forEach(cls => {
+            const card = w.querySelector('.' + cls);
+            if (!card) return;
+            const d = cardsData[cls];
+            card.classList.add('project-card');
+            card.setAttribute('data-project', d.id);
+            if (!card.querySelector('.project-card-top')) {
+                card.innerHTML = `
+                    <div class="project-card-top">
+                        <div class="project-card-meta">
+                            <span class="project-num">${d.num}</span>
+                            <span class="project-meta-line"></span>
+                            <span class="project-cat">${d.cat}</span>
+                        </div>
+                        <div class="project-card-kanji-wrap">
+                            ${d.vmeta ? `<div class="project-vertical-meta">${d.vmeta}</div>` : ''}
+                            <div class="project-kanji-seal">
+                                <span class="project-kanji">${d.kanji}</span>
+                                <span class="project-seal">${d.seal}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-info">
+                            <h3 class="project-card-title">${d.title}</h3>
+                            <div class="project-card-subtitle">${d.subtitle}</div>
+                            <div class="project-red-divider"></div>
+                            <p class="project-card-desc">${d.desc}</p>
+                        </div>
+                        <div class="project-card-visual">
+                            <img src="${d.img}" alt="${d.id}">
+                        </div>
+                    </div>
+                    <div class="project-card-action" aria-label="Open project details">
+                        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.5 10H15.5M11 5.5L15.5 10L11 14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                `;
+            }
+        });
+
+        if (!w.querySelector('.proj-editorial-bottom')) {
+            const bottom = document.createElement('div');
+            bottom.className = 'proj-editorial-bottom';
+            bottom.innerHTML = `
+                <span class="line"></span>
+                <span class="diamond">◇</span>
+                <span class="line"></span>
+            `;
+            w.appendChild(bottom);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', applyTheme);
+    } else {
+        applyTheme();
+    }
+    window.addEventListener('load', applyTheme);
+    setTimeout(applyTheme, 100);
+    setTimeout(applyTheme, 500);
+    setTimeout(applyTheme, 1500);
+
+    const targetNode = document.querySelector('#projects');
+    if (targetNode) {
+        const observer = new MutationObserver(function() {
+            const sampleCard = targetNode.querySelector('.control-progress');
+            if (sampleCard && !sampleCard.querySelector('.project-card-top')) {
+                applyTheme();
+            }
+        });
+        observer.observe(targetNode, { childList: true, subtree: true });
+    }
+
+    // Active pill indicator for header Projects button
+    const projHeaderBtn = document.querySelector('header nav.info a[href="#projects"]');
+    const projectsSection = document.querySelector('#projects');
+    if (projHeaderBtn && projectsSection && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    projHeaderBtn.classList.add('nav-pill-active');
+                } else {
+                    projHeaderBtn.classList.remove('nav-pill-active');
+                }
+            });
+        }, { threshold: 0.2 });
+        io.observe(projectsSection);
+    }
 })();
 </script>
 

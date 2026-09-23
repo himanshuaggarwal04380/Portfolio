@@ -3537,39 +3537,154 @@ canvas[data-v-3a63a717] {
   visibility: hidden !important;
 }
 
-/* ================= 4 PROJECT CARDS CLEAN LAYOUT ================= */
+/* ================= DARK JAPANESE EDITORIAL GLASS THEME ================= */
+#projects.c-masonry,
 .c-masonry.-light {
-  background-color: var(--c-grey) !important;
-  padding-top: var(--h2);
-  padding-bottom: var(--h1);
-  position: relative;
+  background-color: #08090b !important;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 79, 54, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 95%, rgba(255, 79, 54, 0.05) 0%, transparent 50%),
+    linear-gradient(180deg, #07080a 0%, #0d0f14 50%, #07080a 100%) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding-top: 5rem !important;
+  padding-bottom: 6rem !important;
   z-index: 20;
 }
 
-.c-masonry .-w .masonry-item {
-  background: rgba(255, 255, 255, 0.22) !important;
-  background-color: rgba(255, 255, 255, 0.22) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  border-radius: 1.5rem !important;
-  box-shadow: 0 10px 35px rgba(16, 18, 20, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.7) !important;
-  border: 1px solid rgba(255, 255, 255, 0.5) !important;
-  overflow: hidden !important;
-  transition:
-    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 0.4s ease,
-    background-color 0.3s ease,
-    border-color 0.3s ease !important;
+/* Sakura background branch silhouette */
+#projects.c-masonry::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 700px;
+  height: 480px;
+  background: url('/images/home/tree.png') top left / contain no-repeat;
+  filter: invert(1) brightness(0.6) contrast(1.2);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 1;
+}
+#projects.c-masonry::after {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 650px;
+  height: 450px;
+  background: url('/images/home/tree.png') top right / contain no-repeat;
+  filter: invert(1) brightness(0.6) contrast(1.2) hue-rotate(180deg);
+  opacity: 0.15;
+  transform: scaleX(-1);
+  pointer-events: none;
+  z-index: 1;
 }
 
-.c-masonry .-w .masonry-item:hover {
-  background: rgba(255, 255, 255, 0.55) !important;
-  background-color: rgba(255, 255, 255, 0.55) !important;
-  transform: translateY(-6px) scale(1.01) !important;
-  box-shadow:
-    0 20px 45px rgba(255, 79, 54, 0.14),
-    0 10px 30px rgba(16, 18, 20, 0.1) !important;
-  border-color: rgba(255, 79, 54, 0.45) !important;
+/* Disable old pseudo elements from previous themes */
+.c-masonry .-w .masonry-item:before,
+.c-masonry .-w .masonry-item:after,
+.c-masonry .-w .masonry-item .content:before,
+.c-masonry .-w .masonry-item .content:after,
+.c-masonry .-w .masonry-item figure:before,
+.c-masonry .-w .masonry-item figure:after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Japanese Editorial Text on Right Edge */
+.proj-editorial-side {
+  position: absolute;
+  right: 1.5rem;
+  top: 28%;
+  writing-mode: vertical-rl;
+  color: rgba(255, 255, 255, 0.25);
+  font-family: serif, "KHTeka", sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.5em;
+  user-select: none;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Bottom Editorial Divider */
+.proj-editorial-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 100%;
+  margin-top: 3.5rem;
+  color: rgba(255, 255, 255, 0.4);
+  grid-column: 1 / -1;
+  z-index: 5;
+  position: relative;
+}
+.proj-editorial-bottom .line {
+  width: 140px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+}
+.proj-editorial-bottom .diamond {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1;
+}
+
+/* Editorial Corners */
+.proj-editorial-corner-bl {
+  position: absolute;
+  bottom: 2rem;
+  left: 2.5rem;
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 0.65rem;
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+  font-family: var(--font-mono, monospace);
+  pointer-events: none;
+  z-index: 5;
+}
+.proj-editorial-corner-br {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 0.65rem;
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+  font-family: var(--font-mono, monospace);
+  text-align: right;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Dark Frosted Glass Project Cards */
+.c-masonry .-w .masonry-item.project-card {
+  background: rgba(14, 18, 22, 0.64) !important;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.015) 100%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(170%) !important;
+  backdrop-filter: blur(28px) saturate(170%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 1.6rem !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 2.2rem 2.4rem !important;
+  box-sizing: border-box !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s ease, background 0.3s ease !important;
+  cursor: pointer !important;
+  min-height: 420px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  text-align: left !important;
+}
+
+.c-masonry .-w .masonry-item.project-card:hover {
+  transform: translateY(-6px) !important;
+  background: rgba(20, 25, 32, 0.76) !important;
+  border-color: rgba(255, 255, 255, 0.42) !important;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.7), 0 0 35px rgba(255, 79, 54, 0.18), inset 0 1px 2px rgba(255, 255, 255, 0.4) !important;
 }
 
 /* 4-card 2x2 grid positioning for desktop */
@@ -3579,7 +3694,7 @@ canvas[data-v-3a63a717] {
     --height: 5 !important;
     --left: 1 !important;
     --width: 7 !important;
-    min-height: 460px !important;
+    min-height: 440px !important;
   }
 
   .c-masonry .-w .performance-supervision[data-v-f2e2227c] {
@@ -3587,7 +3702,7 @@ canvas[data-v-3a63a717] {
     --height: 5 !important;
     --left: 8 !important;
     --width: 7 !important;
-    min-height: 460px !important;
+    min-height: 440px !important;
   }
 
   .c-masonry .-w .ultra-optimized[data-v-f2e2227c] {
@@ -3595,7 +3710,7 @@ canvas[data-v-3a63a717] {
     --height: 5 !important;
     --left: 1 !important;
     --width: 7 !important;
-    min-height: 460px !important;
+    min-height: 440px !important;
   }
 
   .c-masonry .-w .s-container[data-v-f2e2227c] {
@@ -3603,7 +3718,45 @@ canvas[data-v-3a63a717] {
     --height: 5 !important;
     --left: 8 !important;
     --width: 7 !important;
-    min-height: 460px !important;
+    min-height: 440px !important;
+  }
+}
+
+/* Mobile & Tablet responsive adjustments */
+@media (max-width: 1023px) {
+  .c-masonry .-w {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+  .c-masonry .-w .masonry-item.project-card {
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 1.8rem 1.6rem !important;
+  }
+  .project-card-info {
+    max-width: 100% !important;
+  }
+  .project-card-visual {
+    position: relative !important;
+    right: auto !important;
+    bottom: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    margin-top: 1.25rem !important;
+    justify-content: center !important;
+  }
+  .project-card-visual img {
+    max-height: 220px !important;
+    object-position: center !important;
+  }
+  .project-card-action {
+    position: static !important;
+    margin-top: 1.25rem !important;
+    align-self: flex-end !important;
+  }
+  .proj-editorial-side {
+    display: none !important;
   }
 }
 
@@ -3614,99 +3767,196 @@ canvas[data-v-3a63a717] {
 .c-masonry .-w .designers-and-designers,
 .c-masonry .-w .cursor-tracking,
 .c-masonry .-w .blend-html-split,
-.c-masonry .-w .position-sticky {
+.c-masonry .-w .position-sticky,
+.c-masonry .-w .masonry-item:not(.project-card) {
   display: none !important;
 }
 
-/* Project Card Inner Content Styling */
-.project-card-inner {
+/* Top Row Typography & Kanji Metadata */
+.project-card-top {
   display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important;
-  padding: 1.75rem 1.75rem 1.5rem !important;
-  text-align: left !important;
-  box-sizing: border-box !important;
+  align-items: center !important;
   justify-content: space-between !important;
-}
-
-.project-card-header {
-  margin-bottom: 1rem;
-}
-
-.project-badge {
-  display: inline-block;
-  color: #ff4f36;
-  font-size: 0.72rem;
-  font-family: var(--font-mono, monospace);
-  letter-spacing: 0.08em;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-}
-
-.project-card-header .name {
-  color: #101214 !important;
-  font-size: 1.25rem !important;
-  line-height: 1.25 !important;
-  font-weight: 600 !important;
-  margin: 0 0 0.4rem 0 !important;
-  letter-spacing: -0.02em;
-}
-
-.project-card-desc {
-  color: #544d56 !important;
-  font-size: 0.85rem !important;
-  line-height: 1.45 !important;
-  margin: 0 !important;
-}
-
-.project-card-fig {
   width: 100% !important;
-  height: 220px !important;
-  border-radius: 1rem !important;
-  overflow: hidden !important;
-  margin: 0.75rem 0 !important;
-  background: #0d0f11 !important;
-  border: 1px solid rgba(84, 77, 86, 0.12) !important;
+  margin-bottom: 1.8rem !important;
+  position: relative !important;
+  z-index: 4 !important;
 }
-
-.project-card-fig img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
-  transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-card-fig img {
-  transform: scale(1.04);
-}
-
-.project-card-footer {
+.project-card-meta {
   display: flex !important;
-  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+}
+.project-num {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  font-family: var(--font-mono, monospace) !important;
+  letter-spacing: -0.02em !important;
+}
+.project-meta-line {
+  width: 26px !important;
+  height: 1px !important;
+  background: rgba(255, 255, 255, 0.35) !important;
+}
+.project-cat {
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-family: var(--font-mono, monospace) !important;
+}
+.project-kanji-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+}
+.project-vertical-meta {
+  font-size: 0.52rem !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0.1em !important;
+  color: rgba(255, 255, 255, 0.48) !important;
+  font-family: var(--font-mono, monospace) !important;
+  text-align: right !important;
+  font-weight: 500 !important;
+}
+.project-kanji-seal {
+  display: flex !important;
   align-items: center !important;
   gap: 0.4rem !important;
-  margin-top: auto !important;
-  padding-top: 0.75rem !important;
+}
+.project-kanji {
+  font-size: 1.65rem !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif !important;
+  line-height: 1 !important;
+}
+.project-seal {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 17px !important;
+  height: 17px !important;
+  border: 1px solid #ff4f36 !important;
+  background: rgba(255, 79, 54, 0.18) !important;
+  color: #ff4f36 !important;
+  font-size: 0.55rem !important;
+  border-radius: 2px !important;
+  font-family: serif !important;
+  font-weight: bold !important;
 }
 
-.project-pill {
-  background: #f2edf5;
-  border: 1px solid #dfd8e5;
-  color: #3d3540;
-  font-size: 0.7rem;
-  font-family: var(--font-mono, monospace);
-  padding: 0.2rem 0.55rem;
-  border-radius: 1rem;
-  font-weight: 500;
+/* Card Body & Info */
+.project-card-body {
+  position: relative !important;
+  z-index: 4 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  flex: 1 !important;
+  width: 100% !important;
+}
+.project-card-info {
+  max-width: 52% !important;
+  z-index: 5 !important;
+  text-align: left !important;
+}
+.project-card-title {
+  font-size: 2.1rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.035em !important;
+  margin: 0 0 0.5rem 0 !important;
+  font-family: var(--font, "KHTeka", sans-serif) !important;
+}
+.project-card-subtitle {
+  font-size: 0.96rem !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  margin-bottom: 0.95rem !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+}
+.project-red-divider {
+  width: 32px !important;
+  height: 2px !important;
+  background: #ff4f36 !important;
+  margin-bottom: 1rem !important;
+  border-radius: 2px !important;
+}
+.project-card-desc {
+  font-size: 0.82rem !important;
+  line-height: 1.48 !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  margin: 0 !important;
+  font-weight: 400 !important;
 }
 
-.project-cta-hint {
-  margin-left: auto;
-  color: #ff4f36;
-  font-size: 0.8rem;
-  font-weight: 600;
-  font-family: inherit;
+/* Card Visual Image Mask */
+.project-card-visual {
+  position: absolute !important;
+  right: -1rem !important;
+  bottom: -0.75rem !important;
+  top: -0.5rem !important;
+  width: 55% !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  z-index: 3 !important;
+}
+.project-card-visual img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 320px !important;
+  object-fit: contain !important;
+  object-position: right center !important;
+  -webkit-mask-image: radial-gradient(ellipse 90% 90% at 75% 50%, black 45%, transparent 95%) !important;
+  mask-image: radial-gradient(ellipse 90% 90% at 75% 50%, black 45%, transparent 95%) !important;
+  transition: transform 0.5s ease !important;
+}
+.c-masonry .-w .masonry-item.project-card:hover .project-card-visual img {
+  transform: scale(1.04) !important;
+}
+
+/* Action Arrow Button */
+.project-card-action {
+  position: absolute !important;
+  right: 2rem !important;
+  bottom: 2rem !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #ffffff !important;
+  z-index: 10 !important;
+  transition: all 0.3s ease !important;
+}
+.project-card-action svg {
+  width: 18px !important;
+  height: 18px !important;
+  transition: transform 0.3s ease !important;
+}
+.c-masonry .-w .masonry-item.project-card:hover .project-card-action {
+  background: #ff4f36 !important;
+  border-color: #ff4f36 !important;
+  transform: scale(1.08) !important;
+  box-shadow: 0 4px 15px rgba(255, 79, 54, 0.5) !important;
+}
+.c-masonry .-w .masonry-item.project-card:hover .project-card-action svg {
+  transform: translateX(2px) !important;
+}
+
+/* Header Active Projects Pill Glow */
+header nav.info a[href="#projects"].nav-pill-active {
+  border-color: rgba(255, 79, 54, 0.75) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(255, 79, 54, 0.4) !important;
 }
 
 /* ================= TRANSLUCENT DARK THEME PROJECT DETAIL MODAL ================= */
@@ -3827,193 +4077,7 @@ canvas[data-v-3a63a717] {
   transform: translateY(-2px) !important;
 }
 
-/* ================= ALL 4 PROJECT CARDS CONSISTENT STYLING ================= */
-.c-masonry .-w .control-progress[data-v-f2e2227c],
-.c-masonry .-w .performance-supervision[data-v-f2e2227c],
-.c-masonry .-w .ultra-optimized[data-v-f2e2227c],
-.c-masonry .-w .s-container[data-v-f2e2227c] {
-  background-color: var(--c-white) !important;
-  border-radius: 1.5rem !important;
-  box-shadow: 0 10px 35px rgba(16, 18, 20, 0.07) !important;
-  border: 1px solid rgba(84, 77, 86, 0.12) !important;
-  overflow: hidden !important;
-  min-height: 480px !important;
-  display: flex !important;
-  flex-direction: column !important;
-}
 
-.c-masonry .-w .control-progress .content[data-v-f2e2227c],
-.c-masonry .-w .performance-supervision .content[data-v-f2e2227c],
-.c-masonry .-w .ultra-optimized .content[data-v-f2e2227c],
-.c-masonry .-w .s-container .content[data-v-f2e2227c] {
-  background: #ffffff !important;
-  background-image: none !important;
-  color: var(--c-black) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important;
-  height: 100% !important;
-  padding: 1.75rem 1.75rem 1.25rem !important;
-  box-sizing: border-box !important;
-  text-align: center !important;
-}
-
-.c-masonry .-w .masonry-item .content .name[data-v-f2e2227c] {
-  color: #101214 !important;
-  font-size: 1.2rem !important;
-  line-height: 1.3 !important;
-  font-weight: 600 !important;
-  margin-bottom: 0.75rem !important;
-}
-
-.c-masonry .-w .masonry-item .content .name .-c[data-v-f2e2227c] {
-  color: #746a76 !important;
-  font-size: 0.9rem !important;
-  font-weight: 500 !important;
-  display: block !important;
-  margin-top: 0.2rem !important;
-}
-
-.c-masonry .-w .control-progress .content figure[data-v-f2e2227c],
-.c-masonry .-w .performance-supervision .content figure[data-v-f2e2227c],
-.c-masonry .-w .ultra-optimized .content figure[data-v-f2e2227c],
-.c-masonry .-w .s-container .content figure[data-v-f2e2227c] {
-  position: static !important;
-  width: 100% !important;
-  height: 280px !important;
-  border-radius: 1rem !important;
-  overflow: hidden !important;
-  margin-top: auto !important;
-  margin-bottom: 0 !important;
-  padding: 0 !important;
-  background: #0d0f11 !important;
-  border: 1px solid rgba(84, 77, 86, 0.1) !important;
-}
-
-.c-masonry .-w .control-progress .content figure img[data-v-f2e2227c],
-.c-masonry .-w .performance-supervision .content figure img[data-v-f2e2227c],
-.c-masonry .-w .ultra-optimized .content figure img[data-v-f2e2227c],
-.c-masonry .-w .s-container .content figure img[data-v-f2e2227c] {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
-}
-
-.c-masonry .-w .masonry-item:hover figure img {
-  transform: scale(1.04) !important;
-}
-
-/* Hide unwanted overlays on control-progress */
-.c-masonry .-w .control-progress .content .main-progress[data-v-f2e2227c],
-.c-masonry .-w .control-progress .content figure[data-v-f2e2227c]:after,
-.c-masonry .-w .control-progress .content p[data-v-f2e2227c] {
-  display: none !important;
-}
-
-/* ================= FORCE IDENTICAL 4-CARD STYLING ================= */
-.c-masonry .-w .masonry-item.control-progress,
-.c-masonry .-w .masonry-item.performance-supervision,
-.c-masonry .-w .masonry-item.ultra-optimized,
-.c-masonry .-w .masonry-item.s-container {
-  background: rgba(255, 255, 255, 0.22) !important;
-  background-color: rgba(255, 255, 255, 0.22) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  border-radius: 1.5rem !important;
-  box-shadow: 0 10px 35px rgba(16, 18, 20, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.7) !important;
-  border: 1px solid rgba(255, 255, 255, 0.5) !important;
-  overflow: hidden !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important;
-  padding: 1.75rem 1.75rem 1.25rem !important;
-  box-sizing: border-box !important;
-  text-align: center !important;
-  min-height: 480px !important;
-}
-
-.c-masonry .-w .masonry-item.control-progress .content,
-.c-masonry .-w .masonry-item.performance-supervision .content,
-.c-masonry .-w .masonry-item.ultra-optimized .content,
-.c-masonry .-w .masonry-item.s-container .content {
-  background: transparent !important;
-  background-image: none !important;
-  color: #101214 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important;
-  align-items: center !important;
-  height: 100% !important;
-  width: 100% !important;
-  padding: 0 !important;
-  position: static !important;
-  text-align: center !important;
-}
-
-.c-masonry .-w .masonry-item .content .name {
-  color: #101214 !important;
-  font-size: 1.2rem !important;
-  line-height: 1.3 !important;
-  font-weight: 600 !important;
-  margin: 0 0 1rem 0 !important;
-  position: static !important;
-  display: block !important;
-  text-align: center !important;
-  width: 100% !important;
-}
-
-.c-masonry .-w .masonry-item .content .name .-c {
-  color: #746a76 !important;
-  font-size: 0.9rem !important;
-  font-weight: 500 !important;
-  display: block !important;
-  margin-top: 0.25rem !important;
-}
-
-.c-masonry .-w .masonry-item.control-progress figure,
-.c-masonry .-w .masonry-item.performance-supervision figure,
-.c-masonry .-w .masonry-item.ultra-optimized figure,
-.c-masonry .-w .masonry-item.s-container figure {
-  position: static !important;
-  width: 100% !important;
-  height: 300px !important;
-  border-radius: 1rem !important;
-  overflow: hidden !important;
-  margin: auto 0 0 0 !important;
-  padding: 0 !important;
-  background: #0d0f11 !important;
-  border: 1px solid rgba(84, 77, 86, 0.1) !important;
-  display: block !important;
-  inset: auto !important;
-}
-
-.c-masonry .-w .masonry-item.control-progress figure img,
-.c-masonry .-w .masonry-item.performance-supervision figure img,
-.c-masonry .-w .masonry-item.ultra-optimized figure img,
-.c-masonry .-w .masonry-item.s-container figure img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
-  position: static !important;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
-}
-
-.c-masonry .-w .masonry-item:hover figure img {
-  transform: scale(1.04) !important;
-}
-
-/* Eliminate all control-progress pseudo elements and overlays */
-.c-masonry .-w .control-progress figure:after,
-.c-masonry .-w .control-progress .main-progress,
-.c-masonry .-w .control-progress p,
-.c-masonry .-w .control-progress p:before,
-.c-masonry .-w .control-progress p:after {
-  display: none !important;
-  content: none !important;
-}
 
 .c-for .-w .-gc .slide .card p {
   white-space: pre-line !important;

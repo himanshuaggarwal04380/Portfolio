@@ -1728,7 +1728,7 @@
     </div>
 
     <div class="hdr-right">
-      <a href="/" class="projects-page-close-pill" aria-label="Return to homepage hero" title="Return to Homepage">
+      <a href="/" id="projectsPageCloseBtn" class="projects-page-close-pill" aria-label="Return to homepage hero" title="Return to Homepage">
         <span class="pill-label">Close</span>
         <span class="pill-icon">×</span>
       </a>
@@ -2373,6 +2373,15 @@
         closeModal();
       }
     });
+
+    // Main Projects Page Close Button -> Redirect to Homepage Hero
+    const projectsCloseBtn = document.getElementById('projectsPageCloseBtn');
+    if (projectsCloseBtn) {
+      projectsCloseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = '/';
+      });
+    }
   </script>
 
   <!-- Load Nuxt and StringTune Client Runtime -->

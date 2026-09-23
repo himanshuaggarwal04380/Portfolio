@@ -1748,6 +1748,8 @@ canvas[data-v-3a63a717] {
   --top: 2;
   --left: 2;
   --width: 5;
+  font-size: var(--p);
+  line-height: 1.35;
   margin-right: 0;
 }
 .c-techniques > .-w .i p:not(.-m)[data-v-349e51de] {
@@ -1845,7 +1847,7 @@ canvas[data-v-3a63a717] {
     margin-bottom: var(--h1);
   }
   .c-techniques > .-w .i[data-v-349e51de] {
-    --width: 5;
+    --width: 6;
     border-bottom: initial;
     margin-bottom: var(--h3);
   }
@@ -1862,7 +1864,9 @@ canvas[data-v-3a63a717] {
   }
   .c-techniques > .-w .i p.-m[data-v-349e51de] {
     --left: 2;
-    --width: 4;
+    --width: 5;
+    font-size: var(--p);
+    white-space: nowrap;
   }
   .c-techniques > .-w .i-1[data-v-349e51de] {
     --top: 2;

@@ -49758,14 +49758,7 @@ const Qg = a0({
                           },
                           {
                             default: wt(() => [
-                              k == 4
-                                ? (rt(),
-                                  wn(S, {
-                                    key: 0,
-                                    src: "images/icons/techniques/icon-48_performance-oriented.svg",
-                                    "not-lazy": "",
-                                  }))
-                                : c0("", !0),
+                              c0("", !0),
                               Ge(
                                 S,
                                 {

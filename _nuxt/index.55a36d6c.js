@@ -52370,7 +52370,6 @@ const Dv = d0(Lv, [["__scopeId", "data-v-ac2bf26c"]]),
                 Ge(K, { class: "-light" }),
                 Ge(pe, { class: "-light" }),
                 Ge(me, { class: "-light" }),
-                Ge(Ee, { class: "-light", s: "" }),
                 Ge(we, { home: "", id: "footer-home" }),
               ]),
             ])

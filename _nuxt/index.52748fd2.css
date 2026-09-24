@@ -1712,7 +1712,7 @@ canvas[data-v-3a63a717] {
   --width: 6;
   align-items: start;
   border-bottom: 1px solid var(--c-berry);
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto;
   margin-bottom: var(--h4);
   min-height: calc(var(--h2) * 2);
   padding-bottom: var(--h4);

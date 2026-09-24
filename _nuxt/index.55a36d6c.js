@@ -49712,32 +49712,6 @@ const Qg = a0({
                     ]),
                     m_,
                   ]),
-                  Dt(l)
-                    ? c0("", !0)
-                    : (rt(),
-                      wn(b, {
-                        key: 0,
-                        name: "Oji",
-                        message: "These are the foundations. ⛩️",
-                        "initial-delay": 150,
-                        once: !1,
-                        threshold: 0.5,
-                        "root-margin": "0px 0px 0% 0px",
-                      })),
-                  Dt(l)
-                    ? c0("", !0)
-                    : (rt(),
-                      wn(b, {
-                        key: 1,
-                        name: "Aika",
-                        message:
-                          "The flow feels natural, 💨 as though always meant to be.",
-                        "initial-delay": 250,
-                        once: !1,
-                        threshold: 0.5,
-                        "root-margin": "0px 0px 0% 0px",
-                        mirrored: "",
-                      })),
                   (rt(!0),
                   xt(
                     zr,
@@ -52363,7 +52337,6 @@ const Dv = d0(Lv, [["__scopeId", "data-v-ac2bf26c"]]),
               ne("div", zv, [
                 Ge(G, { class: "-light" }),
                 Ge(K, { class: "-light" }),
-                Ge(pe, { class: "-light" }),
                 Ge(me, { class: "-light" }),
                 Ge(we, { home: "", id: "footer-home" }),
               ]),

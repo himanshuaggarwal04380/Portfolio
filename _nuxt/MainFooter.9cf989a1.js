@@ -1271,65 +1271,6 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
                           heightFallbackPx: 80,
                         }))
                       : et("", !0),
-                    qe,
-                    Ke,
-                    je,
-                    Ve,
-                    We,
-                    Xe,
-                    v("nav", null, [
-                      L(
-                        b,
-                        {
-                          onClick: _(u),
-                          ariaLabelledby: "",
-                          text: "Projects",
-                          routeurl: "#projects",
-                          cursorTarget: "cursor-route",
-                          extraClass: "route b-1",
-                        },
-                        null,
-                        8,
-                        ["onClick"],
-                      ),
-                      Ye,
-                      L(
-                        b,
-                        {
-                          ariaLabelledby: "",
-                          url: "https://github.com/himanshuaggarwal04380",
-                          target: "_blank",
-                          cursorTarget: "cursor-newtab",
-                          extraClass: "b-2",
-                        },
-                        {
-                          default: st(() => [L(d, { src: "icon-20_git" })]),
-                          _: 1,
-                        },
-                      ),
-                      L(
-                        b,
-                        {
-                          ariaLabelledby: "",
-                          url: "https://linkedin.com/in/himanshuaggarwal04380",
-                          target: "_blank",
-                          cursorTarget: "cursor-newtab",
-                          extraClass: "b-3",
-                        },
-                        {
-                          default: st(() => [
-                            L(d, { src: "icon-20_linkedin" }),
-                          ]),
-                          _: 1,
-                        },
-                      ),
-                    ]),
-                    Ge,
-                    L(d, { src: "fidoru-76x20", class: "fidoru" }),
-                    Je,
-                    Ze,
-                    Qe,
-                    v("span", ts, [se("‘"), L(k, { format: "YY" })]),
                     _(m)
                       ? et("", !0)
                       : (H(), Q("div", es, [L(d, { src: "logo-string" })])),

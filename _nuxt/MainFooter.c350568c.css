@@ -555,6 +555,7 @@ footer .-w .katana-unit[data-v-79f9894c] .resume-link {
   background: transparent;
   border: none;
   cursor: pointer;
+  transform: translateX(20px);
   transition: color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 footer .-w .katana-unit[data-v-79f9894c] .resume-link .journey,
@@ -596,6 +597,8 @@ footer .-w .katana-unit[data-v-79f9894c] .katana-display img {
   height: auto;
   display: block;
   user-select: none;
+  margin-top: calc(-58 / 1024 * 100%);
+  margin-bottom: calc(-39 / 1024 * 100%);
 }
 @media (max-width: 1023px) {
   footer .-w .katana-unit[data-v-79f9894c] {
@@ -605,6 +608,7 @@ footer .-w .katana-unit[data-v-79f9894c] .katana-display img {
   }
   footer .-w .katana-unit[data-v-79f9894c] .resume-link {
     font-size: 23px;
+    transform: translateX(12px);
   }
   footer .-w .katana-unit[data-v-79f9894c] .katana-display {
     width: 320px;

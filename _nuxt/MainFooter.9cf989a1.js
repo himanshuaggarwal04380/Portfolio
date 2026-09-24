@@ -1259,6 +1259,19 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
                 Ue,
                 L(z, null, {
                   default: st(() => [
+                    v(
+                      "a",
+                      {
+                        class: "resume-link",
+                        href: "https://drive.google.com/file/d/1DR2DQBP0kNOKl0lwmcxRnvsjKoNZFOTR/view?usp=drive_link",
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                      },
+                      [
+                        se("STRUCTURED JOURNEY "),
+                        v("span", { class: "arrow" }, "↗"),
+                      ],
+                    ),
                     o.value
                       ? (H(),
                         ct(c, {

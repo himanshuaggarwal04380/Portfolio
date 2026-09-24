@@ -523,3 +523,54 @@ footer .-w .the-name[data-v-79f9894c]:after {
   content: none !important;
   display: none !important;
 }
+
+footer .-w .resume-link[data-v-79f9894c] {
+  grid-column: 2 / span 12;
+  grid-row: 1;
+  justify-self: center;
+  align-self: center;
+  position: relative;
+  z-index: 30;
+  margin-bottom: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  transition: color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+}
+footer .-w .resume-link[data-v-79f9894c] .arrow {
+  color: var(--c-red, #ff3823);
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+footer .-w .resume-link[data-v-79f9894c]:hover {
+  color: var(--c-red, #ff3823);
+}
+footer .-w .resume-link[data-v-79f9894c]:hover .arrow {
+  transform: translateX(4px);
+}
+footer.-home:has(.resume-link:hover) .string-svg,
+footer.-home:has(.resume-link:hover) .string-svg path,
+.resume-link:hover ~ .string-svg,
+.resume-link:hover ~ .string-svg path {
+  stroke: var(--c-red, #ff3823) !important;
+}
+.string-svg[data-v-3acded25], .string-svg path[data-v-3acded25] {
+  transition: stroke 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+@media (max-width: 1023px) {
+  footer .-w .resume-link[data-v-79f9894c] {
+    grid-column: 1 / span 6;
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+}

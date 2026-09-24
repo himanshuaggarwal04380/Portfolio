@@ -1301,17 +1301,23 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
                       { class: "katana-unit" },
                       [
                         v(
-                          "a",
-                          {
-                            class: "resume-link",
-                            href: "https://drive.google.com/file/d/1DR2DQBP0kNOKl0lwmcxRnvsjKoNZFOTR/view?usp=drive_link",
-                            target: "_blank",
-                            rel: "noopener noreferrer",
-                          },
+                          "div",
+                          { class: "resume-reveal" },
                           [
-                            se("Structured "),
-                            v("span", { class: "journey" }, "Journey "),
-                            v("span", { class: "arrow" }, "↗"),
+                            v(
+                              "a",
+                              {
+                                class: "resume-link",
+                                href: "https://drive.google.com/file/d/1DR2DQBP0kNOKl0lwmcxRnvsjKoNZFOTR/view?usp=drive_link",
+                                target: "_blank",
+                                rel: "noopener noreferrer",
+                              },
+                              [
+                                se("Structured "),
+                                v("span", { class: "journey" }, "Journey "),
+                                v("span", { class: "arrow" }, "↗"),
+                              ],
+                            ),
                           ],
                         ),
                         v(

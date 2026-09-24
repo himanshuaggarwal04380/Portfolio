@@ -1337,75 +1337,101 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
                       : et("", !0),
                     v(
                       "div",
-                      { class: "contact-form-card" },
-                      _(formSubmitted)
-                        ? [
-                            v("div", { class: "form-success" }, [
-                              v("div", { class: "success-title" }, "THANK YOU."),
-                              v("p", { class: "success-desc" }, "Your message has been received."),
+                      { class: "ipad-section" },
+                      [
+                        v("div", { class: "contact-thread-wrapper" }, [
+                          v("div", { class: "contact-thread-line" }),
+                        ]),
+                        v("div", { class: "ipad-viewport" }, [
+                          v("div", { class: "ipad-device" }, [
+                            v("div", { class: "ipad-camera" }),
+                            v("div", { class: "ipad-screen" }, [
+                              v("h3", { class: "ipad-heading" }, "Get in touch"),
+                              _(formSubmitted)
+                                ? v("div", { class: "form-success" }, [
+                                    v("div", { class: "success-title" }, "THANK YOU."),
+                                    v("p", { class: "success-desc" }, "Your message has been received."),
+                                  ])
+                                : v(
+                                    "form",
+                                    {
+                                      name: "contact",
+                                      method: "POST",
+                                      "data-netlify": "true",
+                                      "netlify-honeypot": "bot-field",
+                                      class: "ipad-form",
+                                      onSubmit: handleContactSubmit,
+                                    },
+                                    [
+                                      v("input", { type: "hidden", name: "form-name", value: "contact" }),
+                                      v("p", { style: { display: "none" } }, [
+                                        v("input", { name: "bot-field" }),
+                                      ]),
+                                      v("div", { class: "ipad-field-tile" }, [
+                                        v("span", { class: "field-icon" }, [
+                                          v("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": "1.8", "stroke-linecap": "round", "stroke-linejoin": "round" }, [
+                                            v("path", { d: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" }),
+                                            v("circle", { cx: "12", cy: "7", r: "4" }),
+                                          ]),
+                                        ]),
+                                        v("input", {
+                                          type: "text",
+                                          name: "name",
+                                          required: !0,
+                                          placeholder: "Name",
+                                          autocomplete: "name",
+                                        }),
+                                      ]),
+                                      v("div", { class: "ipad-field-tile" }, [
+                                        v("span", { class: "field-icon" }, [
+                                          v("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": "1.8", "stroke-linecap": "round", "stroke-linejoin": "round" }, [
+                                            v("rect", { x: "2", y: "4", width: "20", height: "16", rx: "2" }),
+                                            v("path", { d: "m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" }),
+                                          ]),
+                                        ]),
+                                        v("input", {
+                                          type: "text",
+                                          name: "email_or_phone",
+                                          required: !0,
+                                          placeholder: "Email / Phone",
+                                          autocomplete: "on",
+                                        }),
+                                      ]),
+                                      v("div", { class: "ipad-field-tile field-textarea" }, [
+                                        v("span", { class: "field-icon" }, [
+                                          v("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": "1.8", "stroke-linecap": "round", "stroke-linejoin": "round" }, [
+                                            v("path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" }),
+                                          ]),
+                                        ]),
+                                        v("textarea", {
+                                          name: "message",
+                                          rows: 3,
+                                          required: !0,
+                                          placeholder: "Message",
+                                        }),
+                                      ]),
+                                      v(
+                                        "button",
+                                        {
+                                          type: "submit",
+                                          class: "ipad-submit-btn",
+                                          disabled: _(formSubmitting),
+                                        },
+                                        [
+                                          v("span", { class: "btn-text" }, _(formSubmitting) ? "Sending..." : "Send Message"),
+                                          v("span", { class: "btn-arrow-badge" }, [
+                                            v("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": "2.2", "stroke-linecap": "round", "stroke-linejoin": "round" }, [
+                                              v("path", { d: "M5 12h14M12 5l7 7-7 7" }),
+                                            ]),
+                                          ]),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                             ]),
-                          ]
-                        : [
-                            v("h3", { class: "form-heading" }, "GET IN TOUCH"),
-                            v(
-                              "form",
-                              {
-                                name: "contact",
-                                method: "POST",
-                                "data-netlify": "true",
-                                "netlify-honeypot": "bot-field",
-                                class: "contact-form",
-                                onSubmit: handleContactSubmit,
-                              },
-                              [
-                                v("input", { type: "hidden", name: "form-name", value: "contact" }),
-                                v("p", { style: { display: "none" } }, [
-                                  v("input", { name: "bot-field" }),
-                                ]),
-                                v("div", { class: "field-group" }, [
-                                  v("label", { for: "contact-name" }, "Name"),
-                                  v("input", {
-                                    id: "contact-name",
-                                    type: "text",
-                                    name: "name",
-                                    required: !0,
-                                    placeholder: "Your Name",
-                                    autocomplete: "name",
-                                  }),
-                                ]),
-                                v("div", { class: "field-group" }, [
-                                  v("label", { for: "contact-contact" }, "Email / Phone"),
-                                  v("input", {
-                                    id: "contact-contact",
-                                    type: "text",
-                                    name: "email_or_phone",
-                                    required: !0,
-                                    placeholder: "email@example.com or +1 234 567 8900",
-                                    autocomplete: "on",
-                                  }),
-                                ]),
-                                v("div", { class: "field-group" }, [
-                                  v("label", { for: "contact-message" }, "Message"),
-                                  v("textarea", {
-                                    id: "contact-message",
-                                    name: "message",
-                                    rows: 3,
-                                    required: !0,
-                                    placeholder: "Your message...",
-                                  }),
-                                ]),
-                                v(
-                                  "button",
-                                  {
-                                    type: "submit",
-                                    class: "submit-btn",
-                                    disabled: _(formSubmitting),
-                                  },
-                                  _(formSubmitting) ? "SENDING..." : "SEND MESSAGE",
-                                ),
-                              ],
-                            ),
-                          ],
+                          ]),
+                        ]),
+                      ],
                     ),
                     _(m)
                       ? et("", !0)

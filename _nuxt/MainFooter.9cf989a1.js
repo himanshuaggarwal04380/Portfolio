@@ -1260,16 +1260,30 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
                 L(z, null, {
                   default: st(() => [
                     v(
-                      "a",
-                      {
-                        class: "resume-link",
-                        href: "https://drive.google.com/file/d/1DR2DQBP0kNOKl0lwmcxRnvsjKoNZFOTR/view?usp=drive_link",
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                      },
+                      "div",
+                      { class: "katana-unit" },
                       [
-                        se("STRUCTURED JOURNEY "),
-                        v("span", { class: "arrow" }, "↗"),
+                        v(
+                          "a",
+                          {
+                            class: "resume-link",
+                            href: "https://drive.google.com/file/d/1DR2DQBP0kNOKl0lwmcxRnvsjKoNZFOTR/view?usp=drive_link",
+                            target: "_blank",
+                            rel: "noopener noreferrer",
+                          },
+                          [
+                            se("STRUCTURED "),
+                            v("span", { class: "journey" }, "JOURNEY "),
+                            v("span", { class: "arrow" }, "↗"),
+                          ],
+                        ),
+                        v(
+                          "div",
+                          { class: "katana-display", "aria-hidden": "true" },
+                          [
+                            v("img", { src: "/images/home/katana.png", alt: "Katana" }),
+                          ],
+                        ),
                       ],
                     ),
                     o.value

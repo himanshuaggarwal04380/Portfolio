@@ -1155,12 +1155,12 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
         const form = P.target.tagName === "FORM" ? P.target : P.target.closest("form");
         if (!form) return;
         const nEl = form.querySelector('[name="name"]');
-        const epEl = form.querySelector('[name="email_or_phone"]');
+        const contactEl = form.querySelector('[name="contact"]');
         const mEl = form.querySelector('[name="message"]');
         const nVal = nEl ? nEl.value.trim() : "";
-        const epVal = epEl ? epEl.value.trim() : "";
+        const contactVal = contactEl ? contactEl.value.trim() : "";
         const mVal = mEl ? mEl.value.trim() : "";
-        if (!nVal || !epVal || !mVal) {
+        if (!nVal || !contactVal || !mVal) {
           if (form.reportValidity) form.reportValidity();
           return;
         }
@@ -1168,7 +1168,7 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
         const body = new URLSearchParams({
           "form-name": "contact",
           name: nVal,
-          email_or_phone: epVal,
+          contact: contactVal,
           message: mVal,
         });
         fetch("/", {
@@ -1361,7 +1361,7 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
                                       name: "contact",
                                       method: "POST",
                                       "data-netlify": "true",
-                                      "netlify-honeypot": "bot-field",
+                                      "data-netlify-honeypot": "bot-field",
                                       class: "ipad-form",
                                       onSubmit: handleContactSubmit,
                                     },
@@ -1394,7 +1394,7 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
                                         ]),
                                         v("input", {
                                           type: "text",
-                                          name: "email_or_phone",
+                                          name: "contact",
                                           required: !0,
                                           placeholder: "Email / Phone",
                                           autocomplete: "on",
@@ -1421,7 +1421,7 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
                                           disabled: _(formSubmitting),
                                         },
                                         [
-                                          v("span", { class: "btn-text" }, _(formSubmitting) ? "Sending..." : "Send Message"),
+                                          v("span", { class: "btn-text" }, _(formSubmitting) ? "SENDING..." : "SEND MESSAGE"),
                                           v("span", { class: "btn-arrow-badge" }, [
                                             v("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": "2.2", "stroke-linecap": "round", "stroke-linejoin": "round" }, [
                                               v("path", { d: "M5 12h14M12 5l7 7-7 7" }),

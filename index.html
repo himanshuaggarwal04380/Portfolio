@@ -53,7 +53,12 @@ footer .-w .katana-unit[data-v-79f9894c] .resume-link {
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  z-index: 1;
+  transform: translateX(20px) translateY(calc((1 - var(--journey-progress, 0)) * 44px));
+  clip-path: inset(-20px -20px calc((1 - var(--journey-progress, 0)) * 100%) -20px);
+  opacity: calc(0.1 + 0.9 * var(--journey-progress, 0));
+  transition: transform 0.15s ease-out, opacity 0.15s ease-out, clip-path 0.15s ease-out, color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 footer .-w .katana-unit[data-v-79f9894c] .resume-link .journey,
 footer .-w .katana-unit[data-v-79f9894c] .resume-link .arrow {
@@ -79,6 +84,8 @@ footer.-home:has(.resume-link:hover) .string-svg path,
   transition: stroke 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 footer .-w .katana-unit[data-v-79f9894c] .katana-display {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -103,6 +110,7 @@ footer .-w .katana-unit[data-v-79f9894c] .katana-display img {
   }
   footer .-w .katana-unit[data-v-79f9894c] .resume-link {
     font-size: 23px;
+    transform: translateX(12px) translateY(calc((1 - var(--journey-progress, 0)) * 40px));
   }
   footer .-w .katana-unit[data-v-79f9894c] .katana-display {
     width: 320px;
@@ -919,9 +927,11 @@ window.addEventListener('pageshow', function() {
     var form = document.querySelector('.ipad-section form');
     var ipad = document.querySelector('.ipad-device');
     var section = document.querySelector('.ipad-section');
+    var katanaUnit = document.querySelector('footer.-home .katana-unit');
+    var resumeLink = katanaUnit ? katanaUnit.querySelector('.resume-link') : null;
     var scrollContainer = document.getElementById('scroll-container') || window;
 
-    // Scroll progress handler
+    // Scroll progress handlers
     function updateIpadScroll() {
       if (!ipad || !section) return;
       var rect = section.getBoundingClientRect();
@@ -934,12 +944,29 @@ window.addEventListener('pageshow', function() {
       ipad.style.setProperty('--ipad-progress', progress.toFixed(3));
     }
 
-    if (scrollContainer && scrollContainer.addEventListener) {
-      scrollContainer.addEventListener('scroll', updateIpadScroll, { passive: true });
+    function updateJourneyScroll() {
+      if (!katanaUnit || !resumeLink) return;
+      var rect = katanaUnit.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var start = vh * 0.95;
+      var end = vh * 0.45;
+      var progress = (start - rect.top) / (start - end);
+      if (progress < 0) progress = 0;
+      if (progress > 1) progress = 1;
+      resumeLink.style.setProperty('--journey-progress', progress.toFixed(3));
     }
-    window.addEventListener('scroll', updateIpadScroll, { passive: true });
-    window.addEventListener('resize', updateIpadScroll, { passive: true });
-    updateIpadScroll();
+
+    function onScroll() {
+      updateIpadScroll();
+      updateJourneyScroll();
+    }
+
+    if (scrollContainer && scrollContainer.addEventListener) {
+      scrollContainer.addEventListener('scroll', onScroll, { passive: true });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    onScroll();
 
     // Form submission handler
     if (!form || form.dataset.initialized) return;

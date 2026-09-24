@@ -555,8 +555,12 @@ footer .-w .katana-unit[data-v-79f9894c] .resume-link {
   background: transparent;
   border: none;
   cursor: pointer;
-  transform: translateX(20px);
-  transition: color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  z-index: 1;
+  transform: translateX(20px) translateY(calc((1 - var(--journey-progress, 0)) * 44px));
+  clip-path: inset(-20px -20px calc((1 - var(--journey-progress, 0)) * 100%) -20px);
+  opacity: calc(0.1 + 0.9 * var(--journey-progress, 0));
+  transition: transform 0.15s ease-out, opacity 0.15s ease-out, clip-path 0.15s ease-out, color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 footer .-w .katana-unit[data-v-79f9894c] .resume-link .journey,
 footer .-w .katana-unit[data-v-79f9894c] .resume-link .arrow {
@@ -582,6 +586,8 @@ footer.-home:has(.resume-link:hover) .string-svg path,
   transition: stroke 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 footer .-w .katana-unit[data-v-79f9894c] .katana-display {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -608,7 +614,7 @@ footer .-w .katana-unit[data-v-79f9894c] .katana-display img {
   }
   footer .-w .katana-unit[data-v-79f9894c] .resume-link {
     font-size: 23px;
-    transform: translateX(12px);
+    transform: translateX(12px) translateY(calc((1 - var(--journey-progress, 0)) * 40px));
   }
   footer .-w .katana-unit[data-v-79f9894c] .katana-display {
     width: 320px;

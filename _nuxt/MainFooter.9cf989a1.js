@@ -1147,7 +1147,44 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
           }, 900);
         },
         m = O(!1),
-        a = O(0);
+        a = O(0),
+        formSubmitted = O(!1),
+        formSubmitting = O(!1);
+      const handleContactSubmit = (P) => {
+        if (P && P.preventDefault) P.preventDefault();
+        const form = P.target.tagName === "FORM" ? P.target : P.target.closest("form");
+        if (!form) return;
+        const nEl = form.querySelector('[name="name"]');
+        const epEl = form.querySelector('[name="email_or_phone"]');
+        const mEl = form.querySelector('[name="message"]');
+        const nVal = nEl ? nEl.value.trim() : "";
+        const epVal = epEl ? epEl.value.trim() : "";
+        const mVal = mEl ? mEl.value.trim() : "";
+        if (!nVal || !epVal || !mVal) {
+          if (form.reportValidity) form.reportValidity();
+          return;
+        }
+        formSubmitting.value = !0;
+        const body = new URLSearchParams({
+          "form-name": "contact",
+          name: nVal,
+          email_or_phone: epVal,
+          message: mVal,
+        });
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: body.toString(),
+        })
+          .then(() => {
+            formSubmitting.value = !1;
+            formSubmitted.value = !0;
+          })
+          .catch(() => {
+            formSubmitting.value = !1;
+            formSubmitted.value = !0;
+          });
+      };
       const p = (g) => {
         g.katanaId == "footer" &&
           (t.emit("katana:fog:set", { instanceId: "footer", key: "idle" }),
@@ -1298,6 +1335,78 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
                           heightFallbackPx: 80,
                         }))
                       : et("", !0),
+                    v(
+                      "div",
+                      { class: "contact-form-card" },
+                      _(formSubmitted)
+                        ? [
+                            v("div", { class: "form-success" }, [
+                              v("div", { class: "success-title" }, "THANK YOU."),
+                              v("p", { class: "success-desc" }, "Your message has been received."),
+                            ]),
+                          ]
+                        : [
+                            v("h3", { class: "form-heading" }, "GET IN TOUCH"),
+                            v(
+                              "form",
+                              {
+                                name: "contact",
+                                method: "POST",
+                                "data-netlify": "true",
+                                "netlify-honeypot": "bot-field",
+                                class: "contact-form",
+                                onSubmit: handleContactSubmit,
+                              },
+                              [
+                                v("input", { type: "hidden", name: "form-name", value: "contact" }),
+                                v("p", { style: { display: "none" } }, [
+                                  v("input", { name: "bot-field" }),
+                                ]),
+                                v("div", { class: "field-group" }, [
+                                  v("label", { for: "contact-name" }, "Name"),
+                                  v("input", {
+                                    id: "contact-name",
+                                    type: "text",
+                                    name: "name",
+                                    required: !0,
+                                    placeholder: "Your Name",
+                                    autocomplete: "name",
+                                  }),
+                                ]),
+                                v("div", { class: "field-group" }, [
+                                  v("label", { for: "contact-contact" }, "Email / Phone"),
+                                  v("input", {
+                                    id: "contact-contact",
+                                    type: "text",
+                                    name: "email_or_phone",
+                                    required: !0,
+                                    placeholder: "email@example.com or +1 234 567 8900",
+                                    autocomplete: "on",
+                                  }),
+                                ]),
+                                v("div", { class: "field-group" }, [
+                                  v("label", { for: "contact-message" }, "Message"),
+                                  v("textarea", {
+                                    id: "contact-message",
+                                    name: "message",
+                                    rows: 3,
+                                    required: !0,
+                                    placeholder: "Your message...",
+                                  }),
+                                ]),
+                                v(
+                                  "button",
+                                  {
+                                    type: "submit",
+                                    class: "submit-btn",
+                                    disabled: _(formSubmitting),
+                                  },
+                                  _(formSubmitting) ? "SENDING..." : "SEND MESSAGE",
+                                ),
+                              ],
+                            ),
+                          ],
+                    ),
                     _(m)
                       ? et("", !0)
                       : (H(), Q("div", es, [L(d, { src: "logo-string" })])),

@@ -614,3 +614,169 @@ footer .-w .katana-unit[data-v-79f9894c] .katana-display img {
     width: 320px;
   }
 }
+
+footer .-w .contact-form-card[data-v-79f9894c] {
+  grid-column: 2 / span 12;
+  grid-row: 2;
+  justify-self: center;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(14, 14, 16, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px 32px 32px;
+  margin-top: 36px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 25;
+  box-sizing: border-box;
+}
+
+footer .-w .contact-form-card .form-heading {
+  font-family: var(--font);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  margin: 0 0 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+footer .-w .contact-form-card .form-heading:before,
+footer .-w .contact-form-card .form-heading:after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+footer .-w .contact-form-card .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+footer .-w .contact-form-card .field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+footer .-w .contact-form-card .field-group label {
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+footer .-w .contact-form-card .field-group input,
+footer .-w .contact-form-card .field-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(24, 24, 28, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+  padding: 10px 14px;
+  font-family: var(--font);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+  outline: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  -webkit-appearance: none;
+}
+
+footer .-w .contact-form-card .field-group textarea {
+  resize: vertical;
+  min-height: 76px;
+  line-height: 1.4;
+}
+
+footer .-w .contact-form-card .field-group input:focus,
+footer .-w .contact-form-card .field-group textarea:focus {
+  border-color: var(--c-red, #ff3823);
+  background: rgba(30, 30, 34, 0.85);
+}
+
+footer .-w .contact-form-card .submit-btn {
+  margin-top: 4px;
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 12px 20px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+}
+
+footer .-w .contact-form-card .submit-btn:hover:not(:disabled) {
+  border-color: var(--c-red, #ff3823);
+  color: #fff;
+  background: rgba(255, 56, 35, 0.08);
+}
+
+footer .-w .contact-form-card .submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+footer .-w .contact-form-card .form-success {
+  padding: 24px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+footer .-w .contact-form-card .form-success .success-title {
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-white, #ffffff);
+}
+
+footer .-w .contact-form-card .form-success .success-desc {
+  font-family: var(--font);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 1023px) {
+  footer .-w .contact-form-card[data-v-79f9894c] {
+    grid-column: 1 / span 6;
+    max-width: 350px;
+    padding: 24px 20px 26px;
+    margin-top: 28px;
+    margin-bottom: 28px;
+  }
+  footer .-w .contact-form-card .form-heading {
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+}
+

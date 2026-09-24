@@ -1339,9 +1339,6 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
                       "div",
                       { class: "ipad-section" },
                       [
-                        v("div", { class: "contact-thread-wrapper" }, [
-                          v("div", { class: "contact-thread-line" }),
-                        ]),
                         v("div", { class: "ipad-viewport" }, [
                           v("div", { class: "ipad-device" }, [
                             v("div", { class: "ipad-camera" }),

@@ -631,46 +631,6 @@ footer .-w .ipad-section[data-v-79f9894c] {
   align-items: center;
 }
 
-/* NEW Independent Contact Thread */
-footer .-w .ipad-section .contact-thread-wrapper {
-  width: 100vw;
-  max-width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 32px;
-}
-
-footer .-w .ipad-section .contact-thread-line {
-  width: 90vw;
-  max-width: 1200px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.15) 20%,
-    rgba(255, 255, 255, 0.45) 50%,
-    rgba(255, 255, 255, 0.15) 80%,
-    transparent 100%
-  );
-  position: relative;
-}
-
-footer .-w .ipad-section .contact-thread-line:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 6px;
-  height: 6px;
-  background: var(--c-red, #ff3823);
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgba(255, 56, 35, 0.6);
-}
 
 /* iPad Emergence Viewport */
 footer .-w .ipad-section .ipad-viewport {

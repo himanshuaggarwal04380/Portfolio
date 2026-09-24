@@ -2905,6 +2905,7 @@ canvas[data-v-3a63a717] {
   margin-left: calc(var(--g-margin) * -1);
   margin-right: calc(var(--g-margin) * -1);
   margin-top: var(--h4);
+  font-size: calc(var(--h1) * 0.95);
 }
 .c-for .-w .title > div[data-v-4aa50359] {
   margin-bottom: -0.2em;
@@ -3132,6 +3133,7 @@ canvas[data-v-3a63a717] {
   .c-for .-w .title[data-v-4aa50359] {
     --top: 2;
     --width: 14;
+    font-size: calc(var(--large) * 0.95);
   }
   .c-for .-w .center[data-v-4aa50359] {
     --top: 3;

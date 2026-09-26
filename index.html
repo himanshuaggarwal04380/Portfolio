@@ -536,16 +536,61 @@ footer .-w .the-name[data-v-79f9894c]:after {
       }
 
       
-      /* Header nav styling with social icons */
+      /* Header nav styling with social icons & robust non-overlapping layout */
       @media (min-width: 1024px) {
         header .-w nav.info,
         nav.info[data-v-8a0a1e1e] {
-          --left: 7 !important;
-          --width: 6 !important;
+          --left: 6 !important;
+          --width: 7 !important;
+          grid-column: 6 / -1 !important;
           display: flex !important;
-          gap: var(--g-gap) !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          gap: 0.65rem !important;
           align-items: center !important;
           justify-content: flex-end !important;
+        }
+        header .-w nav.info > div,
+        nav.info[data-v-8a0a1e1e] > div {
+          flex: 0 0 auto !important;
+          width: auto !important;
+          min-width: 0 !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+        header .-w nav.info .button,
+        nav.info[data-v-8a0a1e1e] .button {
+          flex-grow: 0 !important;
+          flex-shrink: 0 !important;
+          white-space: nowrap !important;
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 1023px) {
+        header .-w nav.info,
+        nav.info[data-v-8a0a1e1e] {
+          grid-column: 4 / -1 !important;
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          gap: 0.45rem !important;
+          align-items: center !important;
+          justify-content: flex-end !important;
+        }
+        header .-w nav.info > div,
+        nav.info[data-v-8a0a1e1e] > div {
+          flex: 0 0 auto !important;
+          width: auto !important;
+          min-width: 0 !important;
+          display: inline-flex !important;
+          align-items: center !important;
+        }
+        header .-w nav.info .button,
+        nav.info[data-v-8a0a1e1e] .button {
+          flex-grow: 0 !important;
+          flex-shrink: 0 !important;
+          white-space: nowrap !important;
         }
       }
 
@@ -603,6 +648,49 @@ footer .-w .the-name[data-v-79f9894c]:after {
       }
 
 
+
+      
+      /* Experience Section: cinematic scroll pacing & controlled text progression */
+      #c-tree.c-tree {
+        padding-bottom: calc(var(--vh, 1vh) * 80) !important;
+      }
+      #c-tree.c-tree .composition {
+        margin-top: calc(var(--vh, 1vh) * 260) !important;
+        min-height: calc(var(--vh, 1vh) * 160) !important;
+      }
+      #c-tree .-mo-in-out .-s-char {
+        --show-plato: 4.2 !important;
+        --hide-plato: 4.2 !important;
+      }
+
+      /* Mobile optimizations & overflow prevention */
+      @media (max-width: 768px) {
+        html, body {
+          overflow-x: hidden !important;
+          max-width: 100vw !important;
+        }
+        #scroll-container {
+          overflow-x: hidden !important;
+          max-width: 100vw !important;
+        }
+        .c-for,
+        .c-for .-w,
+        .c-for .-w .-gc {
+          overflow-x: hidden !important;
+          max-width: 100vw !important;
+        }
+        #c-tree.c-tree .composition {
+          margin-top: calc(var(--vh, 1vh) * 180) !important;
+        }
+        #c-tree .-mo-in-out .-s-char {
+          --show-plato: 3.8 !important;
+          --hide-plato: 3.8 !important;
+        }
+        .ipad-form input,
+        .ipad-form textarea {
+          font-size: 16px !important;
+        }
+      }
 
       /* Failsafe to ensure black loading overlay never gets stuck */
       .page-overlay {
@@ -999,14 +1087,15 @@ window.addEventListener('pageshow', function() {
     function updateJourneyScroll() {
       var revealEl = document.querySelector('footer.-home .katana-unit .resume-reveal');
       var linkEl = document.querySelector('footer.-home .katana-unit .resume-link');
-      var target = document.querySelector('footer.-home');
+      var katanaUnit = document.querySelector('footer.-home .katana-unit');
+      var target = katanaUnit || document.querySelector('footer.-home');
       if (!target || (!revealEl && !linkEl)) return;
 
       var rect = target.getBoundingClientRect();
       var vh = window.innerHeight;
-      // Start emerging when footer enters (0.90 * vh), fully revealed by 0.15 * vh
+      // Trigger smoothly as katana enters (0.90 * vh), fully revealed by eye-level (0.45 * vh)
       var start = vh * 0.90;
-      var end = vh * 0.15;
+      var end = vh * 0.45;
       var progress = (start - rect.top) / (start - end);
       if (progress < 0) progress = 0;
       if (progress > 1) progress = 1;
@@ -1033,6 +1122,17 @@ window.addEventListener('pageshow', function() {
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
+    window.addEventListener('wheel', function() {
+      requestAnimationFrame(onScroll);
+    }, { passive: true });
+    (function bindScroller() {
+      if (window.StringScroller && typeof window.StringScroller.on === 'function') {
+        window.StringScroller.on('scroll', onScroll);
+        window.StringScroller.on('scroll-position', onScroll);
+      } else {
+        setTimeout(bindScroller, 100);
+      }
+    })();
     onScroll();
 
     // Form submission handler

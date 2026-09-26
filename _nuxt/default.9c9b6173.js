@@ -127,7 +127,7 @@ const lt = { class: "guide-grid" },
     },
   });
 const dt = (g) => (fe("data-v-8a0a1e1e"), (g = g()), ve(), g),
-  ut = { href: "https://fiddle.digital", target: "_blank", class: "fdda -nl" },
+  ut = { style: { display: "none" } },
   mt = { class: "info" },
   pt = { class: "i", style: { "--t-delay": "0.15" } },
   gt = dt(() => f("span", { class: "-mm" }, "i", -1)),
@@ -353,7 +353,7 @@ const dt = (g) => (fe("data-v-8a0a1e1e"), (g = g()), ve(), g),
                           {
                             stringId: "info-button",
                             onClick: l,
-                            ariaLabelledby: "",
+                            ariaLabelledby: "About",
                             cursorTarget: "cursor-modal",
                             outsideContainer: "",
                           },
@@ -369,7 +369,7 @@ const dt = (g) => (fe("data-v-8a0a1e1e"), (g = g()), ve(), g),
                               {
                                 stringId: "dev-guides",
                                 onClick: navExp,
-                                ariaLabelledby: "",
+                                ariaLabelledby: "Experience",
                                 text: "Experience",
                                 routeurl: "/",
                                 cursorTarget: "cursor-route",
@@ -390,7 +390,7 @@ const dt = (g) => (fe("data-v-8a0a1e1e"), (g = g()), ve(), g),
                               {
                                 stringId: "skill-hub",
                                 onClick: navProj,
-                                ariaLabelledby: "",
+                                ariaLabelledby: "Projects",
                                 text: "Projects",
                                 routeurl: "/",
                                 cursorTarget: "cursor-route",
@@ -409,7 +409,7 @@ const dt = (g) => (fe("data-v-8a0a1e1e"), (g = g()), ve(), g),
                             r(
                               z,
                               {
-                                ariaLabelledby: "",
+                                ariaLabelledby: "GitHub",
                                 url: "https://github.com/himanshuaggarwal04380",
                                 target: "_blank",
                                 cursorTarget: "cursor-newtab",
@@ -429,7 +429,7 @@ const dt = (g) => (fe("data-v-8a0a1e1e"), (g = g()), ve(), g),
                             r(
                               z,
                               {
-                                ariaLabelledby: "",
+                                ariaLabelledby: "LinkedIn",
                                 url: "https://linkedin.com/in/himanshuaggarwal04380",
                                 target: "_blank",
                                 cursorTarget: "cursor-newtab",
@@ -555,11 +555,7 @@ const Et = me(wt, [["__scopeId", "data-v-82e0bf05"]]),
       { class: "copy -mm -up" },
       [
         Y("© "),
-        f(
-          "a",
-          { href: "https://fiddle.digital", target: "_blank" },
-          "Fiddle.Digital",
-        ),
+        f("span", { style: { display: "none" } }, ""),
         Y(" Product"),
       ],
       -1,
@@ -700,7 +696,7 @@ const Et = me(wt, [["__scopeId", "data-v-82e0bf05"]]),
                       r(
                         L,
                         {
-                          ariaLabelledby: "",
+                          ariaLabelledby: "GitHub",
                           url: "https://github.com/himanshuaggarwal04380",
                           target: "_blank",
                           cursorTarget: "cursor-newtab",
@@ -720,7 +716,7 @@ const Et = me(wt, [["__scopeId", "data-v-82e0bf05"]]),
                       r(
                         L,
                         {
-                          ariaLabelledby: "",
+                          ariaLabelledby: "LinkedIn",
                           url: "https://linkedin.com/in/himanshuaggarwal04380",
                           target: "_blank",
                           cursorTarget: "cursor-newtab",
@@ -1129,6 +1125,7 @@ const j = class j {
       document.body.appendChild(o));
   }
   show(s, t) {
+    return;
     const e = document.createElement("div");
     ((e.id = "cookie-consent-container"),
       (e.className = "fdcm--container fdcm--setup -light-theme"));
@@ -1289,7 +1286,7 @@ const Kt = { key: 0, class: "cursor -mm", "string-cursor": "" },
             (localStorage.getItem("cookieConsent") == "acceptAll" ||
               localStorage.getItem("cookieConsent") == "accept") &&
               c.local.get("gaAccept") == "1" &&
-              (S("G-DXCJDBJ3DX"), P("G-DXCJDBJ3DX")),
+              (S(""), P("")),
             k.on("openSettings", () => {
               k.showSettings({
                 title: "Cookies settings",
@@ -1302,21 +1299,21 @@ const Kt = { key: 0, class: "cursor -mm", "string-cursor": "" },
             k.on("acceptAll", () => {
               (c.local.set("gaAccept", "1"),
                 c.local.set("cookies-accept", "true"),
-                S("G-DXCJDBJ3DX"),
-                P("G-DXCJDBJ3DX"));
+                S(""),
+                P(""));
             }),
             k.on("deny", () => {
-              (c.local.set("cookies-accept", "true"), q("G-DXCJDBJ3DX"));
+              (c.local.set("cookies-accept", "true"), q(""));
             }),
             k.on("accept", () => {
               (c.local.set("cookies-accept", "true"),
                 c.local.get("gaAccept") == "1" &&
-                  (S("G-DXCJDBJ3DX"), P("G-DXCJDBJ3DX")));
+                  (S(""), P("")));
             }),
             k.on("saveSettings", () => {
               (c.local.set("cookies-accept", "true"),
                 c.local.get("gaAccept") == "1" &&
-                  (S("G-DXCJDBJ3DX"), P("G-DXCJDBJ3DX")));
+                  (S(""), P("")));
             }));
         },
         K = m(0),

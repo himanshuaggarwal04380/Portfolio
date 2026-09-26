@@ -3566,8 +3566,7 @@ canvas[data-v-3a63a717] {
 .c-masonry.-light {
   background-color: #07080a !important;
   background-image: 
-    radial-gradient(ellipse 85% 70% at 50% 50%, rgba(255, 255, 255, 0.05) 0%, rgba(6, 8, 11, 0.35) 65%, rgba(6, 8, 11, 0.8) 100%),
-    url('/images/home/projects-sumi-bg.jpg') !important;
+    radial-gradient(ellipse 85% 70% at 50% 50%, rgba(255, 255, 255, 0.05) 0%, rgba(6, 8, 11, 0.35) 65%, rgba(6, 8, 11, 0.8) 100%) !important;
   background-position: center top !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;

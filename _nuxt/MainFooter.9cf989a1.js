@@ -1439,16 +1439,7 @@ const Te = ft(Ee, [["__scopeId", "data-v-3acded25"]]),
                     _(m)
                       ? et("", !0)
                       : (H(), Q("div", es, [L(d, { src: "logo-string" })])),
-                    _(m)
-                      ? et("", !0)
-                      : (H(),
-                        ct(R, {
-                          key: 2,
-                          class: "kw",
-                          src: "/images/general/kw.webp",
-                          string: "parallax",
-                          "string-parallax": "-0.2",
-                        })),
+                    et("", !0),
                   ]),
                   _: 1,
                 }),
